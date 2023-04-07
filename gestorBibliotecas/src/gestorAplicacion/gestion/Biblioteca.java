@@ -6,7 +6,7 @@ import gestorAplicacion.usuario.Bibliotecario;
 
 public class Biblioteca {
     private String direccion;
-    private String facultad;
+    private Facultad facultad;
     private String nombre;
     private ArrayList<String> computadoresMesaDisponibles;
     private ArrayList<String> laptopsDisponibles;
@@ -14,17 +14,10 @@ public class Biblioteca {
     private ArrayList<String> generosDisponibles;
     private ArrayList<Bibliotecario> bibliotecarios;
 
-    public Biblioteca(String nombre, ArrayList<String> computadoresMesaDisponibles, ArrayList<String> laptopsDisponibles,
-                      ArrayList<Libro> librosDisponibles, String direccion, String facultad,
-                      ArrayList<String> generosDisponibles, ArrayList<Bibliotecario> bibliotecarios) {
-        this.nombre = nombre;
-        this.computadoresMesaDisponibles = computadoresMesaDisponibles;
-        this.laptopsDisponibles = laptopsDisponibles;
-        this.librosDisponibles = librosDisponibles;
+    public Biblioteca(String direccion, Facultad facultad, String nombre) {
         this.direccion = direccion;
         this.facultad = facultad;
-        this.generosDisponibles = generosDisponibles;
-        this.bibliotecarios = bibliotecarios;
+        this.nombre = nombre;
     }
 
     // METHODS
@@ -36,11 +29,26 @@ public class Biblioteca {
                 generosDisponibles.add(libro.getGenero());
             }
         }
-    }    
+    }
+
+    // adders (like a setter) for librarians, books, computers, lap tops, 
+    public void agregarLibro(Libro libro) {
+        librosDisponibles.add(libro);
+    }
     
-    //add librarian to the library
+    public void agregarLibro(Bibliotecario bibliotecario) {
+        bibliotecarios.add(bibliotecario);
+    }
+    
     public void agregarBibliotecario(Bibliotecario bibliotecario) {
         bibliotecarios.add(bibliotecario);
+    }
+    public void agregarComputadorMesaDisponible(String computadorMesa) {
+        computadoresMesaDisponibles.add(computadorMesa);
+    }
+
+    public void agregarLaptopDisponible(String laptop) {
+        laptopsDisponibles.add(laptop);
     }
 
     // GETTERS AND SETTERS
@@ -56,24 +64,13 @@ public class Biblioteca {
         return computadoresMesaDisponibles;
     }
 
-    public void setComputadoresMesaDisponibles(ArrayList<String> computadoresMesaDisponibles) {
-        this.computadoresMesaDisponibles = computadoresMesaDisponibles;
-    }
-
     public ArrayList<String> getLaptopsDisponibles() {
         return laptopsDisponibles;
     }
 
-    public void setLaptopsDisponibles(ArrayList<String> laptopsDisponibles) {
-        this.laptopsDisponibles = laptopsDisponibles;
-    }
 
     public ArrayList<Libro> getLibrosDisponibles() {
         return librosDisponibles;
-    }
-
-    public void setLibrosDisponibles(ArrayList<Libro> librosDisponibles) {
-        this.librosDisponibles = librosDisponibles;
     }
 
     public String getDireccion() {
@@ -84,12 +81,12 @@ public class Biblioteca {
         this.direccion = direccion;
     }
 
-    public String getFacultad() {
+    public Facultad getFacultad() {
         return facultad;
     }
 
-    public void setFacultad(String comuna) {
-        this.facultad = comuna;
+    public void setFacultad(Facultad facultad) {
+        this.facultad = facultad;
     }
 
     public ArrayList<String> getGenerosDisponibles() {
@@ -99,8 +96,5 @@ public class Biblioteca {
     public ArrayList<Bibliotecario> getBibliotecarios() {
         return bibliotecarios;
     }
-
-
 }
-
 

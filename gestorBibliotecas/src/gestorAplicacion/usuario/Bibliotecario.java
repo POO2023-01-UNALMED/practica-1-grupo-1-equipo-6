@@ -1,6 +1,6 @@
 package gestorAplicacion.usuario;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.List;
 
 import gestorAplicacion.gestion.Biblioteca;
@@ -9,9 +9,8 @@ public class Bibliotecario extends Persona {
     private ArrayList<Biblioteca> bibliotecasVinculadas;
     private String horarioLaboral;
 
-    public Bibliotecario(String nombre, String apellido, int edad, String direccion, String tipoId, int Id, ArrayList<Biblioteca> bibliotecasVinculadas, String horarioLaboral) {
+    public Bibliotecario(String nombre, String apellido, int edad, String direccion, String tipoId, int Id, String horarioLaboral) {
         super(nombre, apellido, edad, direccion, tipoId, Id);
-        this.bibliotecasVinculadas = bibliotecasVinculadas;
         this.horarioLaboral = horarioLaboral;
     }
     
@@ -24,7 +23,10 @@ public class Bibliotecario extends Persona {
         
         return bibliotecasAsignadas;                            
     }
-
+    //add libraries where to work 
+    public void AsignarBibliotca(Biblioteca biblioteca) {
+        bibliotecasVinculadas.add(biblioteca);
+    }
     
     
     // GETTERS AND SETTERS 
@@ -32,9 +34,6 @@ public class Bibliotecario extends Persona {
         return bibliotecasVinculadas;
     }
 
-    public void setBibliotecasVinculadas(ArrayList<Biblioteca> bibliotecasVinculadas) {
-        this.bibliotecasVinculadas = bibliotecasVinculadas;
-    }
 
     public String getHorarioLaboral() {
         return horarioLaboral;

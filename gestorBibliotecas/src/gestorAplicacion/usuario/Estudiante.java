@@ -14,12 +14,9 @@ public class Estudiante extends Lector {
     private ArrayList<Laptop> laptopsPrestados;
     private Facultad facultad;
 
-    public Estudiante(String nombre, String apellido, int edad, String direccion, String tipoId, int Id, boolean reporte, ArrayList<Libro> librosPrestados, ArrayList<Computador> computadoresPrestados, ArrayList<Laptop> laptopsPrestados, Facultad facultad) {
+    public Estudiante(String nombre, String apellido, int edad, String direccion, String tipoId, int Id, boolean reporte, Facultad facultad) {
         super(nombre, apellido, edad, direccion, tipoId, Id);
         this.reporte = reporte;
-        this.librosPrestados = librosPrestados;
-        this.computadoresPrestados = computadoresPrestados;
-        this.laptopsPrestados = laptopsPrestados;
         this.facultad = facultad;
     }
     //METHODS
