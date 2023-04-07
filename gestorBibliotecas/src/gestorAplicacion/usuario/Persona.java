@@ -23,5 +23,5 @@ public abstract class Persona {
 	}
 
 
-	public abstract ArrayList<Biblioteca> buscarBiblioteca(ArrayList<Biblioteca> bibliotecas, String comuna);
+	public abstract ArrayList<Biblioteca> buscarBiblioteca();
 }

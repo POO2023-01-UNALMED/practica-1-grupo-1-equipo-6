@@ -2,40 +2,48 @@ package gestorAplicacion.gestion;
 
 import java.util.ArrayList;
 
+import gestorAplicacion.usuario.Bibliotecario;
+
 public class Biblioteca {
-    private String nombre;
-    private int computadoresMesa;
-    private int laptops;
-    private ArrayList<Libro> librosDisponibles;
     private String direccion;
     private String facultad;
+    private String nombre;
+    private ArrayList<String> computadoresMesaDisponibles;
+    private ArrayList<String> laptopsDisponibles;
+    private ArrayList<Libro> librosDisponibles;
     private ArrayList<String> generosDisponibles;
+    private ArrayList<Bibliotecario> bibliotecarios;
 
-    public Biblioteca(String nombre, int computadoresMesa, int laptops, ArrayList<Libro> librosDisponibles, String direccion, String facultad, ArrayList<String> generosDisponibles) {
+    public Biblioteca(String nombre, ArrayList<String> computadoresMesaDisponibles, ArrayList<String> laptopsDisponibles,
+                      ArrayList<Libro> librosDisponibles, String direccion, String facultad,
+                      ArrayList<String> generosDisponibles, ArrayList<Bibliotecario> bibliotecarios) {
         this.nombre = nombre;
-        this.computadoresMesa = computadoresMesa;
-        this.laptops = laptops;
+        this.computadoresMesaDisponibles = computadoresMesaDisponibles;
+        this.laptopsDisponibles = laptopsDisponibles;
         this.librosDisponibles = librosDisponibles;
         this.direccion = direccion;
         this.facultad = facultad;
         this.generosDisponibles = generosDisponibles;
+        this.bibliotecarios = bibliotecarios;
     }
-    
-    
-    // Método para buscar libros por género
-    public ArrayList<Libro> buscarLibrosPorGenero(String genero) {
-        ArrayList<Libro> librosPorGenero = new ArrayList<>();
+
+    // METHODS
+    // this method sets the genre of books according to the list
+    public void setGenerosDisponibles() {
+        generosDisponibles = new ArrayList<>();
         for (Libro libro : librosDisponibles) {
-            if (libro.getGenero().equals(genero)) {
-                librosPorGenero.add(libro);
+            if (!generosDisponibles.contains(libro.getGenero())) {
+                generosDisponibles.add(libro.getGenero());
             }
         }
-        return librosPorGenero;
+    }    
+    
+    //add librarian to the library
+    public void agregarBibliotecario(Bibliotecario bibliotecario) {
+        bibliotecarios.add(bibliotecario);
     }
-    
-    
-    
-    // Getters y Setters
+
+    // GETTERS AND SETTERS
     public String getNombre() {
         return nombre;
     }
@@ -44,20 +52,20 @@ public class Biblioteca {
         this.nombre = nombre;
     }
 
-    public int getComputadoresMesa() {
-        return computadoresMesa;
+    public ArrayList<String> getComputadoresMesaDisponibles() {
+        return computadoresMesaDisponibles;
     }
 
-    public void setComputadoresMesa(int computadoresMesa) {
-        this.computadoresMesa = computadoresMesa;
+    public void setComputadoresMesaDisponibles(ArrayList<String> computadoresMesaDisponibles) {
+        this.computadoresMesaDisponibles = computadoresMesaDisponibles;
     }
 
-    public int getLaptops() {
-        return laptops;
+    public ArrayList<String> getLaptopsDisponibles() {
+        return laptopsDisponibles;
     }
 
-    public void setLaptops(int laptops) {
-        this.laptops = laptops;
+    public void setLaptopsDisponibles(ArrayList<String> laptopsDisponibles) {
+        this.laptopsDisponibles = laptopsDisponibles;
     }
 
     public ArrayList<Libro> getLibrosDisponibles() {
@@ -88,9 +96,11 @@ public class Biblioteca {
         return generosDisponibles;
     }
 
-    public void setGenerosDisponibles(ArrayList<String> generosDisponibles) {
-        this.generosDisponibles = generosDisponibles;
+    public ArrayList<Bibliotecario> getBibliotecarios() {
+        return bibliotecarios;
     }
-    
+
 
 }
+
+

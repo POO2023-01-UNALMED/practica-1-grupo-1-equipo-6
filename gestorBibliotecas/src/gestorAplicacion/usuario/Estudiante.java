@@ -1,49 +1,101 @@
 package gestorAplicacion.usuario;
 
+import java.util.ArrayList;
+
+import gestorAplicacion.gestion.Computador;
+import gestorAplicacion.gestion.Facultad;
+import gestorAplicacion.gestion.Laptop;
+import gestorAplicacion.gestion.Libro;
+
 public class Estudiante extends Lector {
     private boolean reporte;
-    private boolean tieneLibro;
-    private boolean tieneComputador;
-    private boolean tieneLaptop;
+    private ArrayList<Libro> librosPrestados;
+    private ArrayList<Computador> computadoresPrestados;
+    private ArrayList<Laptop> laptopsPrestados;
+    private Facultad facultad;
 
-    public Estudiante(String nombre, String apellido, int edad, String direccion, String tipoId, int Id, String tipoPersona, boolean reporte, boolean tieneLibro, boolean tieneComputador, boolean tieneLaptop) {
-        super(nombre, apellido, edad, direccion, tipoId, Id, tipoPersona);
+    public Estudiante(String nombre, String apellido, int edad, String direccion, String tipoId, int Id, boolean reporte, ArrayList<Libro> librosPrestados, ArrayList<Computador> computadoresPrestados, ArrayList<Laptop> laptopsPrestados, Facultad facultad) {
+        super(nombre, apellido, edad, direccion, tipoId, Id);
         this.reporte = reporte;
-        this.tieneLibro = tieneLibro;
-        this.tieneComputador = tieneComputador;
-        this.tieneLaptop = tieneLaptop;
+        this.librosPrestados = librosPrestados;
+        this.computadoresPrestados = computadoresPrestados;
+        this.laptopsPrestados = laptopsPrestados;
+        this.facultad = facultad;
+    }
+    //METHODS
+    
+    
+    //from super apply buscarBiblioteca 
+    
+    
+    
+    
+    //add book, lap top, computer borrowed 
+    public void agregarLibro(Libro libro) {
+        librosPrestados.add(libro);
     }
 
-    // Getters y Setters
-    public boolean tieneReporte() {
-        return reporte;
+    public void agregarComputador(Computador computador) {
+        computadoresPrestados.add(computador);
     }
 
-    public void setReporte(boolean reporte) {
-        this.reporte = reporte;
+    public void agregarLaptop(Laptop laptop) {
+        laptopsPrestados.add(laptop);
+    }
+    
+  //get number of  book, lap top, computer borrowed     
+    public int getCantidadLibrosPrestados() {
+        return librosPrestados.size();
     }
 
-    public boolean tieneLibro() {
-        return tieneLibro;
+    public int getCantidadComputadoresPrestados() {
+        return computadoresPrestados.size();
     }
 
-    public void setTieneLibro(boolean tieneLibro) {
-        this.tieneLibro = tieneLibro;
+    public int getCantidadLaptopsPrestados() {
+        return laptopsPrestados.size();
+    }
+    
+    
+    
+    // GETTERS AND SETTERS
+ 	public boolean isReporte() {
+		return reporte;
+	}
+    public ArrayList<Libro> getLibrosPrestados() {
+        return librosPrestados;
     }
 
-    public boolean tieneComputador() {
-        return tieneComputador;
+    public void setLibrosPrestados(ArrayList<Libro> librosPrestados) {
+        this.librosPrestados = librosPrestados;
     }
 
-    public void setTieneComputador(boolean tieneComputador) {
-        this.tieneComputador = tieneComputador;
+    public ArrayList<Computador> getComputadoresPrestados() {
+        return computadoresPrestados;
     }
 
-    public boolean tieneLaptop() {
-        return tieneLaptop;
+    public void setComputadoresPrestados(ArrayList<Computador> computadoresPrestados) {
+        this.computadoresPrestados = computadoresPrestados;
     }
 
-    public void setTieneLaptop(boolean tieneLaptop) {
-        this.tieneLaptop = tieneLaptop;
+    public ArrayList<Laptop> getLaptopsPrestados() {
+        return laptopsPrestados;
     }
+
+    public void setLaptopsPrestados(ArrayList<Laptop> laptopsPrestados) {
+        this.laptopsPrestados = laptopsPrestados;
+    }
+
+	public Facultad getFacultad() {
+		return facultad;
+	}
+
+	public void setFacultad(Facultad facultad) {
+		this.facultad = facultad;
+	}
+
+
+    
 }
+
+

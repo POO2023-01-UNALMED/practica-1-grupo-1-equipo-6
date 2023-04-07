@@ -8,30 +8,26 @@ import gestorAplicacion.gestion.Biblioteca;
 public class Bibliotecario extends Persona {
     private ArrayList<Biblioteca> bibliotecasVinculadas;
     private String horarioLaboral;
-    private String facultad;
-    
 
-    public Bibliotecario(String nombre, String apellido, int edad, String direccion, String tipoId, int Id, ArrayList<Biblioteca> bibliotecasVinculadas, String horarioLaboral, String facultad) {
+    public Bibliotecario(String nombre, String apellido, int edad, String direccion, String tipoId, int Id, ArrayList<Biblioteca> bibliotecasVinculadas, String horarioLaboral) {
         super(nombre, apellido, edad, direccion, tipoId, Id);
         this.bibliotecasVinculadas = bibliotecasVinculadas;
         this.horarioLaboral = horarioLaboral;
-        this.facultad = facultad;
-    }
-    //methods
-    
-    
-    public  ArrayList<Biblioteca> buscarBiblioteca(ArrayList<Biblioteca> bibliotecas, String comuna){
-    	ArrayList<Biblioteca> bibliotecasAsignadas = null;
-    	return bibliotecasAsignadas;                            // add the logic to return librarian's schedule 
     }
     
+    // METHODS 
     
     
+    // add the logic for returning librarian's schedule (NOT FINISHED)
+    public ArrayList<Biblioteca> buscarBiblioteca(){
+        ArrayList<Biblioteca> bibliotecasAsignadas = null;
+        
+        return bibliotecasAsignadas;                            
+    }
+
     
     
-    
-    
-    // Getters y Setters
+    // GETTERS AND SETTERS 
     public List<Biblioteca> getBibliotecasVinculadas() {
         return bibliotecasVinculadas;
     }
@@ -47,15 +43,6 @@ public class Bibliotecario extends Persona {
     public void setHorarioLaboral(String horarioLaboral) {
         this.horarioLaboral = horarioLaboral;
     }
-
-	public String getFacultad() {
-		return facultad;
-	}
-
-	public void setFacultad(String facultad) {
-		this.facultad = facultad;
-	}
-    
-    
 }
+
 
