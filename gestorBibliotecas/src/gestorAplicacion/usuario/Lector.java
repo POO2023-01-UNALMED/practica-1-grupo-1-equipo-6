@@ -1,7 +1,5 @@
 package gestorAplicacion.usuario;
 
-import java.util.ArrayList;
-
 import gestorAplicacion.gestion.Biblioteca;
 
 public class Lector extends Persona {
@@ -11,7 +9,10 @@ public class Lector extends Persona {
     
     
     //add logic for search libraries (NOT FINISHED)
-    public ArrayList<Biblioteca> buscarBiblioteca() {
-    	return null;    
+    public void buscarBiblioteca() {
+        System.out.println("Bibliotecas disponibles:");
+        for (Biblioteca biblioteca : Biblioteca.bibliotecasExistentetes) {
+            System.out.println("- " + biblioteca.getNombre());
+        }
     }
 }

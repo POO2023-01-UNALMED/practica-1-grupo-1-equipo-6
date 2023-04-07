@@ -8,16 +8,19 @@ public class Biblioteca {
     private String direccion;
     private Facultad facultad;
     private String nombre;
-    private ArrayList<String> computadoresMesaDisponibles;
-    private ArrayList<String> laptopsDisponibles;
-    private ArrayList<Libro> librosDisponibles;
-    private ArrayList<String> generosDisponibles;
-    private ArrayList<Bibliotecario> bibliotecarios;
+    private ArrayList<String> computadoresMesaDisponibles= new ArrayList<>();
+    private ArrayList<String> laptopsDisponibles= new ArrayList<>();
+    private ArrayList<Libro> librosDisponibles = new ArrayList<>();
+    private ArrayList<String> generosDisponibles = new ArrayList<>();
+    private ArrayList<Bibliotecario> bibliotecarios = new ArrayList<>();
+    
+    public static ArrayList<Biblioteca> bibliotecasExistentetes = new ArrayList<>();
 
     public Biblioteca(String direccion, Facultad facultad, String nombre) {
         this.direccion = direccion;
         this.facultad = facultad;
         this.nombre = nombre;
+        bibliotecasExistentetes.add(this);
     }
 
     // METHODS

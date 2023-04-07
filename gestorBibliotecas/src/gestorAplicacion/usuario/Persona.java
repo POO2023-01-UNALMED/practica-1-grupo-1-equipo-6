@@ -1,9 +1,5 @@
 package gestorAplicacion.usuario;
 
-import java.util.ArrayList;
-
-import gestorAplicacion.gestion.Biblioteca;
-
 public abstract class Persona {
     protected String nombre;
     protected String apellido;
@@ -23,5 +19,5 @@ public abstract class Persona {
 	}
 
 
-	public abstract ArrayList<Biblioteca> buscarBiblioteca();
+	public abstract void buscarBiblioteca();
 }

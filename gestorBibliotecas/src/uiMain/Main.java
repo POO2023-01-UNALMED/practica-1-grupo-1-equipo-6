@@ -1,6 +1,7 @@
 package uiMain;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import gestorAplicacion.gestion.Biblioteca;
 import gestorAplicacion.gestion.Computador;
@@ -37,6 +38,8 @@ public class Main {
 		Biblioteca biblioteca1 = new Biblioteca("Carrera 7 # 32-10", Facultad.MINAS, "Hernán Garcés González");
 		Biblioteca biblioteca2 = new Biblioteca("59A No. 63-20", Facultad.MINAS, "Efe Gómez");
 		
+
+		
 		//adding books to biblioteca1
 		biblioteca1.agregarLibro(libro1);
 		biblioteca1.agregarLibro(libro2);
@@ -71,10 +74,70 @@ public class Main {
 		Bibliotecario bibliotecario2 = new Bibliotecario("Juan", "Pérez", 35, "Carrera 45 # 32-10", "TI", 44556677, "9:00-18:00");
 		Bibliotecario bibliotecario3 = new Bibliotecario("María", "Rodríguez", 42, "Calle 100 # 15-25", "CC", 99887766, "11:00-20:00");
 		
+
 		//adding librarians to libraries
 		biblioteca1.agregarBibliotecario(bibliotecario1);
 		biblioteca1.agregarBibliotecario(bibliotecario2);
 		biblioteca2.agregarBibliotecario(bibliotecario1);
+		
+		
+		
+		
+		
+		//-------------------------------------------------------------------------//
+		//-------------------------------------------------------------------------//
+		Scanner sc = new Scanner(System.in);
+		
+		
+		int opcion3;
+		int documento;
+        int opcion1;
+		do {
+			
+		    System.out.println("Por favor ingrese su opción:");
+		    System.out.println("1. Prestar");
+		    System.out.println("2. Salir");
 
-	}
-}
+		    opcion1 = sc.nextInt();
+
+		    switch (opcion1) {
+		        case 1:
+		        	int opcion2;
+		        	do {
+		        		System.out.println("Por favor ingrese su opción:");		            
+		        		System.out.println("1. Libro");
+		        		System.out.println("2. regresar");
+		        		
+		        		opcion2 = sc.nextInt();
+		        		sc.nextLine();
+		        		
+		        		switch(opcion2) {
+		        		case 1:
+		        			System.out.println("introduzca su documento: ");
+		        			
+		        			documento = sc.nextInt();
+		        			sc.nextLine();
+		        			break;
+		        		case 2: 
+		        			System.out.println("regresando..");
+		        			sc.nextLine();
+		        			break;			           
+		        		default:			        	
+		        			System.out.println("opcion invalida");
+			        	break;
+		        		}
+
+
+		        	}while (opcion2 != 2);
+		        case 2:
+		        	System.out.println("Sistema Cerrado");	
+		        	break;
+		        default:
+		        	System.out.println("opcion invalida");
+		        	break;
+
+		          
+		    }
+		}while (opcion1 != 2);
+   }
+}	

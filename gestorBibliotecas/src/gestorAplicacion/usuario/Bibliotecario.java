@@ -18,11 +18,9 @@ public class Bibliotecario extends Persona {
     
     
     // add the logic for returning librarian's schedule (NOT FINISHED)
-    public ArrayList<Biblioteca> buscarBiblioteca(){
-        ArrayList<Biblioteca> bibliotecasAsignadas = null;
-        
-        return bibliotecasAsignadas;                            
-    }
+    public void buscarBiblioteca(){}
+    
+    
     //add libraries where to work 
     public void AsignarBibliotca(Biblioteca biblioteca) {
         bibliotecasVinculadas.add(biblioteca);
