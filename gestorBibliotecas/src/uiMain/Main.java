@@ -141,18 +141,18 @@ public class Main {
 							System.out.println(" ");
 							System.out.println(" ------ SELECCIONAR BIBLIOTECA----- ");
 							Lector.getLector(documento).buscarBiblioteca(Lector.getLector(documento));
-							
 							int opcion4;
 							opcion4 = sc.nextInt();
 							sc.nextLine();
 							switch(opcion4) {
 							case 1:
 								System.out.println("Ha seleccionado la biblioteca 1");
+								break;
 							case 2: 
 								System.out.println("Ha seleccionado la biblioteca 2");
+								break;
 							}
 			
-							
 							
 							break;
 							
@@ -181,11 +181,11 @@ public class Main {
 									int edad = sc.nextInt();
 									sc.nextLine();
 
-									System.out.println(" introduzca su dirrecion:");
+									System.out.println("introduzca su dirrecion:");
 									String direccion = sc.toString();
 									sc.nextLine();
 
-									System.out.println(" Seleccione su tipo de documento:");
+									System.out.println("Seleccione su tipo de documento:");
 									System.out.println("1.CC ");
 									System.out.println("2.TI");
 									int tipoIdOption = sc.nextInt();
@@ -209,7 +209,7 @@ public class Main {
 									switch (tipoPersona) {
 									case 1:
 
-										System.out.println(" Seleccione su facultad:");
+										System.out.println("Seleccione su facultad:");
 										System.out.println("1.Ciencias");
 										System.out.println("2.Ciencias Humanas y Economia");
 										System.out.println("3.Ciencias Agrarias");

@@ -17,7 +17,7 @@ public class Lector extends Persona {
     //add logic for search libraries 
     public void buscarBiblioteca(Lector lector) {
     	ArrayList<Biblioteca> bibliotecasDisponibles = new ArrayList<>();
-    	if (lector.getClass().getSimpleName() == "Estudiante") {
+    	if (lector instanceof Estudiante) {
     		Estudiante estudiante = (Estudiante) lector;
     		if (estudiante.getFacultad() == Facultad.MINAS) {
     			for (Biblioteca biblioteca : Biblioteca.bibliotecasExistentetes) {
@@ -33,7 +33,8 @@ public class Lector extends Persona {
     			}
     		}
     
-    	}else {for(Biblioteca biblioteca : Biblioteca.bibliotecasExistentetes) {
+    	}else if (lector instanceof Profesor)
+    	{for(Biblioteca biblioteca : Biblioteca.bibliotecasExistentetes) {
     		bibliotecasDisponibles.add(biblioteca);
     	}}
     	for (int i = 0; i < bibliotecasDisponibles.size(); i++) {

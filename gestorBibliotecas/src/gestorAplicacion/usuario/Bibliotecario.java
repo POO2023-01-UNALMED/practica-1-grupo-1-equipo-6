@@ -18,7 +18,7 @@ public class Bibliotecario extends Persona {
     
     
     // add the logic for returning librarian's schedule (NOT FINISHED)
-    public void buscarBiblioteca(){}
+    public void buscarBiblioteca(Lector lector){}
     
     
     //add libraries where to work 
