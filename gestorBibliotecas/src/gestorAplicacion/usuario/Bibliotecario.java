@@ -6,7 +6,7 @@ import java.util.List;
 import gestorAplicacion.gestion.Biblioteca;
 
 public class Bibliotecario extends Persona {
-    private ArrayList<Biblioteca> bibliotecasVinculadas;
+    private ArrayList<Biblioteca> bibliotecasVinculadas = new ArrayList<>();
     private String horarioLaboral;
 
     public Bibliotecario(String nombre, String apellido, int edad, String direccion, String tipoId, int Id, String horarioLaboral) {

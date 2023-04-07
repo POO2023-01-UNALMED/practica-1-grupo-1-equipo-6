@@ -9,9 +9,9 @@ import gestorAplicacion.gestion.Libro;
 
 public class Estudiante extends Lector {
     private boolean reporte;
-    private ArrayList<Libro> librosPrestados;
-    private ArrayList<Computador> computadoresPrestados;
-    private ArrayList<Laptop> laptopsPrestados;
+    private ArrayList<Libro> librosPrestados  = new ArrayList<>();
+    private ArrayList<Computador> computadoresPrestados  = new ArrayList<>();
+    private ArrayList<Laptop> laptopsPrestados  = new ArrayList<>();
     private Facultad facultad;
 
     public Estudiante(String nombre, String apellido, int edad, String direccion, String tipoId, int Id, boolean reporte, Facultad facultad) {
