@@ -14,12 +14,31 @@ public class Lector extends Persona {
     }
     
     
-    //add logic for search libraries (NOT FINISHED)
-    public void buscarBiblioteca() {
-        System.out.println("Bibliotecas disponibles:");
-        for (Biblioteca biblioteca : Biblioteca.bibliotecasExistentetes) {
-            System.out.println("- " + biblioteca.getNombre());
-        }
+    //add logic for search libraries 
+    public void buscarBiblioteca(Lector lector) {
+    	ArrayList<Biblioteca> bibliotecasDisponibles = new ArrayList<>();
+    	if (lector.getClass().getSimpleName() == "Estudiante") {
+    		Estudiante estudiante = (Estudiante) lector;
+    		if (estudiante.getFacultad() == Facultad.MINAS) {
+    			for (Biblioteca biblioteca : Biblioteca.bibliotecasExistentetes) {
+    				if(biblioteca.getFacultad()== Facultad.MINAS) {
+    					bibliotecasDisponibles.add(biblioteca);
+    				}
+    			}
+    		}else if (estudiante.getFacultad() != Facultad.MINAS) {
+    			for(Biblioteca biblioteca : Biblioteca.bibliotecasExistentetes) {
+    				if(biblioteca.getFacultad() != Facultad.MINAS) {
+    					bibliotecasDisponibles.add(biblioteca);
+    				}
+    			}
+    		}
+    
+    	}else {for(Biblioteca biblioteca : Biblioteca.bibliotecasExistentetes) {
+    		bibliotecasDisponibles.add(biblioteca);
+    	}}
+    	for (int i = 0; i < bibliotecasDisponibles.size(); i++) {
+    		System.out.println((i + 1) + ". " +  bibliotecasDisponibles.get(i).getNombre());
+    	}
     }
     
     public static int buscarLector(int documento) {
@@ -32,9 +51,11 @@ public class Lector extends Persona {
     }
     
     public static void registrarLector(String nombre,String apellido, int edad, String direccion,String tipoId, int Id,boolean reporte,Facultad facultad,  int tipoPersona) {
-    	//Estudiante == 1, Profesor == 2
+    	//Student == 1, Teacher == 2
     	if (tipoPersona == 1) {
     		new Estudiante(nombre, apellido, edad, direccion, tipoId, Id, false, facultad);
+    	}else if(tipoPersona ==2){
+    		new Profesor(nombre, apellido, edad, direccion, tipoId, Id, reporte);
     	}
 
     }

@@ -41,8 +41,8 @@ public class Main {
 		Libro libro18 = new Libro("Fantasía", 18, "El alquimista", "Paulo Coelho", "Editora Rocco", 1988);
 
 		// creating libraries
-		Biblioteca biblioteca1 = new Biblioteca("Carrera 7 # 32-10", Facultad.MINAS, "Hernán Garcés González");
-		Biblioteca biblioteca2 = new Biblioteca("59A No. 63-20", Facultad.MINAS, "Efe Gómez");
+		Biblioteca biblioteca1 = new Biblioteca("Carrera 7 # 32-10", Facultad.MINAS, "Hernan Garces Gonzalez");
+		Biblioteca biblioteca2 = new Biblioteca("59A No. 63-20", Facultad.CIENCIAS_HUMANAS_ECONOMIA, "Efe Gomez");
 
 		// adding books to biblioteca1
 		biblioteca1.agregarLibro(libro1);
@@ -89,10 +89,11 @@ public class Main {
 
 		// -------------------------------------------------------------------------//
 		// -------------------------------------------------------------------------//
+		
+		
+		
 		Scanner sc = new Scanner(System.in);
-		int opcion1;  //PRESTAR O SALIR 
-		
-		
+		int opcion1; // PRESTAR O SALIR
 
 		do {
 			System.out.println(" ------ MENU PRINCIPAL---- ");
@@ -106,7 +107,7 @@ public class Main {
 			System.out.println("   ");
 			switch (opcion1) {
 			case 1:
-				int opcion2;  // LIBRO O REGRESAR
+				int opcion2; // LIBRO O REGRESAR
 				do {
 					System.out.println(" ------ PRESTAR----- ");
 					System.out.println("1. Libro");
@@ -117,14 +118,14 @@ public class Main {
 					sc.nextLine();
 					System.out.println("   ");
 					System.out.println("   ");
-					
+
 					int documento;
-					
+
 					switch (opcion2) {
-					
+
 					case 1:
 						// INT OPCION3 SERIA LECTOR.BUSCAR(DOCUMENTO)
-						
+
 						System.out.println(" ------ PRESTAR LIBRO----- ");
 						System.out.println("Introduzca su documento:");
 						documento = sc.nextInt();
@@ -135,24 +136,39 @@ public class Main {
 						switch (Lector.buscarLector(documento)) {
 						case 1:
 							System.out.println(" ------ PRESTAR LIBRO----- ");
-							System.out.println(Lector.getLector(documento).getNombre() + " " + Lector.getLector(documento).getApellido());
-							System.out.println();
-							break;
+							System.out.println("Usuario: "+ Lector.getLector(documento).getNombre() + " "
+									+ Lector.getLector(documento).getApellido());
+							System.out.println(" ");
+							System.out.println(" ------ SELECCIONAR BIBLIOTECA----- ");
+							Lector.getLector(documento).buscarBiblioteca(Lector.getLector(documento));
 							
+							int opcion4;
+							opcion4 = sc.nextInt();
+							sc.nextLine();
+							switch(opcion4) {
+							case 1:
+								System.out.println("Ha seleccionado la biblioteca 1");
+							case 2: 
+								System.out.println("Ha seleccionado la biblioteca 2");
+							}
+			
+							
+							
+							break;
 							
 
 						case 0:
-							
-								System.out.println(" ------ LECTOR NO ENCONTRADO----- ");
-								System.out.println("1.Registrase");
-								System.out.println("2.Regresar");
 
-								int opcion3 = sc.nextInt();
-								sc.nextLine();
+							System.out.println(" ------ LECTOR NO ENCONTRADO----- ");
+							System.out.println("1.Registrase");
+							System.out.println("2.Regresar");
 
-								switch (opcion3) {
-								case 1:
-									do {									
+							int opcion3 = sc.nextInt();
+							sc.nextLine();
+
+							switch (opcion3) {
+							case 1:
+								do {
 									System.out.println("introduzca su nombre:");
 									String nombre = sc.toString();
 									sc.nextLine();
@@ -185,49 +201,56 @@ public class Main {
 									}
 
 									int Id = documento;
-
-									System.out.println(" Seleccione su facultad:");
-									System.out.println("1.Ciencias");
-									System.out.println("2.Ciencias Humanas y Economia");
-									System.out.println("3.Ciencias Agrarias");
-									System.out.println("4.Minas");
-									System.out.println("5.Arquitectura");
-									int facultadOption = sc.nextInt();
-									Facultad facultad = null;
-
-									switch (facultadOption) {
-									case 1:
-										facultad = Facultad.CIENCIAS;
-										break;
-									case 2:
-										facultad = Facultad.CIENCIAS_HUMANAS_ECONOMIA;
-										break;
-									case 3:
-										facultad = Facultad.CIENCIAS_AGRARIAS;
-										break;
-									case 4:
-										facultad = Facultad.MINAS;
-										break;
-									case 5:
-										facultad = Facultad.ARQUITECTURA;
-										break;
-									}
-
 									System.out.println("Seleccione tipo de lector:  ");
 									System.out.println("1.ESTUDIANTE");
 									System.out.println("2.PROFESOR ");
 									int tipoPersona = sc.nextInt();
 
-									Lector.registrarLector(nombre, apellido, edad, direccion, tipoId, Id, false,
-											facultad, tipoPersona);
-									break;}while(opcion3 !=2);
+									switch (tipoPersona) {
+									case 1:
 
-								case 2:
-									System.out.println("Regresando al menu anterior...");
+										System.out.println(" Seleccione su facultad:");
+										System.out.println("1.Ciencias");
+										System.out.println("2.Ciencias Humanas y Economia");
+										System.out.println("3.Ciencias Agrarias");
+										System.out.println("4.Minas");
+										System.out.println("5.Arquitectura");
+										int facultadOption = sc.nextInt();
+										Facultad facultad = null;
+
+										switch (facultadOption) {
+										case 1:
+											facultad = Facultad.CIENCIAS;
+											break;
+										case 2:
+											facultad = Facultad.CIENCIAS_HUMANAS_ECONOMIA;
+											break;
+										case 3:
+											facultad = Facultad.CIENCIAS_AGRARIAS;
+											break;
+										case 4:
+											facultad = Facultad.MINAS;
+											break;
+										case 5:
+											facultad = Facultad.ARQUITECTURA;
+											break;
+
+										}
+										Lector.registrarLector(nombre, apellido, edad, direccion, tipoId, Id, false,
+												facultad, tipoPersona);
+									case 2:
+										Lector.registrarLector(nombre, apellido, edad, direccion, tipoId, Id, false,
+												  null, tipoPersona);
+									}
+
 									break;
-								}
-							
-								
+								} while (opcion3 != 2);
+
+							case 2:
+								System.out.println("Regresando al menu anterior...");
+								break;
+							}
+
 						}
 						break;
 					case 2:

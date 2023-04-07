@@ -1,17 +1,20 @@
 package gestorAplicacion.usuario;
 
+import java.util.ArrayList;
+
+import gestorAplicacion.gestion.Computador;
+import gestorAplicacion.gestion.Laptop;
+import gestorAplicacion.gestion.Libro;
+
 public class Profesor extends Lector {
     private boolean reporte;
-    private boolean tieneLibro;
-    private boolean tieneComputador;
-    private boolean tieneLaptop;
+    private ArrayList<Libro> librosPrestados  = new ArrayList<>();
+    private ArrayList<Computador> computadoresPrestados  = new ArrayList<>();
+    private ArrayList<Laptop> laptopsPrestados  = new ArrayList<>();
 
-    public Profesor(String nombre, String apellido, int edad, String direccion, String tipoId, int Id, String tipoPersona, boolean reporte, boolean tieneLibro, boolean tieneComputador, boolean tieneLaptop) {
-        super(nombre, apellido, edad, direccion, tipoId, Id, tipoPersona);
+    public Profesor(String nombre, String apellido, int edad, String direccion, String tipoId, int Id, boolean reporte) {
+        super(nombre, apellido, edad, direccion, tipoId, Id);
         this.reporte = reporte;
-        this.tieneLibro = tieneLibro;
-        this.tieneComputador = tieneComputador;
-        this.tieneLaptop = tieneLaptop;
     }
 
     // Getters y Setters
@@ -23,27 +26,67 @@ public class Profesor extends Lector {
         this.reporte = reporte;
     }
 
-    public boolean tieneLibro() {
-        return tieneLibro;
+    // Métodos para agregar/quitar libros, computadores, laptops prestados
+    public void agregarLibro(Libro libro) {
+        librosPrestados.add(libro);
     }
 
-    public void setTieneLibro(boolean tieneLibro) {
-        this.tieneLibro = tieneLibro;
+    public void quitarLibro(Libro libro) {
+        librosPrestados.remove(libro);
     }
 
-    public boolean tieneComputador() {
-        return tieneComputador;
+    public void agregarComputador(Computador computador) {
+        computadoresPrestados.add(computador);
     }
 
-    public void setTieneComputador(boolean tieneComputador) {
-        this.tieneComputador = tieneComputador;
+    public void quitarComputador(Computador computador) {
+        computadoresPrestados.remove(computador);
     }
 
-    public boolean tieneLaptop() {
-        return tieneLaptop;
+    public void agregarLaptop(Laptop laptop) {
+        laptopsPrestados.add(laptop);
     }
 
-    public void setTieneLaptop(boolean tieneLaptop) {
-        this.tieneLaptop = tieneLaptop;
+    public void quitarLaptop(Laptop laptop) {
+        laptopsPrestados.remove(laptop);
+    }
+
+    // Métodos para obtener la cantidad de libros, computadores y laptops prestados
+    public int getCantidadLibrosPrestados() {
+        return librosPrestados.size();
+    }
+
+    public int getCantidadComputadoresPrestados() {
+        return computadoresPrestados.size();
+    }
+
+    public int getCantidadLaptopsPrestados() {
+        return laptopsPrestados.size();
+    }
+
+    // Getters y Setters para los libros, computadores y laptops prestados
+    public ArrayList<Libro> getLibrosPrestados() {
+        return librosPrestados;
+    }
+
+    public void setLibrosPrestados(ArrayList<Libro> librosPrestados) {
+        this.librosPrestados = librosPrestados;
+    }
+
+    public ArrayList<Computador> getComputadoresPrestados() {
+        return computadoresPrestados;
+    }
+
+    public void setComputadoresPrestados(ArrayList<Computador> computadoresPrestados) {
+        this.computadoresPrestados = computadoresPrestados;
+    }
+
+    public ArrayList<Laptop> getLaptopsPrestados() {
+        return laptopsPrestados;
+    }
+
+    public void setLaptopsPrestados(ArrayList<Laptop> laptopsPrestados) {
+        this.laptopsPrestados = laptopsPrestados;
     }
 }
+
