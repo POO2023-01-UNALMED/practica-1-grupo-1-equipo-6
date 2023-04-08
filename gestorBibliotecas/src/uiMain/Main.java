@@ -92,157 +92,253 @@ public class Main {
 
 		int opcion1;
 		do {
-		    System.out.println(" ------ MENU PRINCIPAL------ ");
+			System.out.println(" ------ MENU PRINCIPAL------ ");
 
-		    System.out.println("1. Prestar");
-		    System.out.println("2. Salir");
+			System.out.println("1. Prestar");
+			System.out.println("2. Salir");
 
-		    System.out.println("Por favor ingrese su opcion:");
+			System.out.println("Por favor ingrese su opcion:");
 
-		    opcion1 = sc.nextInt();
-		    sc.nextLine();
+			opcion1 = sc.nextInt();
+			sc.nextLine();
 
-		    switch(opcion1) {
-		    
-		    case 1: // PRESTAR (MENU PRINCIPAL)
-		        int opcion2;
-		        do {
-		            System.out.println(" ------ PRESTAR----- ");
+			switch (opcion1) {
 
-		            System.out.println("1. Libro");
-		            System.out.println("2. Regresar");
+			case 1: // PRESTAR (MENU PRINCIPAL)
+				int opcion2;
+				do {
+					System.out.println(" ------ PRESTAR----- ");
 
-		            System.out.println("Por favor ingrese su opcion:");
+					System.out.println("1. Libro");
+					System.out.println("2. Regresar");
 
-		            opcion2 = sc.nextInt();
-		            sc.nextLine();
+					System.out.println("Por favor ingrese su opcion:");
 
-		            switch(opcion2) {
-		            case 1: // LIBRO (PRESTAR)
-		            	 int documento = 0;
-		            	do {
-		            		System.out.println(" ------ PRESTAR / LIBRO----- ");
-		            		System.out.println("Por favor ingrese su documento / pulse 1 para regresar:");
-		            	   
-		            	    documento = sc.nextInt();
-				            sc.nextLine();
-				            
-				            if (documento ==1) {
-				            	break;
-				            }
+					opcion2 = sc.nextInt();
+					sc.nextLine();
 
-			            int opcion4 = Lector.buscarLector(documento);
-			            //BUSCANDO DOCUMENTO
-			            	switch(opcion4) {
-			            	case 1: // LECTOR ENCONTRADO
-			            		System.out.println(" ------ PRESTAR / LIBRO / LECTOR ENCONTRADO ----- ");
-			            		
-			            		System.out.println("Usuario: "+ Lector.getLector(documento).getNombre() + " " + Lector.getLector(documento).getApellido());
-			            		
-			            		break;
-			            	case 2: // LECTOR NO ENCONTRADO
-			            		int opcion5;
-			            		do {
-			            			System.out.println(" ------ PRESTAR / LIBRO / LECTOR NO ENCONTRADO ----- ");
-			            			
-			    		            System.out.println("1. Registrar");
-			    		            System.out.println("2. Regresar");
-			    		            
-			    		            System.out.println("Por favor ingrese su opcion:");
-			    		            
-			    		            opcion5 = sc.nextInt();
-			    		            sc.nextLine();
-			    		            
-			    		            switch(opcion5) {
-			    		            case 1:// REGISTRAR (PRESTAR / LIBRO / LECTOR NO ENCONTRADO)
-			    		            	System.out.println(" ------ PRESTAR / LIBRO / LECTOR NO ENCONTRADO /REGISTRO ----- ");
-			    		            	
-			    		            	System.out.println("por favor ingrese su nombre: ");
-			    		            	System.out.println("envie 1 para regresar ");
-			    		            	String nombre = "0";
-			    		            	do {
-					    		            nombre = sc.next();
-					    		            sc.nextLine();
-					    		            if (nombre.equals("1")){break;}
-				    		            	System.out.println("por favor ingrese su apellido: ");
-				    		            	System.out.println("envie 1 para regresar ");
-				    		            	String apellido = "0";
-				    		            	do {
-				    		            		apellido = sc.next();
-						    		            sc.nextLine();
-						    		            if (apellido.equals("1")){break;}
-					    		            	System.out.println("por favor ingrese su edad: ");
-					    		            	System.out.println("envie 1 para regresar ");
-					    		            	int edad = 0;
-					    		            	do {
-					    		            		edad = sc.nextInt();
-							    		            sc.nextLine();
-							    		            if (edad==1){break;}
-						    		            	System.out.println("por favor ingrese su direccion: ");
-						    		            	System.out.println("envie 1 para regresar ");
-						    		            	String direccion = "0";
-						    		            	do {
-						    		            		direccion = sc.next();
-								    		            sc.nextLine();
-								    		            if (direccion.equals("1")){break;}
-								    		            break;//not finish
-						    		            	}while(!direccion.equals("1"));
-					    		            	}while(edad!=1);
-				    		            	}while(!apellido.equals("1"));
-					    		            
-			    		            	}while(!nombre.equals("1"));
-			    		            	
-			    		            	break;
-			    		            case 2:// REGRESAR  (PRESTAR / LIBRO / LECTOR NO ENCONTRADO)
-			    		            	System.out.println("regresando al menu anterior ");
-			    		            	documento = 0;
-			    		            	break;
-			    		            }
-			            		}while(opcion5 != 2);
+					switch (opcion2) {
+					case 1: // LIBRO (PRESTAR)
+						int documento = 0;
+						do {
+							System.out.println(" ------ PRESTAR / LIBRO----- ");
+							System.out.println("Por favor ingrese su documento / pulse 1 para regresar:");
 
-			            	}
-		                
-		                }while(documento == 0);
-		            case 2: // REGRESAR (PRESTAR)
-		                System.out.println("Regresando al menu anterior:");
-		                break;
-		            }
-		        } while (opcion2 != 2);
-		        break;
-		        
-		    case 2: // SALIR (MENU PRINCIPAL)
-		        System.out.println("Saliendo del Sistema");
-		        break;
-		    }
-		} while(opcion1 !=2);
+							documento = sc.nextInt();
+							sc.nextLine();
 
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+							if (documento == 1) {
+								break;
+							}
+
+							int opcion4 = Lector.buscarLector(documento);
+							// BUSCANDO DOCUMENTO
+							switch (opcion4) {
+							case 1: // LECTOR ENCONTRADO
+								System.out.println(" ------ PRESTAR / LIBRO / LECTOR ENCONTRADO ----- ");
+
+								System.out.println("Usuario: " + Lector.getLector(documento).getNombre() + " "
+										+ Lector.getLector(documento).getApellido());
+								
+								//BUSCANDO BIBLIOTECAS SEGUN LA FACULTAD Y EL TIPO DE PERSONA
+								Lector.getLector(documento).buscarBiblioteca(Lector.getLector(documento));
+								
+								
+
+								break;
+							case 2: // LECTOR NO ENCONTRADO
+								int opcion5;
+								do {
+									System.out.println(" ------ PRESTAR / LIBRO / LECTOR NO ENCONTRADO ----- ");
+
+									System.out.println("1. Registrar");
+									System.out.println("2. Regresar");
+
+									System.out.println("Por favor ingrese su opcion:");
+
+									opcion5 = sc.nextInt();
+									sc.nextLine();
+
+									switch (opcion5) {
+									case 1:// REGISTRAR (PRESTAR / LIBRO / LECTOR NO ENCONTRADO)
+										System.out.println(
+												" ------ PRESTAR / LIBRO / LECTOR NO ENCONTRADO /REGISTRO ----- ");
+										String nombre = "0";
+
+										do {
+											System.out.println("por favor ingrese su nombre: ");
+											System.out.println("envie 1 para regresar ");
+
+											nombre = sc.next();
+											sc.nextLine();
+											if (nombre.equals("1")) {
+												break;
+											}
+											String apellido = "0";
+
+											do {
+												System.out.println("por favor ingrese su apellido: ");
+												System.out.println("envie 1 para regresar ");
+
+												apellido = sc.next();
+												sc.nextLine();
+												if (apellido.equals("1")) {
+													break;
+												}
+												int edad = 0;
+
+												do {
+													System.out.println("por favor ingrese su edad: ");
+													System.out.println("envie 1 para regresar ");
+
+													edad = sc.nextInt();
+													sc.nextLine();
+													if (edad == 1) {
+														break;
+													}
+													String direccion = "0";
+
+													do {
+														System.out.println("por favor ingrese su direccion: ");
+														System.out.println("envie 1 para regresar ");
+
+														direccion = sc.next();
+														sc.nextLine();
+														if (direccion.equals("1")) {
+															break;
+														}
+														String tipoId = null;
+														int opcion6;
+
+														do {
+															System.out.println(
+																	"por favor Seleccione el tipo de documento: ");
+
+															System.out.println("1. CC");
+															System.out.println("2. TI");
+															System.out.println("3. Regresar");
+
+															opcion6 = sc.nextInt();
+															sc.nextLine();
+
+															if (opcion6 == 3) {
+																break;
+															}
+
+															switch (opcion6) {
+															case 1: // CC (TIPO DOCUMENTO)
+																tipoId = "CC";
+															case 2: // TI (TIPO DOCUMENTO)
+																tipoId = "TI";
+															}
+
+															String tipoLector;
+															int opcion7;
+															do {
+																System.out.println(
+																		"por favor Seleccione el tipo de Lector: ");
+
+																System.out.println("1. Estudiante");
+																System.out.println("2. Profesor");
+																System.out.println("3. Regresar");
+
+																opcion7 = sc.nextInt();
+																sc.nextLine();
+
+																if (opcion7 == 3) {
+																	break;
+																}
+
+																switch (opcion7) {
+																case 1: // CC (TIPO DOCUMENTO)
+																	tipoLector = "Estudiante";
+																	Facultad facultad = null;
+																	int opcion8;
+																	do {
+																		System.out.println(
+																				"por favor seleccione su facultad:");
+
+																		System.out.println("1.Ciencias");
+																		System.out.println(
+																				"2.Ciencias Humanas y Economia");
+																		System.out.println("3.Ciencias Agrarias");
+																		System.out.println("4.Minas");
+																		System.out.println("5.Arquitectura");
+																		System.out.println("6.Regresar");
+
+																		opcion8 = sc.nextInt();
+																		sc.nextLine();
+
+																		if (opcion8 == 6) {
+																			break;
+																		}
+
+																		switch (opcion8) {
+																		case 1:
+																			facultad = Facultad.CIENCIAS;
+																			break;
+																		case 2:
+																			facultad = Facultad.CIENCIAS_HUMANAS_ECONOMIA;
+																			break;
+																		case 3:
+																			facultad = Facultad.CIENCIAS_AGRARIAS;
+																			break;
+																		case 4:
+																			facultad = Facultad.MINAS;
+																			break;
+																		case 5:
+																			facultad = Facultad.ARQUITECTURA;
+																			break;
+																		}
+																		Lector.registrarLector(nombre, apellido, edad,
+																				direccion, tipoId, documento, false,
+																				facultad, 1);
+																		System.out.println("Estudiante registrado con exito");
+																		break;
+																	} while (opcion8 != 6);
+																case 2: // TI (TIPO DOCUMENTO)
+																	tipoLector = "Profesor";
+																	Lector.registrarLector(nombre, apellido, edad,
+																			direccion, tipoId, documento, false, null,
+																			2);
+																	System.out.println("Profesor registrado con exito");
+																	break;
+																}
+															} while (opcion7 != 3);
+
+														} while (opcion6 != 3);
+
+													} while (!direccion.equals("1"));
+												} while (edad != 1);
+											} while (!apellido.equals("1"));
+
+										} while (!nombre.equals("1"));
+
+										break;
+									case 2:// REGRESAR (PRESTAR / LIBRO / LECTOR NO ENCONTRADO)
+										System.out.println("regresando al menu anterior ");
+										documento = 0;
+										break;
+									}
+								} while (opcion5 != 2);
+
+							}
+
+						} while (documento == 0);
+					case 2: // REGRESAR (PRESTAR)
+						System.out.println("Regresando al menu anterior:");
+						break;
+					}
+				} while (opcion2 != 2);
+				break;
+
+			case 2: // SALIR (MENU PRINCIPAL)
+				System.out.println("Saliendo del Sistema");
+				break;
+			}
+		} while (opcion1 != 2);
+
 		// -------------------------------------------------------------------------//
-		
-		
-		
 
 	}
 }
