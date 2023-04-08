@@ -48,15 +48,16 @@ public class Lector extends Persona {
     			return 1;
     		}
     	}
-		return 0;
+		return 2;
     }
     
     public static void registrarLector(String nombre,String apellido, int edad, String direccion,String tipoId, int Id,boolean reporte,Facultad facultad,  int tipoPersona) {
     	//Student == 1, Teacher == 2
     	if (tipoPersona == 1) {
-    		new Estudiante(nombre, apellido, edad, direccion, tipoId, Id, false, facultad);
+    		
+    		Lector.lectoresExistentes.add(new Estudiante(nombre, apellido, edad, direccion, tipoId, Id, false, facultad));
     	}else if(tipoPersona ==2){
-    		new Profesor(nombre, apellido, edad, direccion, tipoId, Id, reporte);
+    		Lector.lectoresExistentes.add(new Profesor(nombre, apellido, edad, direccion, tipoId, Id, reporte));
     	}
 
     }
@@ -70,5 +71,8 @@ public class Lector extends Persona {
 		return null;
     	
     }
+    
+    
+    
     
 }
