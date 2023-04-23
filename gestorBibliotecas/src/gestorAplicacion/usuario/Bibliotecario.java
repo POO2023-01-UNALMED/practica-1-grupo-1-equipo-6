@@ -7,11 +7,13 @@ import gestorAplicacion.gestion.Biblioteca;
 
 public class Bibliotecario extends Persona {
     private ArrayList<Biblioteca> bibliotecasVinculadas = new ArrayList<>();
-    private String horarioLaboral;
+    private String contraseña;
+    private String usuario;
 
-    public Bibliotecario(String nombre, String apellido, int edad, String direccion, String tipoId, int Id, String horarioLaboral) {
+    public Bibliotecario(String nombre, String apellido, int edad, String direccion, String tipoId, int Id, String contraseña,String usuario) {
         super(nombre, apellido, edad, direccion, tipoId, Id);
-        this.horarioLaboral = horarioLaboral;
+        this.contraseña = contraseña;
+        this.usuario = usuario;
     }
     
     // METHODS 
@@ -34,12 +36,22 @@ public class Bibliotecario extends Persona {
 
 
     public String getHorarioLaboral() {
-        return horarioLaboral;
+        return contraseña;
     }
 
     public void setHorarioLaboral(String horarioLaboral) {
-        this.horarioLaboral = horarioLaboral;
+        this.contraseña = horarioLaboral;
     }
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+    
+    
 }
 
 
