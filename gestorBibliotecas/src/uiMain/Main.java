@@ -55,7 +55,7 @@ public class Main {
 
 	
 	//MenuPrincipal
-	static int opcion1 = 0; // ONLY STATIC OPCION
+	static int opcionMenuPrincipal = 0; // ONLY STATIC OPCION
 	static void menuPrincipal() {
        
        //----------------------------------------------------------------//
@@ -73,9 +73,9 @@ public class Main {
 			
 			System.out.println("Por favor ingrese su opcion:");
 			
-			opcion1 = sc.nextInt(); //reader of opcion1 type by the user
+			opcionMenuPrincipal = sc.nextInt(); //reader of opcion1 type by the user
 			sc.nextLine(); //buffer cleaner 
-            switch (opcion1) {
+            switch (opcionMenuPrincipal) {
                 case 0:
 
                 break;
@@ -114,18 +114,19 @@ public class Main {
             }//end of the switch
 			
 		
-		}while(opcion1 !=6);
+		}while(opcionMenuPrincipal !=6);
 		//----------------------------------------------------------------//
 
 	}
 	
 	//first menu of function 1
+	static int opcionMenuPrestar = 0;
 	static void menuPrestar() {
 
 		
 	       //----------------------------------------------------------------//
 			Scanner sc = new Scanner(System.in);
-			int opcion2 = 0;
+			
 			do {
 				System.out.println(" ------ PRESTAR------ ");
 
@@ -136,15 +137,15 @@ public class Main {
 				System.out.println("5. Salir del Sistema");
 				System.out.println(" Por favor ingrese su opcion:");
 				
-				opcion2 = sc.nextInt(); //reader of opcion1 type by the user
+				opcionMenuPrestar = sc.nextInt(); //reader of opcion1 type by the user
 				sc.nextLine(); //buffer cleaner 
-	            switch (opcion2) {
+	            switch (opcionMenuPrestar) {
 	                case 0:
 
 	                break;
 	                case 1:
 	                    System.out.println("-----------------------------------------------------------------");
-	                    System.out.println("Libro");
+	                    System.out.println(getUser());
 	                    System.out.println("-----------------------------------------------------------------");
 	                    break;
 	                case 2:
@@ -165,7 +166,7 @@ public class Main {
 	                case 5:
 	                    System.out.println("-----------------------------------------------------------------");
 	                    System.out.println("Saliendo del sistema");
-	                    opcion1 = 6;
+	                    opcionMenuPrincipal = 6;
 	                    System.out.println("-----------------------------------------------------------------");
 	                 
 	                    break;
@@ -173,7 +174,7 @@ public class Main {
 	            }//end of the switch
 				
 			
-			}while(opcion2 !=4 && opcion2 !=5);
+			}while(opcionMenuPrestar !=4 && opcionMenuPrestar !=5);
 	}
 	//upload temporary objects  
 	
@@ -272,4 +273,90 @@ public class Main {
 		
 		
 	}
+   
+	//menu register user
+	static int opcionRegisterUser = 0;
+	static void registerUser(){
+		Scanner sc = new Scanner(System.in);
+		
+		do {
+			System.out.println("--DESEA REGISTRAR EL USUARIO?");
+
+			System.out.println("1. Registrar");
+			System.out.println("2. intentar de nuevo el documento");
+			System.out.println("3. regresar al menu anterior");
+			System.out.println("4. cerrar el sistema");
+
+			
+			opcionRegisterUser = sc.nextInt(); //reader of opcion1 type by the user
+			sc.nextLine(); //buffer cleaner 
+			
+            switch (opcionRegisterUser) {
+            case 0:
+
+            break;
+            case 1:
+                System.out.println("-----------------------------------------------------------------");
+                System.out.println("Registrar");
+                Lector.registerUser();
+                
+                //CONTINUAR AQUI
+                System.out.println("-----------------------------------------------------------------");
+                break;
+            case 2:
+                System.out.println("-----------------------------------------------------------------");
+                System.out.println("intentar el documento de nuevo");
+                opcionGetUser = 0;
+                System.out.println("-----------------------------------------------------------------");
+                break;
+            case 3:
+                System.out.println("-----------------------------------------------------------------");
+                System.out.println("regresar al menu anterior");
+                opcionGetUser =1;
+                System.out.println("-----------------------------------------------------------------");
+                break;
+            case 4:
+                System.out.println("-----------------------------------------------------------------");
+                System.out.println("Saliendo del sistema");
+                opcionGetUser =1;
+                opcionMenuPrestar = 5;
+                opcionMenuPrincipal = 6;
+                System.out.println("-----------------------------------------------------------------");
+                break;
+
+
+        }//end of the switch
+			
+		}while(opcionRegisterUser != 3 && opcionRegisterUser != 4 && opcionRegisterUser != 2);
+	}
+
+    //menu SearchUser
+	static Lector searchUser(){
+		Scanner sc = new Scanner(System.in);
+		System.out.println("por favor ingrese su documento: ");
+		
+		int documento = sc.nextInt(); //reader of document
+		sc.nextLine(); //buffer cleaner 
+		
+		return Lector.buscarLector(documento);
+		
+	}
+
+    //menu getUser
+	static int opcionGetUser = 0;
+	static Lector getUser() {
+		Lector user = null;
+		do {
+			user = searchUser();
+			if (user == null) {
+			    registerUser();
+			}else {opcionGetUser =1;}
+			
+		}while(opcionGetUser != 1);
+		
+		return user;
+		   
+	}
+
 }
+

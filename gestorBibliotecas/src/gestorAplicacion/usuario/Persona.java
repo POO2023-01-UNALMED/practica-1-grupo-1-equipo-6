@@ -22,9 +22,6 @@ public abstract class Persona {
 	}
 
 
-	public abstract void buscarBiblioteca(Lector lector);
-
-
 	public int getId() {
 		return Id;
 	}
