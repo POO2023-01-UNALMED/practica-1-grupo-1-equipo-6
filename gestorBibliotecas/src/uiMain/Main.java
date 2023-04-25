@@ -112,7 +112,7 @@ public class Main {
                     break;
 
             }//end of the switch
-			
+            System.out.println("--------------------------------------------------------------------------------------------");
 		
 		}while(opcionMenuPrincipal !=6);
 		//----------------------------------------------------------------//
@@ -145,7 +145,8 @@ public class Main {
 	                break;
 	                case 1:
 	                    System.out.println("-----------------------------------------------------------------");
-	                    System.out.println(getUser());
+	                    Lector lector = getUser();
+	                    
 	                    System.out.println("-----------------------------------------------------------------");
 	                    break;
 	                case 2:
@@ -298,9 +299,8 @@ public class Main {
             case 1:
                 System.out.println("-----------------------------------------------------------------");
                 System.out.println("Registrar");
+                System.out.println("-----------------------------------------------------------------");
                 Lector.registerUser();
-                
-                //CONTINUAR AQUI
                 System.out.println("-----------------------------------------------------------------");
                 break;
             case 2:

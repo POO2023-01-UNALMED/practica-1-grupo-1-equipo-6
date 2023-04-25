@@ -3,7 +3,6 @@ package gestorAplicacion.usuario;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import gestorAplicacion.gestion.Biblioteca;
 import gestorAplicacion.gestion.Facultad;
 
 public class Lector extends Persona {
@@ -45,11 +44,44 @@ public class Lector extends Persona {
         String tipoId = sc.nextLine();
 
         System.out.println("Ingrese el número de identificación del lector:");
-        int Id = sc.nextInt();
+        int id = sc.nextInt();
 
-        //new LectorUser
-        Lector nuevoLector = new Lector(nombre, apellido, edad, direccion, tipoId, Id);
-        System.out.println("¡Lector registrado exitosamente!");
+        System.out.println("Seleccione el tipo de lector a registrar:");
+        System.out.println("1. Estudiante");
+        System.out.println("2. Profesor");
+
+        int tipoLector = sc.nextInt();
+        sc.nextLine(); // buffer cleaner
+
+        if (tipoLector == 1) {
+
+            System.out.println("Ingrese la facultad del estudiante:");
+            System.out.println("Facultades disponibles:");
+            for (Facultad fac : Facultad.values()) {
+                System.out.println(fac.ordinal() + ". " + fac.getNombre());
+            }
+            int indexFacultad = sc.nextInt();
+            sc.nextLine(); // buffer cleaner
+            Facultad facultad = Facultad.values()[indexFacultad];
+
+            // creating student
+            Estudiante nuevoEstudiante = new Estudiante(nombre, apellido, edad, direccion, tipoId, id, false, facultad);
+            System.out.println("¡Estudiante registrado exitosamente!");
+        } else if (tipoLector == 2) {
+            System.out.println("Ingrese el departamento del profesor:");
+            String departamento = sc.nextLine();
+
+            System.out.println("Ingrese el número de consultas realizadas por el profesor:");
+            int numConsultas = sc.nextInt();
+
+            // creating professor 
+            Profesor nuevoProfesor = new Profesor(nombre, apellido, edad, direccion, tipoId, id, false);
+            System.out.println("¡Profesor registrado exitosamente!");
+        } else {
+            System.out.println("Opción no válida. Intente de nuevo.");
+        }
     }
+
+    
     
 }

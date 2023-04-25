@@ -2,30 +2,65 @@ package gestorAplicacion.usuario;
 
 import java.util.ArrayList;
 
+import gestorAplicacion.gestion.Biblioteca;
 import gestorAplicacion.gestion.Computador;
 import gestorAplicacion.gestion.Facultad;
 import gestorAplicacion.gestion.Laptop;
 import gestorAplicacion.gestion.Libro;
 
 public class Estudiante extends Lector {
+	
+	//--attributes 
     private boolean reporte;
+    private Facultad facultad;
+    
+    //--things to borrow 
     private ArrayList<Libro> librosPrestados  = new ArrayList<>();
     private ArrayList<Computador> computadoresPrestados  = new ArrayList<>();
     private ArrayList<Laptop> laptopsPrestados  = new ArrayList<>();
-    private Facultad facultad;
-
+    
+    //constructor
     public Estudiante(String nombre, String apellido, int edad, String direccion, String tipoId, int Id, boolean reporte, Facultad facultad) {
         super(nombre, apellido, edad, direccion, tipoId, Id);
         this.reporte = reporte;
         this.facultad = facultad;
     }
+    
     //METHODS
     
-    
-    //from super apply buscarBiblioteca 
-    
-    
-    
+    public ArrayList<Biblioteca> buscarBibliotecas(int documento) {
+    	ArrayList<Biblioteca> bibliotecasExistentes = new ArrayList<>();
+        for (Lector lector : lectoresExistentes) {
+            if (lector.getId() == documento && lector instanceof Estudiante) {
+            	if ((((Estudiante)lector).getFacultad() == facultad.CIENCIAS) || (((Estudiante)lector).getFacultad() == facultad.ARQUITECTURA)) {
+            		for (Biblioteca biblioteca : Biblioteca.bibliotecasExistentetes) {
+            			if((biblioteca.getFacultad() == facultad.CIENCIAS) || (biblioteca.getFacultad() == facultad.CIENCIAS_AGRARIAS) || (biblioteca.getFacultad() == facultad.CIENCIAS_HUMANAS_ECONOMIA)|| (biblioteca.getFacultad() == facultad.ARQUITECTURA) || (biblioteca.getFacultad() == facultad.UNIVERSIDAD)){
+            				bibliotecasExistentes.add(biblioteca);
+            			}
+                
+
+            		}
+            	}
+
+                
+                else if (lector.getId() == documento && lector instanceof Estudiante) {
+            	    if ((((Estudiante)lector).getFacultad() == facultad.MINAS) || (((Estudiante)lector).getFacultad() == facultad.ARQUITECTURA)) {
+            		   for (Biblioteca biblioteca : Biblioteca.bibliotecasExistentetes) {
+            			  if((biblioteca.getFacultad() == facultad.MINAS)  || (biblioteca.getFacultad() == facultad.UNIVERSIDAD)){
+            				bibliotecasExistentes.add(biblioteca);
+            			   }
+                
+
+            		    }
+            	    }
+
+                }
+            
+           }
+        }
+        return bibliotecasExistentes;
+     }
+
     
     //add book, lap top, computer borrowed 
     public void agregarLibro(Libro libro) {
@@ -40,7 +75,7 @@ public class Estudiante extends Lector {
         laptopsPrestados.add(laptop);
     }
     
-  //get number of  book, lap top, computer borrowed     
+    //get number of  book, lap top, computer borrowed     
     public int getCantidadLibrosPrestados() {
         return librosPrestados.size();
     }

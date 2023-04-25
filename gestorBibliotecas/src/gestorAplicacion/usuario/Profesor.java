@@ -2,56 +2,54 @@ package gestorAplicacion.usuario;
 
 import java.util.ArrayList;
 
+import gestorAplicacion.gestion.Biblioteca;
 import gestorAplicacion.gestion.Computador;
 import gestorAplicacion.gestion.Laptop;
 import gestorAplicacion.gestion.Libro;
 
 public class Profesor extends Lector {
+	
+	//--attributes 
     private boolean reporte;
+    
+    //--things to borrow 
     private ArrayList<Libro> librosPrestados  = new ArrayList<>();
     private ArrayList<Computador> computadoresPrestados  = new ArrayList<>();
     private ArrayList<Laptop> laptopsPrestados  = new ArrayList<>();
-
+    
+    //constructor
     public Profesor(String nombre, String apellido, int edad, String direccion, String tipoId, int Id, boolean reporte) {
         super(nombre, apellido, edad, direccion, tipoId, Id);
         this.reporte = reporte;
     }
-
-    // Getters y Setters
-    public boolean tieneReporte() {
-        return reporte;
+    
+    
+    //METHODS
+    public ArrayList<Biblioteca> buscarBibliotecas(int documento) {
+        for (Lector lector : lectoresExistentes) {
+            if (lector.getId() == documento && lector instanceof Profesor) {
+                return Biblioteca.bibliotecasExistentetes;
+            }
+        }
+        return new ArrayList<Biblioteca>();
     }
 
-    public void setReporte(boolean reporte) {
-        this.reporte = reporte;
-    }
+  
 
-    // Métodos para agregar/quitar libros, computadores, laptops prestados
+    //add book, lap top, computer borrowed 
     public void agregarLibro(Libro libro) {
         librosPrestados.add(libro);
-    }
-
-    public void quitarLibro(Libro libro) {
-        librosPrestados.remove(libro);
     }
 
     public void agregarComputador(Computador computador) {
         computadoresPrestados.add(computador);
     }
 
-    public void quitarComputador(Computador computador) {
-        computadoresPrestados.remove(computador);
-    }
-
     public void agregarLaptop(Laptop laptop) {
         laptopsPrestados.add(laptop);
     }
-
-    public void quitarLaptop(Laptop laptop) {
-        laptopsPrestados.remove(laptop);
-    }
-
-    // Métodos para obtener la cantidad de libros, computadores y laptops prestados
+    
+    //get number of  book, lap top, computer borrowed     
     public int getCantidadLibrosPrestados() {
         return librosPrestados.size();
     }
@@ -63,8 +61,13 @@ public class Profesor extends Lector {
     public int getCantidadLaptopsPrestados() {
         return laptopsPrestados.size();
     }
-
-    // Getters y Setters para los libros, computadores y laptops prestados
+    
+    
+    
+    // GETTERS AND SETTERS
+ 	public boolean isReporte() {
+		return reporte;
+	}
     public ArrayList<Libro> getLibrosPrestados() {
         return librosPrestados;
     }
@@ -88,5 +91,7 @@ public class Profesor extends Lector {
     public void setLaptopsPrestados(ArrayList<Laptop> laptopsPrestados) {
         this.laptopsPrestados = laptopsPrestados;
     }
+
+
 }
 

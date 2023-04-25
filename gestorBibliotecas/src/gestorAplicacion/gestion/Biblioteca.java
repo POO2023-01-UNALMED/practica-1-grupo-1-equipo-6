@@ -5,17 +5,26 @@ import java.util.ArrayList;
 import gestorAplicacion.usuario.Bibliotecario;
 
 public class Biblioteca {
+	
+	
+	// attributes
     private String direccion;
     private Facultad facultad;
     private String nombre;
+    
+    
+    //things to borrow
     private ArrayList<String> computadoresMesaDisponibles= new ArrayList<>();
     private ArrayList<String> laptopsDisponibles= new ArrayList<>();
     private ArrayList<Libro> librosDisponibles = new ArrayList<>();
     private ArrayList<String> generosDisponibles = new ArrayList<>();
     private ArrayList<Bibliotecario> bibliotecarios = new ArrayList<>();
     
+    
+    // libraries 
     public static ArrayList<Biblioteca> bibliotecasExistentetes = new ArrayList<>();
-
+    
+    //constructor
     public Biblioteca(String direccion, Facultad facultad, String nombre) {
         this.direccion = direccion;
         this.facultad = facultad;
@@ -24,15 +33,8 @@ public class Biblioteca {
     }
 
     // METHODS
-    // this method sets the genre of books according to the list
-    public void setGenerosDisponibles() {
-        generosDisponibles = new ArrayList<>();
-        for (Libro libro : librosDisponibles) {
-            if (!generosDisponibles.contains(libro.getGenero())) {
-                generosDisponibles.add(libro.getGenero());
-            }
-        }
-    }
+    
+
 
     // adders (like a setter) for librarians, books, computers, lap tops, 
     public void agregarLibro(Libro libro) {
@@ -53,7 +55,7 @@ public class Biblioteca {
     public void agregarLaptopDisponible(String laptop) {
         laptopsDisponibles.add(laptop);
     }
-
+    
     // GETTERS AND SETTERS
     public String getNombre() {
         return nombre;
