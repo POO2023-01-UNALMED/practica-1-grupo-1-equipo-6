@@ -20,6 +20,7 @@ public class Lector extends Persona {
                 return lector;
             }
         }
+        System.out.println("-----------------------------------------------------------------");
         System.out.println("Lector no encontrado");
         return null;
     }
@@ -54,8 +55,11 @@ public class Lector extends Persona {
         sc.nextLine(); // buffer cleaner
 
         if (tipoLector == 1) {
-
+        	System.out.println("-----------------------------------------------------------------");
+        	System.out.println("1. Estudiante");
+        	System.out.println("-----------------------------------------------------------------");
             System.out.println("Ingrese la facultad del estudiante:");
+            System.out.println("");
             System.out.println("Facultades disponibles:");
             for (Facultad fac : Facultad.values()) {
                 System.out.println(fac.ordinal() + ". " + fac.getNombre());
@@ -68,11 +72,6 @@ public class Lector extends Persona {
             Estudiante nuevoEstudiante = new Estudiante(nombre, apellido, edad, direccion, tipoId, id, false, facultad);
             System.out.println("¡Estudiante registrado exitosamente!");
         } else if (tipoLector == 2) {
-            System.out.println("Ingrese el departamento del profesor:");
-            String departamento = sc.nextLine();
-
-            System.out.println("Ingrese el número de consultas realizadas por el profesor:");
-            int numConsultas = sc.nextInt();
 
             // creating professor 
             Profesor nuevoProfesor = new Profesor(nombre, apellido, edad, direccion, tipoId, id, false);
@@ -80,6 +79,9 @@ public class Lector extends Persona {
         } else {
             System.out.println("Opción no válida. Intente de nuevo.");
         }
+        System.out.println("-----------------------------------------------------------------");
+        System.out.println("Para continuar digite el documento nuevamente:");
+        
     }
 
     

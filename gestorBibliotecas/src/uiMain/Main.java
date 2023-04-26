@@ -11,6 +11,7 @@ import gestorAplicacion.gestion.Libro;
 import gestorAplicacion.usuario.Bibliotecario;
 import gestorAplicacion.usuario.Estudiante;
 import gestorAplicacion.usuario.Lector;
+import gestorAplicacion.usuario.Profesor;
 
 public class Main {
 	
@@ -145,9 +146,10 @@ public class Main {
 	                break;
 	                case 1:
 	                    System.out.println("-----------------------------------------------------------------");
-	                    Lector lector = getUser();
-	                    
+	    				System.out.println("Libro");	                    
 	                    System.out.println("-----------------------------------------------------------------");
+	                    seleccionBiblioteca(getUser());
+	                    
 	                    break;
 	                case 2:
 	                    System.out.println("-----------------------------------------------------------------");
@@ -281,6 +283,7 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		
 		do {
+			System.out.println("-----------------------------------------------------------------");
 			System.out.println("--DESEA REGISTRAR EL USUARIO?");
 
 			System.out.println("1. Registrar");
@@ -301,6 +304,7 @@ public class Main {
                 System.out.println("Registrar");
                 System.out.println("-----------------------------------------------------------------");
                 Lector.registerUser();
+                opcionRegisterUser = 3;
                 System.out.println("-----------------------------------------------------------------");
                 break;
             case 2:
@@ -312,8 +316,8 @@ public class Main {
             case 3:
                 System.out.println("-----------------------------------------------------------------");
                 System.out.println("regresar al menu anterior");
-                opcionGetUser =1;
                 System.out.println("-----------------------------------------------------------------");
+                opcionGetUser =1;
                 break;
             case 4:
                 System.out.println("-----------------------------------------------------------------");
@@ -356,6 +360,60 @@ public class Main {
 		
 		return user;
 		   
+	}
+     
+	//menu prestarLibro
+	static Biblioteca seleccionBiblioteca(Lector user) {
+		
+		ArrayList<Biblioteca> bibliotecasDisponibles = new ArrayList<>();
+		
+		if (user == null) {
+			return null;
+		}
+		else {
+		    if(user instanceof Estudiante) {
+		        Estudiante estudiante = (Estudiante) user;
+		        bibliotecasDisponibles = estudiante.buscarBibliotecas(estudiante.getId());
+		    } else if(user instanceof Profesor) {
+		        Profesor profesor = (Profesor) user;
+		        bibliotecasDisponibles = profesor.buscarBibliotecas(profesor.getId());
+		    }
+		    
+		    do {
+		    	System.out.println("-----------------------------------------------------------------");
+		        System.out.println("BIBLIOTECAS DISPONIBLES:");
+		        System.out.println("");
+		        int index = 1;
+		        for (Biblioteca biblioteca : bibliotecasDisponibles) {
+		            System.out.println(index + ". " + biblioteca.getNombre());
+		            index++;
+		        }
+		        System.out.println(index + ". Regresar al menú anterior");
+		        System.out.print("Seleccione una opción: ");
+		        
+		        int opcion = sc.nextInt();
+		        sc.nextLine(); // buffer cleaner
+		        
+		        if (opcion == index) {
+		            break;
+		        } else if (opcion > 0 && opcion < index) {
+		            Biblioteca bibliotecaSeleccionada = bibliotecasDisponibles.get(opcion-1);
+		            System.out.println("-----------------------------------------------------------------");
+		            System.out.println("BIBLIOTECA SELECCIONADA: " + bibliotecaSeleccionada.getNombre());
+		            
+		              
+		            return bibliotecaSeleccionada;
+		        } else {
+		            System.out.println("Opción no válida. Intente de nuevo.");
+		            return null;
+		        }
+		    } while (true);
+		}
+		return null;
+		
+		
+
+
 	}
 
 }
