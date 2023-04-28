@@ -13,7 +13,9 @@ public class Lector extends Persona {
         lectoresExistentes.add(this);
     }
 
+    //METHODS 
     
+    //SEARCH USERS
     public static Lector buscarLector(int documento) {
         for (Lector lector : lectoresExistentes) {
             if (lector.getId() == documento) {
@@ -24,7 +26,8 @@ public class Lector extends Persona {
         System.out.println("Lector no encontrado");
         return null;
     }
-
+    
+    //REGISTER USERS 
     public static void registerUser() {
         Scanner sc = new Scanner(System.in);
 
@@ -84,6 +87,6 @@ public class Lector extends Persona {
         
     }
 
-    
+ 
     
 }

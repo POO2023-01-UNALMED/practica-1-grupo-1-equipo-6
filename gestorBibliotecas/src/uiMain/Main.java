@@ -82,8 +82,9 @@ public class Main {
                 break;
                 case 1:
                     System.out.println("-----------------------------------------------------------------");
-                    menuPrestar();
+                    System.out.println("Prestar");
                     System.out.println("-----------------------------------------------------------------");
+                     menuPrestar();
                     break;
                 case 2:
                     System.out.println("-----------------------------------------------------------------");
@@ -113,7 +114,6 @@ public class Main {
                     break;
 
             }//end of the switch
-            System.out.println("--------------------------------------------------------------------------------------------");
 		
 		}while(opcionMenuPrincipal !=6);
 		//----------------------------------------------------------------//
@@ -129,7 +129,6 @@ public class Main {
 			Scanner sc = new Scanner(System.in);
 			
 			do {
-				System.out.println(" ------ PRESTAR------ ");
 
 				System.out.println("1. Libro");
 				System.out.println("2. Computadora");
@@ -148,8 +147,8 @@ public class Main {
 	                    System.out.println("-----------------------------------------------------------------");
 	    				System.out.println("Libro");	                    
 	                    System.out.println("-----------------------------------------------------------------");
-	                    seleccionBiblioteca(getUser());
 	                    
+	                    seleccionTipoBusquedaLibro(seleccionBiblioteca(getUser()));
 	                    break;
 	                case 2:
 	                    System.out.println("-----------------------------------------------------------------");
@@ -164,7 +163,6 @@ public class Main {
 	                case 4:
 	                    System.out.println("-----------------------------------------------------------------");
 	                    System.out.println("Regresando al menu anterior");
-	                    System.out.println("-----------------------------------------------------------------");
 	                    break;
 	                case 5:
 	                    System.out.println("-----------------------------------------------------------------");
@@ -285,7 +283,7 @@ public class Main {
 		do {
 			System.out.println("-----------------------------------------------------------------");
 			System.out.println("--DESEA REGISTRAR EL USUARIO?");
-
+			System.out.println("");
 			System.out.println("1. Registrar");
 			System.out.println("2. intentar de nuevo el documento");
 			System.out.println("3. regresar al menu anterior");
@@ -318,6 +316,7 @@ public class Main {
                 System.out.println("regresar al menu anterior");
                 System.out.println("-----------------------------------------------------------------");
                 opcionGetUser =1;
+                
                 break;
             case 4:
                 System.out.println("-----------------------------------------------------------------");
@@ -415,6 +414,119 @@ public class Main {
 
 
 	}
+    
+	//menu seleccionTipoBusquedaLibro
+	static int seleccionTipoBusquedaLibro = 0;
+	static void seleccionTipoBusquedaLibro(Biblioteca biblioteca) {
+		Scanner sc = new Scanner(System.in);
+		
+		if(biblioteca != null) {
+			do {
 
+				System.out.println("1. Genero");
+				System.out.println("2. Id del libro");
+				System.out.println("3. Titulo y Autor");
+				System.out.println("4. Regresar");
+				System.out.println("5. Salir del Sistema");
+				System.out.println(" Por favor ingrese su opcion:");
+				
+				seleccionTipoBusquedaLibro = sc.nextInt(); //reader of opcion1 type by the user
+				sc.nextLine(); //buffer cleaner 
+	            switch (seleccionTipoBusquedaLibro) {
+	                case 0:
+
+	                break;
+	                case 1:
+	                    System.out.println("-----------------------------------------------------------------");
+	    				System.out.println("Genero");	                    
+	                    System.out.println("-----------------------------------------------------------------");
+	                    filtrarLibros(1,biblioteca);
+	                case 2:
+	                    System.out.println("-----------------------------------------------------------------");
+	                    System.out.println("Id del libro");
+	                    System.out.println("-----------------------------------------------------------------");
+	                    break;
+	                case 3:
+	                    System.out.println("-----------------------------------------------------------------");
+	                    System.out.println("Titulo y Autor");
+	                    System.out.println("-----------------------------------------------------------------");
+	                    break;
+	                case 4:
+	                    System.out.println("-----------------------------------------------------------------");
+	                    System.out.println("Regresando al menu anterior");
+	                    System.out.println("-----------------------------------------------------------------");
+	                    break;
+	                case 5:
+	                    System.out.println("-----------------------------------------------------------------");
+	                    System.out.println("Saliendo del sistema");
+	                    opcionMenuPrincipal = 6;
+	                    System.out.println("-----------------------------------------------------------------");
+	                 
+	                    break;
+
+	            }//end of the switch
+				
+			
+			}while(seleccionTipoBusquedaLibro !=4 && seleccionTipoBusquedaLibro !=5);
+		}
+		
+
+	}
+	
+	//filter of books
+	static void filtrarLibros(int opcion, Biblioteca biblioteca){
+		ArrayList<String> generos  = new ArrayList<>();
+		ArrayList<Integer> ids  = new ArrayList<>();
+		ArrayList<String> autoresYtitulos = new ArrayList<>();
+		if (opcion == 1) {
+		    for(Libro libro : biblioteca.getLibrosDisponibles()) {
+		        if (!generos.contains(libro.getGenero())) {
+		            generos.add(libro.getGenero());
+		        }
+		    }
+		    
+		    do {
+		    	System.out.println("-----------------------------------------------------------------");
+		        System.out.println("Generos Disponibles:");
+		        System.out.println("");
+		        int index = 1;
+		        for (String genero : generos) {
+		            System.out.println(index + ". " + genero);
+		            index++;
+		        }
+		        System.out.println(index + ". Regresar al menú anterior");
+		        System.out.print("Seleccione una opción: ");
+		        
+		        int generoSeleccionado = sc.nextInt();
+		        sc.nextLine(); // buffer cleaner
+		        
+		        if (generoSeleccionado == index) {
+		            break;
+		        } else if (generoSeleccionado > 0 && opcion < index) {
+		            String GeneroSeleccionado = generos.get(opcion-1);
+		            System.out.println("-----------------------------------------------------------------");
+		            System.out.println("Genero Seleccionado: " + generoSeleccionado);
+		            break;
+		        } else {
+		            System.out.println("Opción no válida. Intente de nuevo.");
+		        }
+		    } while (true);
+		}
+		else if (opcion == 2) {
+		    for(Libro libro : biblioteca.getLibrosDisponibles()) {
+		        if (!ids.contains(libro.getId())) {
+		            ids.add(libro.getId());
+		        }
+		    }
+		}
+		else if (opcion == 3) {
+		    for(Libro libro : biblioteca.getLibrosDisponibles()) {
+		        String autorYtitulo = libro.getAutor() + " " + libro.getTitulo();
+		        if (!autoresYtitulos.contains(autorYtitulo)) {
+		            autoresYtitulos.add(autorYtitulo);
+		        }
+		    }
+		}
+	}
 }
 
