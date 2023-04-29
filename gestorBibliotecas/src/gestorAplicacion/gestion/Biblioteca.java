@@ -35,23 +35,22 @@ public class Biblioteca {
     // METHODS
     
     //over charge 
-    public ArrayList<Libro> buscarLibro(String genero) {
-    	ArrayList<Libro> librosPorGenero = new ArrayList<>();
-    	for(Libro libro : librosDisponibles) {
-    		if (libro.getGenero()== genero) {
-    			librosPorGenero.add(libro);
-    		}
-    	}
-    	return librosPorGenero;
+    public ArrayList<Libro> LibrosPorGenero(String genero) {
+        ArrayList<Libro> librosPorGenero = new ArrayList<>();
+        for(Libro libro : librosDisponibles) {
+            if (libro.getGenero().equals(genero)) {
+                librosPorGenero.add(libro);
+            }
+        }
+        return librosPorGenero;
     }
-    public ArrayList<Libro> buscarLibro(int id) {
-    	ArrayList<Libro> librosPorId = new ArrayList<>();
-    	for(Libro libro : librosDisponibles) {
-    		if (libro.getId()== id) {
-    			librosPorId.add(libro);
-    		}
-    	}
-    	return librosPorId;
+    public Libro buscarLibroPorId(int id) {
+        for (Libro libro : librosDisponibles) {
+            if (libro.getId() == id) {
+                return libro;
+            }
+        }
+        return null;
     }
     public ArrayList<Libro> buscarLibro(String titulo, String autor) {
     	ArrayList<Libro> librosPorTituloAutor = new ArrayList<>();

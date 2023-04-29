@@ -387,23 +387,23 @@ public class Main {
 		            System.out.println(index + ". " + biblioteca.getNombre());
 		            index++;
 		        }
-		        System.out.println(index + ". Regresar al menú anterior");
-		        System.out.print("Seleccione una opción: ");
 		        
+		        System.out.println(index + ". Regresar al menu anterior");
+		        System.out.print("Seleccione una opcion: ");
+		       
 		        int opcion = sc.nextInt();
 		        sc.nextLine(); // buffer cleaner
-		        
+		         System.out.println("-----------------------------------------------------------------");
 		        if (opcion == index) {
 		            break;
 		        } else if (opcion > 0 && opcion < index) {
 		            Biblioteca bibliotecaSeleccionada = bibliotecasDisponibles.get(opcion-1);
-		            System.out.println("-----------------------------------------------------------------");
 		            System.out.println("BIBLIOTECA SELECCIONADA: " + bibliotecaSeleccionada.getNombre());
-		            
+		            System.out.println("-----------------------------------------------------------------");
 		              
 		            return bibliotecaSeleccionada;
 		        } else {
-		            System.out.println("Opción no válida. Intente de nuevo.");
+		            System.out.println("Opción no valida. Intente de nuevo.");
 		            return null;
 		        }
 		    } while (true);
@@ -441,6 +441,7 @@ public class Main {
 	    				System.out.println("Genero");	                    
 	                    System.out.println("-----------------------------------------------------------------");
 	                    filtrarLibros(1,biblioteca);
+	                    break;
 	                case 2:
 	                    System.out.println("-----------------------------------------------------------------");
 	                    System.out.println("Id del libro");
@@ -478,6 +479,8 @@ public class Main {
 		ArrayList<String> generos  = new ArrayList<>();
 		ArrayList<Integer> ids  = new ArrayList<>();
 		ArrayList<String> autoresYtitulos = new ArrayList<>();
+		
+		
 		if (opcion == 1) {
 		    for(Libro libro : biblioteca.getLibrosDisponibles()) {
 		        if (!generos.contains(libro.getGenero())) {
@@ -486,7 +489,6 @@ public class Main {
 		    }
 		    
 		    do {
-		    	System.out.println("-----------------------------------------------------------------");
 		        System.out.println("Generos Disponibles:");
 		        System.out.println("");
 		        int index = 1;
@@ -497,21 +499,61 @@ public class Main {
 		        System.out.println(index + ". Regresar al menú anterior");
 		        System.out.print("Seleccione una opción: ");
 		        
-		        int generoSeleccionado = sc.nextInt();
+		        int generoSeleccionadoOpcion = sc.nextInt();
 		        sc.nextLine(); // buffer cleaner
 		        
-		        if (generoSeleccionado == index) {
+		        if (generoSeleccionadoOpcion == index) {
 		            break;
-		        } else if (generoSeleccionado > 0 && opcion < index) {
-		            String GeneroSeleccionado = generos.get(opcion-1);
+		        } else if (generoSeleccionadoOpcion > 0 && generoSeleccionadoOpcion < index) {
+		            String generoSeleccionado = generos.get(generoSeleccionadoOpcion-1);
 		            System.out.println("-----------------------------------------------------------------");
 		            System.out.println("Genero Seleccionado: " + generoSeleccionado);
+		            System.out.println("-----------------------------------------------------------------");
+		            
+		            
+		            //---------------------------------------------------------------------------------------//
+		            ArrayList<Libro> librosPorGenero  = biblioteca.LibrosPorGenero(generoSeleccionado);
+		            
+		    	    do {
+		    	        System.out.println("Libros Disponibles:");
+		    	        System.out.println("");
+		    	        int index2 = 1;
+		    	        for (Libro libro : librosPorGenero) {
+		    	            System.out.println(index2 + ". " + libro.getTitulo());
+		    	            index2++;
+		    	        }
+		    	        System.out.println(index2 + ". Regresar al menú anterior");
+		    	        System.out.print("Seleccione una opción: ");
+		    	        
+		    	        int libroSeleccionadoOpcion = sc.nextInt();
+		    	        sc.nextLine(); // buffer cleaner
+		    	        
+		    	        if (libroSeleccionadoOpcion == index2) {
+		    	            break;
+		    	        } else if (libroSeleccionadoOpcion > 0 && libroSeleccionadoOpcion < index2) {
+		    	            Libro libroSeleccionado = librosPorGenero.get(libroSeleccionadoOpcion-1);
+		    	            System.out.println("-----------------------------------------------------------------");
+		    	            System.out.println("Genero Seleccionado: " + libroSeleccionado.getTitulo());
+		    	            System.out.println("-----------------------------------------------------------------");
+		    	            
+
+		    	            break;
+		    	        } else {
+		    	            System.out.println("Opción no válida. Intente de nuevo.");
+		    	        }
+		    	    } while (true);
+		            //-----------------------------------------------------------------------------------//
+		    	    
+		    	    
 		            break;
 		        } else {
 		            System.out.println("Opción no válida. Intente de nuevo.");
 		        }
+
 		    } while (true);
 		}
+		
+		
 		else if (opcion == 2) {
 		    for(Libro libro : biblioteca.getLibrosDisponibles()) {
 		        if (!ids.contains(libro.getId())) {
@@ -528,5 +570,7 @@ public class Main {
 		    }
 		}
 	}
+
+ 
 }
 
