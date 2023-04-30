@@ -35,7 +35,7 @@ public class Biblioteca {
     // METHODS
     
     //over charge 
-    public ArrayList<Libro> LibrosPorGenero(String genero) {
+    public ArrayList<Libro> LibrosFiltrados(String genero) {
         ArrayList<Libro> librosPorGenero = new ArrayList<>();
         for(Libro libro : librosDisponibles) {
             if (libro.getGenero().equals(genero)) {
@@ -44,7 +44,7 @@ public class Biblioteca {
         }
         return librosPorGenero;
     }
-    public Libro buscarLibroPorId(int id) {
+    public Libro LibrosFiltrados(int id) {
         for (Libro libro : librosDisponibles) {
             if (libro.getId() == id) {
                 return libro;
