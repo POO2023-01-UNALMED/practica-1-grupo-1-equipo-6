@@ -2,6 +2,9 @@ package uiMain;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.List;
+import java.util.Comparator;
+
 
 import gestorAplicacion.gestion.Biblioteca;
 import gestorAplicacion.gestion.Computador;
@@ -183,7 +186,7 @@ public class Main {
 	static void cargarObjetos() {
 		// creating books
 		Libro libro1 = new Libro("Ciencia ficción", 1, "Dune", "Frank Herbert", "Ace Books", 1965);
-		Libro libro2 = new Libro("Novela histórica", 2, "Los Pilares de la Tierra", "Ken Follett", "Editorial Planeta",
+		Libro libro2 = new Libro("Novela histórica", 2, "Los Pilares de la Tierra", "Frank Herbert", "Editorial Planeta",
 				1989);
 		Libro libro3 = new Libro("Fantasía", 3, "El Señor de los Anillos", "J.R.R. Tolkien", "George Allen & Unwin",
 				1954);
@@ -452,6 +455,7 @@ public class Main {
 	                    System.out.println("-----------------------------------------------------------------");
 	                    System.out.println("Titulo y Autor");
 	                    System.out.println("-----------------------------------------------------------------");
+	                    filtrarLibros(3,biblioteca);
 	                    break;
 	                case 4:
 	                    System.out.println("-----------------------------------------------------------------");
@@ -479,7 +483,7 @@ public class Main {
 	static void filtrarLibros(int opcion, Biblioteca biblioteca){
 		ArrayList<String> generos  = new ArrayList<>();
 		ArrayList<Integer> ids  = new ArrayList<>();
-		ArrayList<String> autoresYtitulos = new ArrayList<>();
+		ArrayList<Libro> autoresYtitulos = biblioteca.getLibrosDisponibles();
 		
 		
 		if (opcion == 1) {
@@ -520,12 +524,17 @@ public class Main {
 		    	        System.out.println("Libros Disponibles:");
 		    	        System.out.println("");
 		    	        int index2 = 1;
+		    	        System.out.printf("%-10s %-10s %-20s %-40s %-15s %-20s %-20s%n"," OPCION", "ID", "Genero", "Titulo", "Autor", "Editorial", "Ano de publicacion");
+		    	        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------");
 		    	        for (Libro libro : librosPorGenero) {
-		    	            System.out.println(index2 + ". " + libro.getTitulo());
+		    	        	
+		    	        	
+		    	            System.out.printf( " %-10s %-5d %-20s %-40s %-20s %-20s %-20d%n",index2, libro.getId(), libro.getGenero(), libro.getTitulo(), libro.getAutor(), libro.getEditorial(), libro.getAnioPublicacion());
+		    	            System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------");
 		    	            index2++;
 		    	        }
-		    	        System.out.println(index2 + ". Regresar al menú anterior");
-		    	        System.out.print("Seleccione una opción: ");
+		    	        System.out.println(index2 + ". Regresar al menu anterior");
+		    	        System.out.print("Seleccione una opcion: ");
 		    	        
 		    	        int libroSeleccionadoOpcion = sc.nextInt();
 		    	        sc.nextLine(); // buffer cleaner
@@ -542,7 +551,7 @@ public class Main {
 
 		    	            break;
 		    	        } else {
-		    	            System.out.println("Opción no válida. Intente de nuevo.");
+		    	            System.out.println("Opcion no valida. Intente de nuevo.");
 		    	        }
 		    	    } while (true);
 		            //-----------------------------------------------------------------------------------//
@@ -562,7 +571,8 @@ public class Main {
 		            ids.add(libro.getId());
 		        }
 		    }
-		    
+            int libroNoEncontradoOpcion = 0;
+            int libroEncontradoOpcion = 0;
 		    do {
 		    	System.out.println("Ingrese el ID :");
     	        int idSeleccionado = sc.nextInt();
@@ -571,30 +581,83 @@ public class Main {
 		    	
     	        if(biblioteca.LibrosFiltrados(idSeleccionado) != null) {
     	        	Libro libroSeleccionado = biblioteca.LibrosFiltrados(idSeleccionado);
-    	        	System.out.println("Libro encontrado: ");
-    	        	System.out.println(libroSeleccionado.getTitulo());
-    	        	
-    	        	//anexar codigo para saber si es el libro correcto
+   	        	    System.out.println("-----------------------------------------------------------------");
+   	        	    System.out.println("Libro  encontrado");
+   	        	    System.out.println("-----------------------------------------------------------------");
+    	        	System.out.println(" ");
+    	        	System.out.printf("%-10s %-20s %-40s %-15s %-20s %-20s%n", "ID", "Genero", "Titulo", "Autor", "Editorial", "Ano de publicacion");
+	    	        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------");
+	    	        System.out.printf( "%-5d %-20s %-40s %-20s %-20s %-20d%n",libroSeleccionado.getId(), libroSeleccionado.getGenero(), libroSeleccionado.getTitulo(), libroSeleccionado.getAutor(), libroSeleccionado.getEditorial(), libroSeleccionado.getAnioPublicacion());
+    	            System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------");
+    	        	System.out.println(" ");
+    	        	System.out.println("Es este el libro que busca el lector?");
+    	        	do {
+    	        		System.out.println("1. Si");
+    	        		System.out.println("2. No");
+    	        		
+    	    	        libroEncontradoOpcion = sc.nextInt();
+    	    	        
+    	    	        sc.nextLine(); // buffer cleaner
+    	    	        
+    	    	        switch (libroEncontradoOpcion) {
+    	    	        case 1:
+    	    	        	 System.out.println( "Libro Seleccionado : "+ libroSeleccionado.getTitulo());
+    	    	        	 break;
+    	    	        case 2:
+    	    	        	 System.out.println("-----------------------------------------------------------------");
+    	    	        	 System.out.println("regresar al menu anterior");
+    	    	        	 System.out.println("-----------------------------------------------------------------");
+    	    	        }
+    	    	        break;
+    	        	}while(true);
     	        	break;
     	        }else {
-    	        	System.out.println("Libro no encontrado");
-    	        	break;
+    	        	 System.out.println("-----------------------------------------------------------------");
+    	        	 System.out.println("Libro no encontrado");
+    	        	 System.out.println("-----------------------------------------------------------------");
+    	        	 
+    	        	do {
+    	        		System.out.println("1. intentar de nuevo el ID");
+    	        		System.out.println("2. regresar al menu anterior");
+    	        		
+    	    	        libroNoEncontradoOpcion = sc.nextInt();
+    	    	        
+    	    	        sc.nextLine(); // buffer cleaner
+    	    	        
+    	    	        switch (libroNoEncontradoOpcion) {
+    	    	        case 1:
+    	    	        	 System.out.println("-----------------------------------------------------------------");
+    	    	        	 System.out.println("intentar el ID de nuevo");
+    	    	        	 System.out.println("-----------------------------------------------------------------");
+    	    	        	 break;
+    	    	        case 2:
+    	    	        	 System.out.println("-----------------------------------------------------------------");
+    	    	        	 System.out.println("regresar al menu anterior");
+    	    	        	 System.out.println("-----------------------------------------------------------------");
+    	    	        }
+    	    	        break;
+    	        	}while(true);
+    	        	
     	        }
-		    }while(true);
+    	        
+		    }while(libroNoEncontradoOpcion != 2);
 		    
 
 		    
 		}
 		else if (opcion == 3) {
-		    for(Libro libro : biblioteca.getLibrosDisponibles()) {
-		        String autorYtitulo = libro.getAutor() + " " + libro.getTitulo();
-		        if (!autoresYtitulos.contains(autorYtitulo)) {
-		            autoresYtitulos.add(autorYtitulo);
-		        }
-		    }
+			ArrayList<String> results = biblioteca.LibrosFiltrados();
+			if (!results.isEmpty()) {
+				for(String book : results) {
+					System.out.println(book);
+	            }
+			}else {System.out.println("no se encontraron resultados");}
+			
 		}
 	}
 
- 
+	
+	
+
 }
 

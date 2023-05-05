@@ -1,6 +1,9 @@
 package gestorAplicacion.gestion;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 
 import gestorAplicacion.usuario.Bibliotecario;
 
@@ -35,6 +38,8 @@ public class Biblioteca {
     // METHODS
     
     //over charge 
+    
+    //filter books by genre
     public ArrayList<Libro> LibrosFiltrados(String genero) {
         ArrayList<Libro> librosPorGenero = new ArrayList<>();
         for(Libro libro : librosDisponibles) {
@@ -44,6 +49,8 @@ public class Biblioteca {
         }
         return librosPorGenero;
     }
+
+    //filter books by id
     public Libro LibrosFiltrados(int id) {
         for (Libro libro : librosDisponibles) {
             if (libro.getId() == id) {
@@ -52,15 +59,44 @@ public class Biblioteca {
         }
         return null;
     }
-    public ArrayList<Libro> buscarLibro(String titulo, String autor) {
-    	ArrayList<Libro> librosPorTituloAutor = new ArrayList<>();
-    	for(Libro libro : librosDisponibles) {
-    		if (libro.getTitulo()== titulo && libro.getAutor() == autor) {
-    			librosPorTituloAutor.add(libro);
-    		}
-    	}
-    	return librosPorTituloAutor;
+    
+    //filter books by authors or titles 
+    public ArrayList<String> LibrosFiltrados() {
+        // taking only the titles and authors from the librosDisponible
+		List<String> books = new ArrayList<String>();
+		for(Libro libro :getLibrosDisponibles()) {
+		books.add(libro.getTitulo().toLowerCase()  + " - " + libro.getAutor().toLowerCase());
+		}
+
+        // taking the string provided by the user
+        System.out.println("Ingrese el título o autor del libro que busca: ");
+        System.out.print(" ");
+        Scanner scanner = new Scanner(System.in);
+        String searchQuery = scanner.nextLine();
+
+        // split the search in individual words
+        List<String> searchTerms = Arrays.asList(searchQuery.split("\\s+"));
+
+        // searching the results that coincide with the search 
+        List<String> results = new ArrayList<>();
+        for (String book : books) {
+            boolean matches = true;
+            for (String term : searchTerms) {
+                if (!book.toLowerCase().contains(term.toLowerCase())) {
+                    matches = false;
+                    break;
+                }
+            }
+            if (matches) {
+                results.add(book);
+            }
+        }
+        
+        // returning the list with the possible name and authors of the book searched 
+        return (ArrayList<String>) results;
+     
     }
+    
 
 
     // adders (like a setter) for librarians, books, computers, lap tops, 
