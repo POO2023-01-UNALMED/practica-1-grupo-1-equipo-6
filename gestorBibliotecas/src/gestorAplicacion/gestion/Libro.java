@@ -2,6 +2,11 @@ package gestorAplicacion.gestion;
 
 import gestorAplicacion.usuario.Lector;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import gestorAplicacion.gestion.Biblioteca;
+
 public class Libro {
     private String genero;
     private int id;
@@ -21,6 +26,31 @@ public class Libro {
         this.anioPublicacion = anioPublicacion;
     }
 
+    //methods
+    public void asignarLibro(Lector lector, Biblioteca biblioteca) {
+        Libro libro = this; // O puede pasar el libro como parámetro al método
+        ArrayList<Libro> librosDisponibles = biblioteca.getLibrosDisponibles();
+        ArrayList<Libro> librosPrestados = lector.getLibrosPrestados();
+
+        for (int i = 0; i < librosDisponibles.size(); i++) {
+            if (librosDisponibles.get(i).getId() == libro.getId()) {
+                // El libro ha sido encontrado en la lista de libros disponibles
+                librosDisponibles.remove(i); // Eliminar el libro de la lista de libros disponibles
+                librosPrestados.add(libro); // Agregar el libro a la lista de libros prestados del lector
+                break; // Salir del bucle for
+            }
+        }
+        libro.lector = lector;
+        libro.biblioteca = biblioteca;
+        lector.setLibrosPrestados(librosPrestados);
+        biblioteca.setLibrosDisponibles(librosDisponibles);
+        
+    }
+
+
+    
+    
+    
     public String getGenero() {
         return genero;
     }

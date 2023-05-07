@@ -61,11 +61,11 @@ public class Biblioteca {
     }
     
     //filter books by authors or titles 
-    public ArrayList<String> LibrosFiltrados() {
+    public ArrayList<Libro> LibrosFiltrados() {
         // taking only the titles and authors from the librosDisponible
 		List<String> books = new ArrayList<String>();
 		for(Libro libro :getLibrosDisponibles()) {
-		books.add(libro.getTitulo().toLowerCase()  + " - " + libro.getAutor().toLowerCase());
+		books.add(libro.getId() + "-" + libro.getTitulo().toLowerCase()  + " - " + libro.getAutor().toLowerCase());
 		}
 
         // taking the string provided by the user
@@ -88,12 +88,30 @@ public class Biblioteca {
                 }
             }
             if (matches) {
-                results.add(book);
+                results.add(book);  
             }
         }
         
+        List<Integer> idsLibrosPosibles = new ArrayList<>();
+        for (String elemento : results) {
+        	String[] IdTituloAutorDividido = elemento.split("\\-");
+        	int idPosible = Integer.parseInt(IdTituloAutorDividido[0].trim());
+        	idsLibrosPosibles.add(idPosible);
+        }
+        
+        ArrayList<Libro> librosPosibles = new ArrayList<>();
+        for(int idPosible : idsLibrosPosibles) {
+        	for(Libro libro : getLibrosDisponibles()) {
+        		if(libro.getId() == idPosible) {
+        			librosPosibles.add(libro);
+        		}
+        	}
+        	
+        }
+        
+        
         // returning the list with the possible name and authors of the book searched 
-        return (ArrayList<String>) results;
+        return  librosPosibles;
      
     }
     
@@ -164,5 +182,19 @@ public class Biblioteca {
     public ArrayList<Bibliotecario> getBibliotecarios() {
         return bibliotecarios;
     }
+
+	public void setComputadoresMesaDisponibles(ArrayList<String> computadoresMesaDisponibles) {
+		this.computadoresMesaDisponibles = computadoresMesaDisponibles;
+	}
+
+	public void setLaptopsDisponibles(ArrayList<String> laptopsDisponibles) {
+		this.laptopsDisponibles = laptopsDisponibles;
+	}
+
+	public void setLibrosDisponibles(ArrayList<Libro> librosDisponibles) {
+		this.librosDisponibles = librosDisponibles;
+	}
+    
+    
 }
 

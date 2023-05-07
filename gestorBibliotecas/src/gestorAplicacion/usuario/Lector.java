@@ -3,10 +3,19 @@ package gestorAplicacion.usuario;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import gestorAplicacion.gestion.Computador;
 import gestorAplicacion.gestion.Facultad;
+import gestorAplicacion.gestion.Laptop;
+import gestorAplicacion.gestion.Libro;
 
 public class Lector extends Persona {
 	static ArrayList<Lector> lectoresExistentes = new ArrayList<>();
+	
+	
+    //--things to borrow 
+    private ArrayList<Libro> librosPrestados  = new ArrayList<>();
+    private ArrayList<Computador> computadoresPrestados  = new ArrayList<>();
+    private ArrayList<Laptop> laptopsPrestados  = new ArrayList<>();
 	
     public Lector(String nombre, String apellido, int edad, String direccion, String tipoId, int Id) {
         super(nombre, apellido, edad, direccion, tipoId, Id);
@@ -87,6 +96,52 @@ public class Lector extends Persona {
         
     }
 
- 
+    public ArrayList<Libro> getLibrosPrestados() {
+        return librosPrestados;
+    }
+
+    public void setLibrosPrestados(ArrayList<Libro> librosPrestados) {
+        this.librosPrestados = librosPrestados;
+    }
+
+    public ArrayList<Computador> getComputadoresPrestados() {
+        return computadoresPrestados;
+    }
+
+    public void setComputadoresPrestados(ArrayList<Computador> computadoresPrestados) {
+        this.computadoresPrestados = computadoresPrestados;
+    }
+
+    public ArrayList<Laptop> getLaptopsPrestados() {
+        return laptopsPrestados;
+    }
+
+    public void setLaptopsPrestados(ArrayList<Laptop> laptopsPrestados) {
+        this.laptopsPrestados = laptopsPrestados;
+    }
     
+    public void agregarLibro(Libro libro) {
+        librosPrestados.add(libro);
+    }
+
+    public void agregarComputador(Computador computador) {
+        computadoresPrestados.add(computador);
+    }
+
+    public void agregarLaptop(Laptop laptop) {
+        laptopsPrestados.add(laptop);
+    }
+    
+    //get number of  book, lap top, computer borrowed     
+    public int getCantidadLibrosPrestados() {
+        return librosPrestados.size();
+    }
+
+    public int getCantidadComputadoresPrestados() {
+        return computadoresPrestados.size();
+    }
+
+    public int getCantidadLaptopsPrestados() {
+        return laptopsPrestados.size();
+    }
 }
