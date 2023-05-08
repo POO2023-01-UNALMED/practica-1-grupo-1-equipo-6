@@ -119,8 +119,10 @@ public class Main {
 	
 	//---------------  MAIN --------------------//
 	static Scanner sc = new Scanner(System.in);
+
 	public static void main(String[] args) {
 	    cargarObjetos();
+	    boolean stop = false;
 	    String usuario;
 	    String contraseña;
 	    do {
@@ -130,97 +132,108 @@ public class Main {
 	        System.out.println("");
 	        System.out.println("Por favor, Bibliotecario, ingrese su Usuario y Password para continuar: ");
 	        System.out.println("");
-	        System.out.println("BIBLIOTECARIO POR DEFECTO: USUARIODEFECTO@UNAL.EDU.CO ---- Password : ADMIN123");	
+	        System.out.println("BIBLIOTECARIO POR DEFECTO: USUARIODEFECTO@UNAL.EDU.CO ---- Password : ADMIN123");
 	        System.out.println("");
 	        System.out.println("--------------------------------------------------------------------------------------------");
 	        System.out.println("PARA SALIR DEL PROGRAMA INGRESE /SALIR EN CUALQUIER MOMENTO");
 	        System.out.println("--------------------------------------------------------------------------------------------");
 	        System.out.println("Usuario: ");
 	        usuario = sc.nextLine();
-	        if ((usuario.equalsIgnoreCase("/salir")) ||(usuario.equalsIgnoreCase("/SALIR"))) {
-	        	System.out.println("CERRANDO EL PROGRAMA");
-	            break; 
+	        if ((usuario.equalsIgnoreCase("/salir")) || (usuario.equalsIgnoreCase("/SALIR"))) {
+	            System.out.println("CERRANDO EL PROGRAMA");
+	            break;
 	        }
 	        System.out.println("Password: ");
 	        contraseña = sc.nextLine();
-	        if ((contraseña.equalsIgnoreCase("/salir")) ||(contraseña.equalsIgnoreCase("/SALIR"))) {
-	        	System.out.println("CERRANDO EL PROGRAMA");
+	        if ((contraseña.equalsIgnoreCase("/salir")) || (contraseña.equalsIgnoreCase("/SALIR"))) {
+	            System.out.println("CERRANDO EL PROGRAMA");
 	            break;
 	        }
-	        
-	        if (usuario.equals("USUARIODEFECTO@UNAL.EDU.CO") && contraseña.equals("ADMIN123")){
-	        	menuPrincipal();
-	        }else {System.out.println("USUARIO O password INVALIDA");}
-	        System.out.println("--------------------------------------------------------------------------------------------");
-	    } while (true);
-
+	        boolean usuarioEncontrado = false;
+	        for (Bibliotecario bibliotecario : Bibliotecario.getBibliotecariosExistentetes()) {
+	            if (usuario.equals(bibliotecario.getUsuario()) && contraseña.equals(bibliotecario.getContraseña())) {
+	                menuPrincipal(bibliotecario);
+	                usuarioEncontrado = true;
+	                break;
+	            }
+	        }
+	        if (!usuarioEncontrado) {
+	            System.out.println("CONTRASENA O USUARIO INVALIDO");
+	        }
+	    } while (!stop);
 	}
+
     //------------------------------------------//
 	
 	//--------MenuPrincipal-----------//
 	static int opcionMenuPrincipal = 0; 
-	static void menuPrincipal() {
-       
-       //----------------------------------------------------------------//
-		Scanner sc = new Scanner(System.in);
-		
-		do {
-			System.out.println(" ------ MENU PRINCIPAL------ ");
-
-			System.out.println("1. Prestar");
-			System.out.println("2. Devolver");
-			System.out.println("3. funcionalidad 3");
-			System.out.println("4. funcionalidad 4");
-			System.out.println("5. funcionalidad 5");
-			System.out.println("6. Salir");
+	static void menuPrincipal(Bibliotecario bibliotecario) {
+	       
+	       //----------------------------------------------------------------//
+			Scanner sc = new Scanner(System.in);
 			
-			System.out.println("Por favor ingrese su opcion:");
-			
-			opcionMenuPrincipal = sc.nextInt(); //reader of opcion1 type by the user
-			sc.nextLine(); //buffer cleaner 
-            switch (opcionMenuPrincipal) {
-                case 0:
+			do {
+				System.out.println(" ------ MENU PRINCIPAL------ ");
 
-                break;
-                case 1:
-                    System.out.println("-----------------------------------------------------------------");
-                    System.out.println("Prestar");
-                    System.out.println("-----------------------------------------------------------------");
-                     menuPrestar();
-                    break;
-                case 2:
-                    System.out.println("-----------------------------------------------------------------");
-                    System.out.println("Lo siento, aun no se ha creado esta funcionalidad :(");
-                    System.out.println("-----------------------------------------------------------------");
-                    break;
-                case 3:
-                    System.out.println("-----------------------------------------------------------------");
-                    System.out.println("Lo siento, aun no se ha creado esta funcionalidad :(");
-                    System.out.println("-----------------------------------------------------------------");
-                    break;
-                case 4:
-                    System.out.println("-----------------------------------------------------------------");
-                    System.out.println("Lo siento, aun no se ha creado esta funcionalidad :(");
-                    System.out.println("-----------------------------------------------------------------");
-                    break;
-                case 5:
-                    System.out.println("-----------------------------------------------------------------");
-                    System.out.println("Lo siento, aun no se ha creado esta funcionalidad :(");
-                    System.out.println("-----------------------------------------------------------------");
-                 
-                    break;
-                case 6:
-                    System.out.println("-----------------------------------------------------------------");
-                    System.out.println("Cerrando El Sistema");        
-                    System.out.println("-----------------------------------------------------------------");
-                    break;
-
-            }//end of the switch
-		
-		}while(opcionMenuPrincipal !=6);
-		//----------------------------------------------------------------//
-
+				System.out.println("1. Prestar");
+				System.out.println("2. Devolver");
+				System.out.println("3. funcionalidad 3");
+				System.out.println("4. funcionalidad 4");
+				System.out.println("5. funcionalidad 5");
+				System.out.println("6. Salir");
+				
+				System.out.println("Por favor ingrese su opcion:");
+				
+				
+				if (sc.hasNextInt()) {
+					opcionMenuPrincipal = sc.nextInt();
+					sc.nextLine(); 
+					switch (opcionMenuPrincipal) {
+						case 1:
+							System.out.println("-----------------------------------------------------------------");
+							System.out.println("Prestar");
+							System.out.println("-----------------------------------------------------------------");
+							menuPrestar(bibliotecario);
+							break;
+						case 2:
+							System.out.println("-----------------------------------------------------------------");
+							System.out.println("Lo siento, aun no se ha creado esta funcionalidad :(");
+							System.out.println("-----------------------------------------------------------------");
+							break;
+						case 3:
+							System.out.println("-----------------------------------------------------------------");
+							System.out.println("Lo siento, aun no se ha creado esta funcionalidad :(");
+							System.out.println("-----------------------------------------------------------------");
+							break;
+						case 4:
+							System.out.println("-----------------------------------------------------------------");
+							System.out.println("Lo siento, aun no se ha creado esta funcionalidad :(");
+							System.out.println("-----------------------------------------------------------------");
+							break;
+						case 5:
+							System.out.println("-----------------------------------------------------------------");
+							System.out.println("Lo siento, aun no se ha creado esta funcionalidad :(");
+							System.out.println("-----------------------------------------------------------------");
+							break;
+						case 6:
+							System.out.println("-----------------------------------------------------------------");
+							System.out.println("Cerrando El Sistema");        
+							System.out.println("-----------------------------------------------------------------");
+							break;
+						default:
+			            	System.out.println("-----------------------------------------------------------------");
+							System.out.println("Por favor ingrese una opcion valida");
+							System.out.println("-----------------------------------------------------------------"); 
+					}
+				} else {
+					System.out.println("-----------------------------------------------------------------");
+					System.out.println("Por favor ingrese una opcion valida"); 
+					System.out.println("-----------------------------------------------------------------");
+					sc.nextLine();
+				}
+			} while (opcionMenuPrincipal != 6);
 	}
+
 	//--------------------------------//
 	
 	//----------------MENUS GENERALES USADOS -----------------//
@@ -251,6 +264,7 @@ public class Main {
     		   
     	}  
         //menu for registering a new user
+    	static int opcionRegisterUser = 0;
         static void registerUser(){
 	Scanner sc = new Scanner(System.in);
 	
@@ -263,8 +277,8 @@ public class Main {
 		System.out.println("3. regresar al menu anterior");
 		System.out.println("4. cerrar el sistema");
 
-		
-		opcionRegisterUser = sc.nextInt(); //reader of opcion1 type by the user
+        if (sc.hasNextInt()) {
+        opcionRegisterUser = sc.nextInt(); //reader of opcion1 type by the user
 		sc.nextLine(); //buffer cleaner 
 		
         switch (opcionRegisterUser) {
@@ -277,6 +291,7 @@ public class Main {
             System.out.println("-----------------------------------------------------------------");
             Lector.registerUser();
             opcionRegisterUser = 3;
+            opcionGetUser =1;
             System.out.println("-----------------------------------------------------------------");
             break;
         case 2:
@@ -300,9 +315,19 @@ public class Main {
             opcionMenuPrincipal = 6;
             System.out.println("-----------------------------------------------------------------");
             break;
+         default:
+				System.out.println("-----------------------------------------------------------------");
+				System.out.println("Por favor ingrese una opcion valida"); 
+				System.out.println("-----------------------------------------------------------------");
 
+    }//end of the switch	
+		} else {
+			System.out.println("-----------------------------------------------------------------");
+			System.out.println("Por favor ingrese una opcion valida"); 
+			System.out.println("-----------------------------------------------------------------"); 
+			sc.nextLine(); 
+		}
 
-    }//end of the switch
 		
 	}while(opcionRegisterUser != 3 && opcionRegisterUser != 4 && opcionRegisterUser != 2);
 }
@@ -340,7 +365,8 @@ public class Main {
     		        
     		        System.out.println(index + ". Regresar al menu anterior");
     		        System.out.print("Seleccione una opcion: ");
-    		       
+    		        if (sc.hasNextInt()) {
+    		        	
     		        int opcion = sc.nextInt();
     		        sc.nextLine(); 
     		         System.out.println("-----------------------------------------------------------------");
@@ -353,9 +379,16 @@ public class Main {
     		              
     		            return bibliotecaSeleccionada;
     		        } else {
-    		            System.out.println("Opción no valida. Intente de nuevo.");
-    		            return null;
+
+    					System.out.println("Por favor ingrese una opcion valida"); 
     		        }
+    				} else {
+    					System.out.println("-----------------------------------------------------------------");
+    					System.out.println("Por favor ingrese una opcion valida"); 
+
+    					sc.nextLine(); 
+    				}
+
     		    } while (true);
     		}
     		return null;
@@ -367,7 +400,7 @@ public class Main {
 	
 	    //menu for selecting what is the object to borrow (book, lap top, PC )
 	    static int opcionMenuPrestar = 0;
-	    static void menuPrestar() {
+	    static void menuPrestar(Bibliotecario bibliotecario) {
 	       
 			Scanner sc = new Scanner(System.in);
 			
@@ -380,8 +413,11 @@ public class Main {
 				System.out.println("5. Salir del Sistema");
 				System.out.println(" Por favor ingrese su opcion:");
 				
-				opcionMenuPrestar = sc.nextInt(); //reader of opcion1 type by the user
-				sc.nextLine(); //buffer cleaner 
+				
+				if (sc.hasNextInt()) {
+					opcionMenuPrestar = sc.nextInt();
+					sc.nextLine(); // limpia el buffer
+					
 	            switch (opcionMenuPrestar) {
 	                case 0:
 
@@ -395,7 +431,7 @@ public class Main {
 	                    Biblioteca biblioteca =seleccionBiblioteca(user);
 	                    Libro libro = seleccionTipoBusquedaLibroPrestar(biblioteca, user );
 	                    
-	                    asignarLibro(user,biblioteca,libro);
+	                    asignarLibro(user,biblioteca,libro,bibliotecario);
 	                    
 	                    
 	                    break;
@@ -418,15 +454,24 @@ public class Main {
 	                    System.out.println("Saliendo del sistema");
 	                    opcionMenuPrincipal = 6;
 	                    System.out.println("-----------------------------------------------------------------");
-	                 
+	                
 	                    break;
-
-	            }//end of the switch
+	                default:
+	 	            	System.out.println("-----------------------------------------------------------------");
+						System.out.println("Por favor ingrese una opcion valida");
+						System.out.println("-----------------------------------------------------------------");
+	                }//end of the switch
+	            }else {
+	            	System.out.println("-----------------------------------------------------------------");
+					System.out.println("Por favor ingrese una opcion valida");
+					System.out.println("-----------------------------------------------------------------");
+					sc.nextLine();
 				
+			}
 			
-			}while(opcionMenuPrestar !=4 && opcionMenuPrestar !=5);
+		}while(opcionMenuPrestar !=4 && opcionMenuPrestar !=5);
 	}
-	static int opcionRegisterUser = 0;
+	     
             
 	                          //==============menus to borrow a book=============//
 	//menu prestarLibro
@@ -445,6 +490,8 @@ public class Main {
 					System.out.println("5. Salir del Sistema");
 					System.out.println(" Por favor ingrese su opcion:");
 					
+					
+					if (sc.hasNextInt()) {
 					seleccionTipoBusquedaLibro = sc.nextInt(); //reader of opcion1 type by the user
 					sc.nextLine(); //buffer cleaner 
 		            switch (seleccionTipoBusquedaLibro) {
@@ -478,8 +525,19 @@ public class Main {
 		                    System.out.println("-----------------------------------------------------------------");
 		                 
 		                    break;
-
+						default:
+			            	System.out.println("-----------------------------------------------------------------");
+							System.out.println("Por favor ingrese una opcion valida");
+							System.out.println("-----------------------------------------------------------------");
 		            }//end of the switch
+		            
+					}else {
+						System.out.println("-----------------------------------------------------------------");
+						System.out.println("Por favor ingrese una opcion valida"); 
+						System.out.println("-----------------------------------------------------------------");
+						sc.nextLine();
+					}
+
 					
 				
 				}while(seleccionTipoBusquedaLibro !=4 && seleccionTipoBusquedaLibro !=5);
@@ -509,7 +567,7 @@ public class Main {
 		        }
 		        System.out.println(index + ". Regresar al menú anterior");
 		        System.out.print("Seleccione una opción: ");
-		        
+		        if (sc.hasNextInt()) {
 		        int generoSeleccionadoOpcion = sc.nextInt();
 		        sc.nextLine(); 
 		        
@@ -545,8 +603,8 @@ public class Main {
 		    	        }
 		    	        System.out.println(index2 + ". Regresar al menu anterior");
 		    	        System.out.print("Seleccione una opcion: ");
-		    	        
-		    	        int libroSeleccionadoOpcion = sc.nextInt();
+	    		        if (sc.hasNextInt()) {
+	    		        int libroSeleccionadoOpcion = sc.nextInt();
 		    	        sc.nextLine(); 
 		    	        
 		    	        if (libroSeleccionadoOpcion == index2) {
@@ -559,8 +617,18 @@ public class Main {
 		    	            System.out.println("-----------------------------------------------------------------");
 		    	            return libroSeleccionado;
 		    	        } else {
-		    	            System.out.println("Opcion no valida. Intente de nuevo.");
+	    					System.out.println("-----------------------------------------------------------------");
+	    					System.out.println("Por favor ingrese una opcion valida"); 
+	    					System.out.println("-----------------------------------------------------------------");
 		    	        }
+	    		        	
+	    				} else {
+	    					System.out.println("-----------------------------------------------------------------");
+	    					System.out.println("Por favor ingrese una opcion valida"); 
+	    					System.out.println("-----------------------------------------------------------------");
+	    					sc.nextLine(); 
+	    				}
+
 		    	    } while (true);
 		            //-----------------------------------------------------------------------------------//
 		    	    
@@ -568,6 +636,14 @@ public class Main {
 		        } else {
 		            System.out.println("Opción no válida. Intente de nuevo.");
 		        }
+		        	
+				} else {
+					System.out.println("-----------------------------------------------------------------");
+					System.out.println("Por favor ingrese una opcion valida"); 
+					System.out.println("-----------------------------------------------------------------");
+					sc.nextLine(); 
+				}
+
 
 		    } while (true);
 		}
@@ -579,11 +655,19 @@ public class Main {
 		            ids.add(libro.getId());
 		        }
 		    }
+		    
+
+		    
+		    
+		    
             int libroNoEncontradoOpcion = 0;
             int libroEncontradoOpcion = 0;
 		    do {
 		    	System.out.println("Ingrese el ID :");
-    	        int idSeleccionado = sc.nextInt();
+		    	
+			    if (sc.hasNextInt()) {
+			    	
+			    int idSeleccionado = sc.nextInt();
     	        
     	        sc.nextLine(); // buffer cleaner
 		    	
@@ -606,8 +690,8 @@ public class Main {
     	        	do {
     	        		System.out.println("1. Si");
     	        		System.out.println("2. No");
-    	        		
-    	    	        libroEncontradoOpcion = sc.nextInt();
+    	        		if (sc.hasNextInt()) {
+    	        	    libroEncontradoOpcion = sc.nextInt();
     	    	        
     	    	        sc.nextLine(); // buffer cleaner
     	    	        
@@ -621,6 +705,12 @@ public class Main {
     	    	        	 System.out.println("-----------------------------------------------------------------");
     	    	        }
     	    	        break;
+    	        		}else {
+    						System.out.println("-----------------------------------------------------------------");
+    						System.out.println("Por favor ingrese una opcion valida"); 
+    						System.out.println("-----------------------------------------------------------------");
+    	        		}
+
     	        	}while(true);
     	        	break;
     	        }else {
@@ -632,7 +722,8 @@ public class Main {
     	        		System.out.println("1. intentar de nuevo el ID");
     	        		System.out.println("2. regresar al menu anterior");
     	        		
-    	    	        libroNoEncontradoOpcion = sc.nextInt();
+    	        		if (sc.hasNextInt()) {
+    	        		libroNoEncontradoOpcion = sc.nextInt();
     	    	        
     	    	        sc.nextLine(); // buffer cleaner
     	    	        
@@ -647,10 +738,27 @@ public class Main {
     	    	        	 System.out.println("regresar al menu anterior");
     	    	        	 System.out.println("-----------------------------------------------------------------");
     	    	        }
-    	    	        break;
+    	    	        break;	
+    	        			
+    	        		}else {
+    						System.out.println("-----------------------------------------------------------------");
+    						System.out.println("Por favor ingrese una opcion valida"); 
+    						System.out.println("-----------------------------------------------------------------");
+    	        		}
+
     	        	}while(true);
     	        	
     	        }
+			    	
+			    } else {
+					System.out.println("-----------------------------------------------------------------");
+					System.out.println("Por favor ingrese una opcion valida"); 
+					System.out.println("-----------------------------------------------------------------");
+			        sc.next();
+			    }
+			    
+			    
+
     	        
 		    }while(libroNoEncontradoOpcion != 2);
 		    
@@ -681,8 +789,10 @@ public class Main {
     	        System.out.println(index3 + ". Regresar al menu anterior");
     	        System.out.print("Seleccione una opcion: ");
     	        
+    	        if (sc.hasNextInt()) {
+    	        	
     	        int libroSeleccionadoOpcion = sc.nextInt();
-    	        sc.nextLine(); // buffer cleaner
+    	        sc.nextLine(); 
     	        
     	        if (libroSeleccionadoOpcion == index3) {
     	        	System.out.println("-----------------------------------------------------------------");
@@ -694,8 +804,17 @@ public class Main {
     	            System.out.println("-----------------------------------------------------------------");
     	            return libroSeleccionado;
     	        } else {
-    	            System.out.println("Opcion no valida. Intente de nuevo.");
+					System.out.println("-----------------------------------------------------------------");
+					System.out.println("Por favor ingrese una opcion valida"); 
+					System.out.println("-----------------------------------------------------------------");
     	        }
+    	        }else {
+					System.out.println("-----------------------------------------------------------------");
+					System.out.println("Por favor ingrese una opcion valida"); 
+					System.out.println("-----------------------------------------------------------------");
+			        sc.next();
+			    }
+
     	    } while (true);
             //-----------------------------------------------------------------------------------//
 			
@@ -704,8 +823,15 @@ public class Main {
 	}
                 //menu for assigning the book 
 	//assign book
-	            static void asignarLibro(Lector user, Biblioteca biblioteca,Libro libro){
-		        libro.asignarLibro(user, biblioteca);
+	            static void asignarLibro(Lector user, Biblioteca biblioteca,Libro libro, Bibliotecario bibliotecario){
+	            	if(libro != null) {
+	            		libro.asignarLibro(user, biblioteca, bibliotecario);
+	            	}
+	            	
+	            	
+	            		
+	            	
+		        
 	             }
                               //==================================================//
 	            

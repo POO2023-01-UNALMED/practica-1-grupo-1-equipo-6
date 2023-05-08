@@ -6,42 +6,31 @@ import java.util.List;
 import gestorAplicacion.gestion.Biblioteca;
 
 public class Bibliotecario extends Persona {
-    private ArrayList<Biblioteca> bibliotecasVinculadas = new ArrayList<>();
+    
     private String contraseña;
     private String usuario;
-
+    
+    // libraries 
+    public static ArrayList<Bibliotecario> bibliotecariosExistentetes = new ArrayList<>();
+    
     public Bibliotecario(String nombre, String apellido, int edad, String direccion, String tipoId, int Id, String contraseña,String usuario) {
         super(nombre, apellido, edad, direccion, tipoId, Id);
         this.contraseña = contraseña;
         this.usuario = usuario;
-    }
-    
-    // METHODS 
-    
-    
-    // add the logic for returning librarian's schedule (NOT FINISHED)
-    public void buscarBiblioteca(Lector lector){}
-    
-    
-    //add libraries where to work 
-    public void AsignarBibliotca(Biblioteca biblioteca) {
-        bibliotecasVinculadas.add(biblioteca);
-    }
-    
-    
-    // GETTERS AND SETTERS 
-    public List<Biblioteca> getBibliotecasVinculadas() {
-        return bibliotecasVinculadas;
+        bibliotecariosExistentetes.add(this);
     }
 
+    //METHODS
+    
+    
+    //getters and setters 
+	public String getContraseña() {
+		return contraseña;
+	}
 
-    public String getHorarioLaboral() {
-        return contraseña;
-    }
-
-    public void setHorarioLaboral(String horarioLaboral) {
-        this.contraseña = horarioLaboral;
-    }
+	public void setContraseña(String contraseña) {
+		this.contraseña = contraseña;
+	}
 
 	public String getUsuario() {
 		return usuario;
@@ -50,6 +39,20 @@ public class Bibliotecario extends Persona {
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
+
+	public static ArrayList<Bibliotecario> getBibliotecariosExistentetes() {
+		return bibliotecariosExistentetes;
+	}
+
+	public static void setBibliotecariosExistentetes(ArrayList<Bibliotecario> bibliotecariosExistentetes) {
+		Bibliotecario.bibliotecariosExistentetes = bibliotecariosExistentetes;
+	}
+    
+    
+    
+    
+    
+    
     
     
 }

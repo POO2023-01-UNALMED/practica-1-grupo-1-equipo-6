@@ -47,7 +47,12 @@ public class Lector extends Persona {
         String apellido = sc.nextLine();
 
         System.out.println("Ingrese la edad del lector:");
-        int edad = sc.nextInt();
+        int edad;
+        while (!sc.hasNextInt()) {
+            System.out.println("Edad inválida. Por favor, ingrese un número válido:");
+            sc.nextLine();
+        }
+        edad = sc.nextInt();
         sc.nextLine(); // buffer cleaner
 
         System.out.println("Ingrese la dirección del lector:");
@@ -57,26 +62,42 @@ public class Lector extends Persona {
         String tipoId = sc.nextLine();
 
         System.out.println("Ingrese el número de identificación del lector:");
-        int id = sc.nextInt();
+        int id;
+        while (!sc.hasNextInt()) {
+            System.out.println("Número de identificación inválido. Por favor, ingrese un número válido:");
+            sc.nextLine();
+        }
+        id = sc.nextInt();
+        sc.nextLine(); // buffer cleaner
 
         System.out.println("Seleccione el tipo de lector a registrar:");
         System.out.println("1. Estudiante");
         System.out.println("2. Profesor");
 
-        int tipoLector = sc.nextInt();
+        int tipoLector;
+        while (!sc.hasNextInt()) {
+            System.out.println("Tipo de lector inválido. Por favor, ingrese un número válido:");
+            sc.nextLine();
+        }
+        tipoLector = sc.nextInt();
         sc.nextLine(); // buffer cleaner
 
         if (tipoLector == 1) {
-        	System.out.println("-----------------------------------------------------------------");
-        	System.out.println("1. Estudiante");
-        	System.out.println("-----------------------------------------------------------------");
+            System.out.println("-----------------------------------------------------------------");
+            System.out.println("1. Estudiante");
+            System.out.println("-----------------------------------------------------------------");
             System.out.println("Ingrese la facultad del estudiante:");
             System.out.println("");
             System.out.println("Facultades disponibles:");
             for (Facultad fac : Facultad.values()) {
                 System.out.println(fac.ordinal() + ". " + fac.getNombre());
             }
-            int indexFacultad = sc.nextInt();
+            int indexFacultad;
+            while (!sc.hasNextInt()) {
+                System.out.println("Facultad inválida. Por favor, ingrese un número válido:");
+                sc.nextLine();
+            }
+            indexFacultad = sc.nextInt();
             sc.nextLine(); // buffer cleaner
             Facultad facultad = Facultad.values()[indexFacultad];
 
@@ -92,9 +113,9 @@ public class Lector extends Persona {
             System.out.println("Opción no válida. Intente de nuevo.");
         }
         System.out.println("-----------------------------------------------------------------");
-        System.out.println("Para continuar digite el documento nuevamente:");
-        
+        System.out.println("Para continuar elija de nuevo las opciones que necesita:");
     }
+
 
     public ArrayList<Libro> getLibrosPrestados() {
         return librosPrestados;

@@ -30,7 +30,7 @@ public class Estudiante extends Lector {
     	ArrayList<Biblioteca> bibliotecasExistentes = new ArrayList<>();
         for (Lector lector : lectoresExistentes) {
             if (lector.getId() == documento && lector instanceof Estudiante) {
-            	if ((((Estudiante)lector).getFacultad() == facultad.CIENCIAS) || (((Estudiante)lector).getFacultad() == facultad.ARQUITECTURA)) {
+            	if ((((Estudiante)lector).getFacultad() == facultad.CIENCIAS) || (((Estudiante)lector).getFacultad() == facultad.ARQUITECTURA)  || (((Estudiante)lector).getFacultad() == facultad.CIENCIAS_AGRARIAS) || (((Estudiante)lector).getFacultad() == facultad.CIENCIAS_HUMANAS_ECONOMIA) || (((Estudiante)lector).getFacultad() == facultad.UNIVERSIDAD)) {
             		for (Biblioteca biblioteca : Biblioteca.bibliotecasExistentetes) {
             			if((biblioteca.getFacultad() == facultad.CIENCIAS) || (biblioteca.getFacultad() == facultad.CIENCIAS_AGRARIAS) || (biblioteca.getFacultad() == facultad.CIENCIAS_HUMANAS_ECONOMIA)|| (biblioteca.getFacultad() == facultad.ARQUITECTURA) || (biblioteca.getFacultad() == facultad.UNIVERSIDAD)){
             				bibliotecasExistentes.add(biblioteca);

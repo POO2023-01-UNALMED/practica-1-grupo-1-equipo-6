@@ -1,5 +1,6 @@
 package gestorAplicacion.gestion;
 
+import gestorAplicacion.usuario.Bibliotecario;
 import gestorAplicacion.usuario.Lector;
 
 import java.util.ArrayList;
@@ -14,8 +15,7 @@ public class Libro {
     private String autor;
     private String editorial;
     private int anioPublicacion;
-    private Biblioteca biblioteca;
-    private Lector lector;
+    private String reporte;
 
     public Libro(String genero, int id, String titulo, String autor, String editorial, int anioPublicacion) {
         this.genero = genero;
@@ -27,29 +27,30 @@ public class Libro {
     }
 
     //methods
-    public void asignarLibro(Lector lector, Biblioteca biblioteca) {
-        Libro libro = this; // O puede pasar el libro como parámetro al método
+    public void asignarLibro(Lector lector, Biblioteca biblioteca, Bibliotecario bibliotecario) {
+        Libro libro = this; // 
         ArrayList<Libro> librosDisponibles = biblioteca.getLibrosDisponibles();
         ArrayList<Libro> librosPrestados = lector.getLibrosPrestados();
-
-        for (int i = 0; i < librosDisponibles.size(); i++) {
+        
+        if(lector != null && biblioteca != null && libro != null) {
+        	for (int i = 0; i < librosDisponibles.size(); i++) {
             if (librosDisponibles.get(i).getId() == libro.getId()) {
-                // El libro ha sido encontrado en la lista de libros disponibles
-                librosDisponibles.remove(i); // Eliminar el libro de la lista de libros disponibles
-                librosPrestados.add(libro); // Agregar el libro a la lista de libros prestados del lector
-                break; // Salir del bucle for
+               
+                librosDisponibles.remove(i); 
+                libro.setReporte("Libro Prestado por el bibliotecario: " + bibliotecario.getNombre() + "con id: " + bibliotecario.getId());
+                librosPrestados.add(libro); 
+                break; 
             }
         }
-        libro.lector = lector;
-        libro.biblioteca = biblioteca;
+
         lector.setLibrosPrestados(librosPrestados);
         biblioteca.setLibrosDisponibles(librosDisponibles);
         
+        
+        }
+
+
     }
-
-
-    
-    
     
     public String getGenero() {
         return genero;
@@ -99,21 +100,15 @@ public class Libro {
         this.anioPublicacion = anioPublicacion;
     }
 
-    public Biblioteca getBiblioteca() {
-        return biblioteca;
-    }
+	public String getReporte() {
+		return reporte;
+	}
 
-    public void setBiblioteca(Biblioteca biblioteca) {
-        this.biblioteca = biblioteca;
-    }
-
-    public Lector getLector() {
-        return lector;
-    }
-
-    public void setLector(Lector lector) {
-        this.lector = lector;
-    }
+	public void setReporte(String reporte) {
+		this.reporte = reporte;
+	}
+    
+    
 }
 
 
