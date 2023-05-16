@@ -11,7 +11,6 @@ import gestorAplicacion.gestion.Libro;
 public class Estudiante extends Lector {
 	
 	//--attributes 
-    private boolean reporte;
     private Facultad facultad;
     
     //--things to borrow 
@@ -19,8 +18,7 @@ public class Estudiante extends Lector {
     
     //constructor
     public Estudiante(String nombre, String apellido, int edad, String direccion, String tipoId, int Id, boolean reporte, Facultad facultad) {
-        super(nombre, apellido, edad, direccion, tipoId, Id);
-        this.reporte = reporte;
+        super(nombre, apellido, edad, direccion, tipoId, Id,reporte);
         this.facultad = facultad;
     }
     
@@ -66,9 +64,6 @@ public class Estudiante extends Lector {
     
     
     // GETTERS AND SETTERS
- 	public boolean isReporte() {
-		return reporte;
-	}
 
 
 	public Facultad getFacultad() {

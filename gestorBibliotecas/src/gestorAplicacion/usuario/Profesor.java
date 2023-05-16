@@ -10,13 +10,12 @@ import gestorAplicacion.gestion.Libro;
 public class Profesor extends Lector {
 	
 	//--attributes 
-    private boolean reporte;
+	
  
     
     //constructor
     public Profesor(String nombre, String apellido, int edad, String direccion, String tipoId, int Id, boolean reporte) {
-        super(nombre, apellido, edad, direccion, tipoId, Id);
-        this.reporte = reporte;
+        super(nombre, apellido, edad, direccion, tipoId, Id,reporte);
     }
     
     
@@ -37,9 +36,6 @@ public class Profesor extends Lector {
     
     
     // GETTERS AND SETTERS
- 	public boolean isReporte() {
-		return reporte;
-	}
 
 
 }

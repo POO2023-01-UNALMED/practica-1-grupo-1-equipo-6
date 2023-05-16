@@ -10,20 +10,29 @@ import gestorAplicacion.gestion.Libro;
 
 public class Lector extends Persona {
 	static ArrayList<Lector> lectoresExistentes = new ArrayList<>();
-	
+	private boolean reporte = false;
 	
     //--things to borrow 
     private ArrayList<Libro> librosPrestados  = new ArrayList<>();
     private ArrayList<Computador> computadoresPrestados  = new ArrayList<>();
     private ArrayList<Laptop> laptopsPrestados  = new ArrayList<>();
 	
-    public Lector(String nombre, String apellido, int edad, String direccion, String tipoId, int Id) {
+    public Lector(String nombre, String apellido, int edad, String direccion, String tipoId, int Id,boolean reporte) {
         super(nombre, apellido, edad, direccion, tipoId, Id);
         lectoresExistentes.add(this);
+        this.reporte = reporte;
     }
 
     //METHODS 
-    
+    //MAKE REPORT 
+    public void hacerReporte() {
+        int numObjetosPrestados = librosPrestados.size() + computadoresPrestados.size() + laptopsPrestados.size();
+        if (numObjetosPrestados > 5) {
+            reporte = true;
+        } else {
+            reporte = false;
+        }
+    }
     //SEARCH USERS
     public static Lector buscarLector(int documento) {
         for (Lector lector : lectoresExistentes) {
@@ -165,4 +174,15 @@ public class Lector extends Persona {
     public int getCantidadLaptopsPrestados() {
         return laptopsPrestados.size();
     }
+
+	public boolean isReporte() {
+		return reporte;
+	}
+
+	public void setReporte(boolean reporte) {
+		this.reporte = reporte;
+	}
+    
+    //get the info if the user is reported
+    
 }

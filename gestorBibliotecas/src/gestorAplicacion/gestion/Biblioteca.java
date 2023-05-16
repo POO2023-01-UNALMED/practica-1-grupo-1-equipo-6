@@ -35,7 +35,7 @@ public class Biblioteca {
         bibliotecasExistentetes.add(this);
     }
 
-    // METHODS
+    //------------------ METHODS
     
     //over charge 
     

@@ -90,7 +90,7 @@ public class Main {
 		// creating students
 		Estudiante estudiante1 = new Estudiante("Juan", "Perez", 20, "Carrera 12 # 34-56", "CC", 123456, false,
 				Facultad.MINAS);
-		Estudiante estudiante2 = new Estudiante("Maria", "Gonzalez", 22, "Carrera 10 # 20-30", "TI", 654321, true,
+		Estudiante estudiante2 = new Estudiante("Maria", "Gonzalez", 22, "Carrera 10 # 20-30", "TI", 1234567, true,
 				Facultad.CIENCIAS);
 		Estudiante estudiante3 = new Estudiante("Pedro", "Garcia", 19, "Carrera 8 # 12-34", "CC", 987654, false,
 				Facultad.CIENCIAS_AGRARIAS);
@@ -335,9 +335,12 @@ public class Main {
         static Biblioteca seleccionBiblioteca(Lector user) {
     		
     		ArrayList<Biblioteca> bibliotecasDisponibles = new ArrayList<>();
-    		
     		if (user == null) {
     			return null;
+    		}else if(user.isReporte() == true){
+    			System.out.println("-----------------------------------------------------------------");
+    			System.out.println("El usuario tiene un reporte en progreso");
+    			System.out.println("-----------------------------------------------------------------");
     		}
     		else {
     		    if(user instanceof Estudiante) {
@@ -416,7 +419,7 @@ public class Main {
 				
 				if (sc.hasNextInt()) {
 					opcionMenuPrestar = sc.nextInt();
-					sc.nextLine(); // limpia el buffer
+					sc.nextLine(); 
 					
 	            switch (opcionMenuPrestar) {
 	                case 0:
@@ -437,7 +440,7 @@ public class Main {
 	                    break;
 	                case 2:
 	                    System.out.println("-----------------------------------------------------------------");
-	                    System.out.println("Lo siento, aun no se ha creado esta Opcion :(");
+	                    System.out.println("Computadora");
 	                    System.out.println("-----------------------------------------------------------------");
 	                    break;
 	                case 3:
@@ -826,6 +829,7 @@ public class Main {
 	            static void asignarLibro(Lector user, Biblioteca biblioteca,Libro libro, Bibliotecario bibliotecario){
 	            	if(libro != null) {
 	            		libro.asignarLibro(user, biblioteca, bibliotecario);
+	            		user.hacerReporte();
 	            	}
 	            	
 	            	
@@ -834,6 +838,13 @@ public class Main {
 		        
 	             }
                               //==================================================//
+	            
+                             //==============menus to borrow a computer=============//
+	            
+	            
+	            
+	            
+	            
 	            
 	       //GENERAL DESCRIPTION:
 	            /* this function is based on three main methods from 3 different objects
