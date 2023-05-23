@@ -1,4 +1,4 @@
-package gestorAplicacion.gestion;
+package gestorBibliotecas.src.gestorAplicacion.gestion;
 
 import gestorAplicacion.usuario.Bibliotecario;
 import gestorAplicacion.usuario.Lector;

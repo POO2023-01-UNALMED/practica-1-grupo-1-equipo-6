@@ -1,11 +1,11 @@
-package gestorAplicacion.gestion;
+package gestorBibliotecas.src.gestorAplicacion.gestion;
+
+import gestorAplicacion.usuario.Bibliotecario;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-
-import gestorAplicacion.usuario.Bibliotecario;
 
 public class Biblioteca {
 	
@@ -122,7 +122,7 @@ public class Biblioteca {
         librosDisponibles.add(libro);
     }
     
-    public void agregarLibro(Bibliotecario bibliotecario) {
+    public void agregarLibro(gestorAplicacion.gestion.Libro bibliotecario) {
         bibliotecarios.add(bibliotecario);
     }
     
