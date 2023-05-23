@@ -7,21 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed731e79-80dc-4d63-a9a4-368a6bcf95ab" name="Changes" comment="re-construccion del modelo2">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modelo2.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/baseDatos/Deserializador.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/baseDatos/Serializador.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gestorAplicacion/obras/Estanteria.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gestorAplicacion/obras/Libro.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gestorAplicacion/obras/Publicacion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uiMain/Main.java" beforeDir="false" />
-    </list>
+    <list default="true" id="ed731e79-80dc-4d63-a9a4-368a6bcf95ab" name="Changes" comment="re-construccion del modelo2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,7 +47,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "editor.preferences.tabs",
+    "settings.editor.selected.configurable": "settings.sync",
     "two.files.diff.last.used.file": "D:/OneDrive - Universidad Nacional de Colombia/Escritorio/modelo2/gestorBibliotecas/src/uiMain/Main.java"
   }
 }]]></component>
@@ -106,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684854029274</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="re-construccion del modelo2">
+      <created>1684855614896</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1684855614896</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
