@@ -831,7 +831,6 @@ public class Main {
 	            		libro.asignarLibro(user, biblioteca, bibliotecario);
 	            		user.hacerReporte();
 	            	}
-					System.out.println("123");
 	            	
 	            		
 	            	
