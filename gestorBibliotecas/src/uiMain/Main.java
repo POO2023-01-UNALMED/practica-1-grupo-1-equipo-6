@@ -832,7 +832,6 @@ public class Main {
 	            		user.hacerReporte();
 	            	}
 	            	
-	            	
 	            		
 	            	
 		        
