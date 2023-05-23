@@ -7,25 +7,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed731e79-80dc-4d63-a9a4-368a6bcf95ab" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/baseDatos/Deserializador.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/baseDatos/Serializador.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gestorAplicacion/obras/Libro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gestorAplicacion/obras/Publicacion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uiMain/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestorBibliotecas/src/gestorAplicacion/gestion/Biblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestorBibliotecas/src/gestorAplicacion/gestion/Biblioteca.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestorBibliotecas/src/gestorAplicacion/gestion/Computador.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestorBibliotecas/src/gestorAplicacion/gestion/Computador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestorBibliotecas/src/gestorAplicacion/gestion/Facultad.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestorBibliotecas/src/gestorAplicacion/gestion/Facultad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestorBibliotecas/src/gestorAplicacion/gestion/Laptop.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestorBibliotecas/src/gestorAplicacion/gestion/Laptop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestorBibliotecas/src/gestorAplicacion/gestion/Libro.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestorBibliotecas/src/gestorAplicacion/gestion/Libro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestorBibliotecas/src/gestorAplicacion/gestion/OrdenadorEscritorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestorBibliotecas/src/gestorAplicacion/gestion/OrdenadorEscritorio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestorBibliotecas/src/gestorAplicacion/gestion/Reporte.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestorBibliotecas/src/gestorAplicacion/gestion/Reporte.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestorBibliotecas/src/gestorAplicacion/usuario/Bibliotecario.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestorBibliotecas/src/gestorAplicacion/usuario/Bibliotecario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestorBibliotecas/src/gestorAplicacion/usuario/Estudiante.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestorBibliotecas/src/gestorAplicacion/usuario/Estudiante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestorBibliotecas/src/gestorAplicacion/usuario/Lector.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestorBibliotecas/src/gestorAplicacion/usuario/Lector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestorBibliotecas/src/gestorAplicacion/usuario/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestorBibliotecas/src/gestorAplicacion/usuario/Persona.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestorBibliotecas/src/gestorAplicacion/usuario/Profesor.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestorBibliotecas/src/gestorAplicacion/usuario/Profesor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestorBibliotecas/src/uiMain/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestorBibliotecas/src/uiMain/Main.java" afterDir="false" />
+    <list default="true" id="ed731e79-80dc-4d63-a9a4-368a6bcf95ab" name="Changes" comment="re-construccion del modelo2">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modelo2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/baseDatos/Deserializador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/baseDatos/Serializador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gestorAplicacion/obras/Estanteria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gestorAplicacion/obras/Libro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gestorAplicacion/obras/Publicacion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uiMain/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,8 +54,9 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "jdk.selected.JAVA_MODULE": "JavaSE-17",
-    "last_opened_file_path": "D:/OneDrive - Universidad Nacional de Colombia/Escritorio/modelo2/gestorBibliotecas/src/uiMain/Main.java",
+    "jdk.selected.JAVA_MODULE": "20",
+    "last_opened_file_path": "D:/OneDrive - Universidad Nacional de Colombia/Escritorio/modelo2/src/gestorAplicacion/obras",
+    "onboarding.tips.debug.path": "D:/OneDrive - Universidad Nacional de Colombia/Escritorio/modelo2/gestorB/src/Main.java",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -70,7 +66,13 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\OneDrive - Universidad Nacional de Colombia\Escritorio\modelo2\src\gestorAplicacion\obras" />
+      <recent name="D:\OneDrive - Universidad Nacional de Colombia\Escritorio\modelo2\src\gestorAplicacion" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="src.gestorAplicacion.prestamo" />
+      <recent name="src.uiMain" />
       <recent name="src.gestorAplicacion.obras" />
     </key>
   </component>
@@ -83,6 +85,28 @@
       <option name="presentableId" value="Default" />
       <updated>1684832375566</updated>
     </task>
+    <task id="LOCAL-00001" summary="re-construccion del modelo2">
+      <created>1684853582343</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1684853582343</updated>
+    </task>
+    <task id="LOCAL-00002" summary="re-construccion del modelo2">
+      <created>1684853913825</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1684853913825</updated>
+    </task>
+    <task id="LOCAL-00003" summary="re-construccion del modelo2">
+      <created>1684854029274</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1684854029274</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -95,5 +119,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="re-construccion del modelo2" />
+    <option name="LAST_COMMIT_MESSAGE" value="re-construccion del modelo2" />
   </component>
 </project>

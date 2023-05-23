@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/gestorB/gestorB.iml" filepath="$PROJECT_DIR$/gestorB/gestorB.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modelo2.iml" filepath="$PROJECT_DIR$/.idea/modelo2.iml" />
     </modules>
   </component>
