@@ -90,7 +90,7 @@ public class bibliotecario {
 					
 					System.out.println("Número (N):"); short n = (short) readLong();
 					System.out.println("Piso (N):"); short p = (short) readLong();readLn();
-					System.out.println("Límte inferior (S):"); 
+					System.out.println("Límite inferior (S):");
 					String li = readLn();
 					System.out.println("Límite superior (S):"); 
 					String ls = readLn();
