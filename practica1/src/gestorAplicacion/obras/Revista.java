@@ -14,20 +14,20 @@ public class Revista extends Publicacion {
 	private String temporada;
 	
 	//CONSTRUCTORES
-	public Revista (int codigo, String nombre, short a?o, short ejemplar, short numero,Meses mes, String temporada, Estanteria estanteria) {
-		super(codigo,nombre,a?o,ejemplar);
+	public Revista (int codigo, String nombre, short año, short ejemplar, short numero,Meses mes, String temporada, Estanteria estanteria) {
+		super(codigo,nombre,año,ejemplar);
 		this.numero=numero;
 		this.mes=mes;
 		this.temporada=temporada;
 		super.estanteria=estanteria;
 		revistas.add(this);
 		estanteria.getPublicaciones().add(this);
-		numeroPublicaciones++;
+		Publicacion.numeroPublicaciones++;
 	}
 		
 	//METODOS
 	public String mostrarInfo() {
-		return " INFORMACION DE LA REVISTA " + "\n" + "Nombre: " + this.nombre + "\n" + "A?o: " + this.a?o + "\n" 
+		return " INFORMACION DE LA REVISTA " + "\n" + "Nombre: " + this.nombre + "\n" + "Año: " + this.año + "\n" 
 				+ "Mes: "+ this.mes + "\n"+ "Temporada: "+ this.temporada + "\n"
 				+ "Codigo: " + this.codigo + "\n" + "Ejemplar: " + this.ejemplar + "\n" + "Estado: " + this.estado;
 	}
