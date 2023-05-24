@@ -2,6 +2,7 @@ package uiMain;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 import baseDatos.*; 
 import gestorAplicacion.obras.*;
@@ -14,13 +15,23 @@ public class bibliotecario {
 	static Scanner sc = new Scanner(System.in);
 	static long readLong() {return sc.nextLong();}
 	static String readLn() {return sc.nextLine();}
-	
+
+
+
 	public static void main(String[] args) {
 		//Inicializadores para algunos atributos
 		tipoLibro tipo;
 		Autor autor = null;
 		Estanteria estanteria;
-		
+		String[] l1 = new String[2];
+
+		Random random = new Random();
+		short numerorando = (short) (random.nextInt(100) + 1);  // Genera un número aleatorio entre 1 y 100
+		short piso12 = (short) (random.nextInt(10) + 1);     // Genera un número aleatorio entre 1 y 10
+		String[] limites = new String[2];
+		limites[0] = "Límite inferior aleatorio";
+		limites[1] = "Límite superior aleatorio";
+
 		// Se eliminan todos los objetos creados para trabajar solamente con los de los archivos almacenados
 		//Deserializador.resetarMemoria();
 		Deserializador.deserializar();
@@ -34,9 +45,17 @@ public class bibliotecario {
 		ArrayList<Short> estanterias_numeros = new ArrayList<Short>();
 		for(Estanteria estanteria1 : Estanteria.getLista()) {estanterias_numeros.add(estanteria1.getNumero());}
 		if (estanterias_numeros.contains((short) 0) == false) {new Estanteria();}
-		
-		
-		  ///////////////////////////
+
+		Estanteria estanteria3 = new Estanteria(numerorando, piso12, limites);
+		Estanteria estanteria4 = new Estanteria((short) 12, (short) 12, limites);
+		Estanteria estanteria5 = new Estanteria((short) 1, (short) 2, limites);
+		Estanteria estanteria6 = new Estanteria((short) 2, (short) 2, limites);
+		Estanteria estanteria7 = new Estanteria((short) 3, (short) 1, limites);
+
+		Revista Revista3= new Revista((int)1,(String)"uwu",(short) 2000,(short) 1, (short) 1, gestorAplicacion.obras.Revista.Meses.AGOSTO,(String)"uwu",estanteria7);
+		Revista Revista4= new Revista((int)2,(String)"Análisis Político",(short) 2023,(short) 1, (short) 1, gestorAplicacion.obras.Revista.Meses.AGOSTO,(String)"uwu",estanteria7);
+
+		///////////////////////////
 		 /// INICIO DEL SISTEMA ////
 		///////////////////////////
 		System.out.println("Hola!\nBienvenido al Sistema de Gestión de la Biblioteca");
@@ -95,6 +114,7 @@ public class bibliotecario {
 					System.out.println("Límite superior (S):"); 
 					String ls = readLn();
 					String[] l = new String[]{li,ls};
+
 					new Estanteria(n, p, l);
 					System.out.println("Estanteria registrada con éxito");
 					break;
@@ -589,8 +609,6 @@ public class bibliotecario {
 				System.out.println("¿Cuántos préstamos desea realizar?");
 				nprestamos = (int) readLong();readLn();
 				}
-				
-			
 				int codigo;
 				int idprestamo;
 				String fecha;
@@ -742,6 +760,7 @@ public class bibliotecario {
 			
 
 			case 6: break;
+
 
 			} //cierre del switch - menú principal
 		
