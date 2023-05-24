@@ -1,4 +1,4 @@
-package uiMain;
+package gestorBibliotecas.src.uiMain;
 
 import java.util.ArrayList;
 import java.util.Scanner;

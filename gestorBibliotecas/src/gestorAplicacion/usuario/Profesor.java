@@ -1,4 +1,4 @@
-package gestorAplicacion.usuario;
+package gestorBibliotecas.src.gestorAplicacion.usuario;
 
 import java.util.ArrayList;
 

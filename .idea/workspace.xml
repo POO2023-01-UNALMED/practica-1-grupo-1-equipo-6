@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_INJECTED_CODE" value="false" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ed731e79-80dc-4d63-a9a4-368a6bcf95ab" name="Changes" comment="re-construccion del modelo2">
+      <change afterPath="$PROJECT_DIR$/practica1/src/xd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/practica1/src/Main.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2QBgQsMQgYShjEdSWFbG0jF9Kvf" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "jdk.selected.JAVA_MODULE": "20",
+    "last_opened_file_path": "D:/OneDrive - Universidad Nacional de Colombia/Escritorio/modelo2",
+    "onboarding.tips.debug.path": "D:/OneDrive - Universidad Nacional de Colombia/Escritorio/modelo2/practica1/src/Main.java",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "settings.sync",
+    "two.files.diff.last.used.file": "D:/OneDrive - Universidad Nacional de Colombia/Escritorio/modelo2/gestorBibliotecas/src/uiMain/Main.java"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\OneDrive - Universidad Nacional de Colombia\Escritorio\modelo2\src\gestorAplicacion\obras" />
+      <recent name="D:\OneDrive - Universidad Nacional de Colombia\Escritorio\modelo2\src\gestorAplicacion" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="src.gestorAplicacion.prestamo" />
+      <recent name="src.uiMain" />
+      <recent name="src.gestorAplicacion.obras" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ed731e79-80dc-4d63-a9a4-368a6bcf95ab" name="Changes" comment="" />
+      <created>1684832375566</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1684832375566</updated>
+    </task>
+    <task id="LOCAL-00001" summary="re-construccion del modelo2">
+      <created>1684853582343</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1684853582343</updated>
+    </task>
+    <task id="LOCAL-00002" summary="re-construccion del modelo2">
+      <created>1684853913825</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1684853913825</updated>
+    </task>
+    <task id="LOCAL-00003" summary="re-construccion del modelo2">
+      <created>1684854029274</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1684854029274</updated>
+    </task>
+    <task id="LOCAL-00004" summary="re-construccion del modelo2">
+      <created>1684855614896</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1684855614896</updated>
+    </task>
+    <task id="LOCAL-00005" summary="re-construccion del modelo2">
+      <created>1684857315237</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1684857315237</updated>
+    </task>
+    <task id="LOCAL-00006" summary="re-construccion del modelo2">
+      <created>1684857397504</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1684857397504</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="re-construccion del modelo2" />
+    <option name="LAST_COMMIT_MESSAGE" value="re-construccion del modelo2" />
+  </component>
+</project>
