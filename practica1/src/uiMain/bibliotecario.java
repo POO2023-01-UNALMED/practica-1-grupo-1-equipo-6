@@ -47,49 +47,76 @@ public class bibliotecario {
 		for(Estanteria estanteria1 : Estanteria.getLista()) {estanterias_numeros.add(estanteria1.getNumero());}
 		if (!estanterias_numeros.contains((short) 0)) {new Estanteria();}
 
+
 		//Creación de objetos estanterías
 
-		Estanteria estanteria3 = new Estanteria(numerorando, piso12, limites);
-		Estanteria estanteria4 = new Estanteria((short) 12, (short) 12, limites);
+		Estanteria estanteria3 = new Estanteria((short)19, (short)5, limites);
+		Estanteria estanteria4 = new Estanteria((short) 18, (short)6, limites);
 		Estanteria estanteria5 = new Estanteria((short) 1, (short) 2, limites);
 		Estanteria estanteria6 = new Estanteria((short) 2, (short) 2, limites);
 		Estanteria estanteria7 = new Estanteria((short) 3, (short) 1, limites);
 		Estanteria estanteria8 = new Estanteria((short) 4, (short) 1, limites);
 		Estanteria estanteria9 = new Estanteria((short) 5, (short) 3, limites);
 		Estanteria estanteria10 = new Estanteria((short) 6, (short) 4, limites);
-		Estanteria estanteria11 = new Estanteria((short) 7, (short) 6, limites);
-		Estanteria estanteria12 = new Estanteria((short) 9, (short) 5, limites);
-		Estanteria estanteria13 = new Estanteria(numerorando, piso12, limites);
-		Estanteria estanteria14 = new Estanteria(numerorando, piso12, limites);
-		Estanteria estanteria15 = new Estanteria(numerorando, piso12, limites);
-		Estanteria estanteria16 = new Estanteria(numerorando, piso12, limites);
-		Estanteria estanteria17 = new Estanteria(numerorando, piso12, limites);
-		Estanteria estanteria18 = new Estanteria(numerorando, piso12, limites);
-		Estanteria estanteria19 = new Estanteria(numerorando, piso12, limites);
-		Estanteria estanteria20 = new Estanteria(numerorando, piso12, limites);
+		Estanteria estanteria11 = new Estanteria((short)7, (short) 6, limites);
+		Estanteria estanteria12 = new Estanteria((short)9, (short) 5, limites);
+		Estanteria estanteria13 = new Estanteria((short)10, (short)2, limites);
+		Estanteria estanteria14 = new Estanteria((short)11,(short) 3, limites);
+		Estanteria estanteria15 = new Estanteria((short)12, (short) 1, limites);
+		Estanteria estanteria16 = new Estanteria((short)13, (short)6, limites);
+		Estanteria estanteria17 = new Estanteria((short)14, (short)4, limites);
+		Estanteria estanteria18 = new Estanteria((short)15, (short)1, limites);
+		Estanteria estanteria19 = new Estanteria((short)16, (short)3, limites);
+		Estanteria estanteria20 = new Estanteria((short)17, (short)2, limites);
 
 
 		//Creación de objetos revistas
+
 		Revista revista3= new Revista((int)1,(String)"Nature",(short) 2000,(short) 1, (short) 103, Revista.Meses.AGOSTO,(String)"primera",estanteria7);
-		Revista revista4= new Revista((int)2,(String)"Análisis Político",(short) 2023,(short) 10, (short) 104, Revista.Meses.AGOSTO,(String)"primera",estanteria7);
-		Revista revista5= new Revista((int)3,(String)"Forbes",(short) 2001,(short) 101, (short) 105, Revista.Meses.OCTUBRE,(String)"segunda",estanteria6);
-		Revista revista6= new Revista((int)4,(String)"Rolling Stones",(short) 2003,(short) 123, (short) 100, Revista.Meses.DICIEMBRE,(String)"tercera",estanteria7);
-		Revista revista7= new Revista((int)5,(String)"Semana",(short) 2002,(short) 12, (short) 106, Revista.Meses.ENERO,(String)"primera",estanteria6);
-		Revista revista8= new Revista((int)6,(String)"Science",(short) 2004,(short) 13, (short) 108, Revista.Meses.FEBRERO,(String)"tercera",estanteria7);
-		Revista revista9= new Revista((int)7,(String)"Blood",(short) 2006,(short) 15, (short) 1, Revista.Meses.MARZO,(String)"segunda",estanteria7);
+		Revista revista4= new Revista((int)2,(String)"Análisis Político",(short) 2023,(short) 10, (short) 104, Revista.Meses.AGOSTO,(String)"primera",estanteria12);
+		Revista revista5= new Revista((int)3,(String)"Forbes",(short) 2001,(short) 101, (short) 105, Revista.Meses.OCTUBRE,(String)"segunda",estanteria13);
+		Revista revista6= new Revista((int)4,(String)"Rolling Stones",(short) 2003,(short) 123, (short) 100, Revista.Meses.DICIEMBRE,(String)"tercera",estanteria11);
+		Revista revista7= new Revista((int)5,(String)"Semana",(short) 2002,(short) 12, (short) 106, Revista.Meses.ENERO,(String)"primera",estanteria4);
+		Revista revista8= new Revista((int)6,(String)"Science",(short) 2004,(short) 13, (short) 108, Revista.Meses.FEBRERO,(String)"tercera",estanteria3);
+		Revista revista9= new Revista((int)7,(String)"Blood",(short) 2006,(short) 15, (short) 1, Revista.Meses.MARZO,(String)"segunda",estanteria20);
 		Revista revista10= new Revista((int)8,(String)"Cell",(short) 2005,(short) 16, (short) 178, Revista.Meses.ABRIL,(String)"primera",estanteria6);
-		Revista Revista11= new Revista((int)9,(String)"Apple",(short) 2007,(short) 17, (short) 156, Revista.Meses.MAYO,(String)"tercera",estanteria7);
-		Revista Revista12= new Revista((int)10,(String)"City",(short) 2009,(short) 18, (short) 187, Revista.Meses.JUNIO,(String)"segunda",estanteria7);
-		Revista Revista13= new Revista((int)11,(String)"London",(short) 2008,(short) 19, (short) 146, Revista.Meses.JULIO,(String)"cuarta",estanteria6);
-		Revista Revista14= new Revista((int)12,(String)"Berlín",(short) 2009,(short) 20, (short) 147, Revista.Meses.NOVIEMBRE,(String)"primera",estanteria6);
-		Revista Revista15= new Revista((int)13,(String)"Berry",(short) 2002,(short) 21, (short) 158, Revista.Meses.SEPTIEMBRE,(String)"segunda",estanteria7);
-		Revista Revista16= new Revista((int)14,(String)"Assist",(short) 1999,(short) 22, (short) 125, Revista.Meses.DICIEMBRE,(String)"tercera",estanteria7);
-		Revista Revista17= new Revista((int)15,(String)"Boss",(short) 2022,(short) 23, (short) 10, Revista.Meses.ENERO,(String)"cuarta",estanteria7);
-		Revista Revista18= new Revista((int)16,(String)"Scoope",(short) 2003,(short) 24, (short) 105, Revista.Meses.ABRIL,(String)"primera",estanteria6);
-		Revista Revista19= new Revista((int)17,(String)"Jenos",(short) 2004,(short) 25, (short) 7, Revista.Meses.JULIO,(String)"primera",estanteria6);
-		Revista Revista20= new Revista((int)18,(String)"World",(short) 1998,(short) 26, (short) 78, Revista.Meses.MAYO,(String)"cuarta",estanteria7);
-		Revista Revista21= new Revista((int)19,(String)"Casio",(short) 2015,(short) 27, (short) 63, Revista.Meses.NOVIEMBRE,(String)"tercera",estanteria7);
-		Revista Revista22= new Revista((int)20,(String)"Rex",(short) 2018,(short) 28, (short) 19, Revista.Meses.OCTUBRE,(String)"cuarta",estanteria6);
+		Revista Revista11= new Revista((int)9,(String)"Apple",(short) 2007,(short) 17, (short) 156, Revista.Meses.MAYO,(String)"tercera",estanteria12);
+		Revista Revista12= new Revista((int)10,(String)"City",(short) 2009,(short) 18, (short) 187, Revista.Meses.JUNIO,(String)"segunda",estanteria11);
+		Revista Revista13= new Revista((int)11,(String)"London",(short) 2008,(short) 19, (short) 146, Revista.Meses.JULIO,(String)"cuarta",estanteria10);
+		Revista Revista14= new Revista((int)12,(String)"Berlín",(short) 2009,(short) 20, (short) 147, Revista.Meses.NOVIEMBRE,(String)"primera",estanteria9);
+		Revista Revista15= new Revista((int)13,(String)"Berry",(short) 2002,(short) 21, (short) 158, Revista.Meses.SEPTIEMBRE,(String)"segunda",estanteria19);
+		Revista Revista16= new Revista((int)14,(String)"Assist",(short) 1999,(short) 22, (short) 125, Revista.Meses.DICIEMBRE,(String)"tercera",estanteria13);
+		Revista Revista17= new Revista((int)15,(String)"Boss",(short) 2022,(short) 23, (short) 10, Revista.Meses.ENERO,(String)"cuarta",estanteria17);
+		Revista Revista18= new Revista((int)16,(String)"Scoope",(short) 2003,(short) 24, (short) 105, Revista.Meses.ABRIL,(String)"primera",estanteria8);
+		Revista Revista19= new Revista((int)17,(String)"Jenos",(short) 2004,(short) 25, (short) 7, Revista.Meses.JULIO,(String)"primera",estanteria16);
+		Revista Revista20= new Revista((int)18,(String)"World",(short) 1998,(short) 26, (short) 78, Revista.Meses.MAYO,(String)"cuarta",estanteria15);
+		Revista Revista21= new Revista((int)19,(String)"Casio",(short) 2015,(short) 27, (short) 63, Revista.Meses.NOVIEMBRE,(String)"tercera",estanteria14);
+		Revista Revista22= new Revista((int)20,(String)"Rex",(short) 2018,(short) 28, (short) 19, Revista.Meses.OCTUBRE,(String)"cuarta",estanteria18);
+
+
+	//Creación de objetos folletos
+
+		Folleto folleto3= new Folleto((int)21,(String) "Pool",(short) 2017,(short)29, (String)"Arte",estanteria14);
+		Folleto folleto4= new Folleto((int)22,(String) "Pin",(short) 2016,(short)100, (String)"Biología",estanteria15);
+		Folleto folleto5= new Folleto((int)23,(String) "Land",(short) 2012,(short)220, (String)"Comercio",estanteria16);
+		Folleto folleto6= new Folleto((int)24,(String) "Sand",(short) 2010,(short)286, (String)"Salud",estanteria17);
+		Folleto folleto7= new Folleto((int)25,(String) "Bed",(short) 2019,(short)290, (String)"Arte",estanteria10);
+		Folleto folleto8= new Folleto((int)26,(String) "Amstel",(short) 2014,(short)279, (String)"política",estanteria4);
+		Folleto folleto9= new Folleto((int)27,(String) "Bwin",(short) 2013,(short)39, (String)"Ciencia",estanteria13);
+		Folleto folleto10= new Folleto((int)28,(String) "Crypto",(short) 2011,(short)59, (String)"Medicina",estanteria12);
+		Folleto folleto11= new Folleto((int)29,(String) "Food",(short) 2001,(short)69, (String)"Comida",estanteria4);
+		Folleto folleto12= new Folleto((int)30,(String) "Feet",(short) 2008,(short)79, (String)"Deporte",estanteria11);
+		Folleto folleto13= new Folleto((int)31,(String) "Felt",(short) 2017,(short)80, (String)"Derecho",estanteria5);
+		Folleto folleto14= new Folleto((int)32,(String) "Door",(short) 2021,(short)68, (String)"Académica",estanteria6);
+		Folleto folleto15= new Folleto((int)33,(String) "Ask",(short) 2020,(short)78, (String)"Informativa",estanteria7);
+		Folleto folleto16= new Folleto((int)34,(String) "Fast",(short) 2022,(short)299, (String)"Publicidad",estanteria7);
+		Folleto folleto22= new Folleto((int)35,(String) "Push",(short) 2002,(short)185, (String)"Arquitectura",estanteria8);
+		Folleto folleto17= new Folleto((int)36,(String) "Trick",(short) 2000,(short)199, (String)"Salud",estanteria6);
+		Folleto folleto18= new Folleto((int)37,(String) "O'neill",(short) 2009,(short)300, (String)"Deporte",estanteria18);
+		Folleto folleto19= new Folleto((int)38,(String) "Less",(short) 2006,(short)86, (String)"Derecho",estanteria19);
+		Folleto folleto20= new Folleto((int)39,(String) "Price",(short) 2007,(short)99, (String)"Biología",estanteria20);
+		Folleto folleto21= new Folleto((int)40,(String) "Link",(short) 2013,(short)3, (String)"Medicina",estanteria3);
+
 
 
 		///////////////////////////
