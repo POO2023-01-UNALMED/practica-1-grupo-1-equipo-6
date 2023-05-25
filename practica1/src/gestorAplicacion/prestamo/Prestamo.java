@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.*;
 import java.util.ArrayList;
 
+import gestorAplicacion.obras.Folleto;
 import gestorAplicacion.obras.Libro;
 import gestorAplicacion.obras.Publicacion;
 import gestorAplicacion.obras.Revista;
@@ -25,6 +26,7 @@ public class Prestamo implements Serializable {
 	private LocalDateTime fin;
 	private Publicacion publicacion;
 	private Persona usuario;
+	private Persona persona;
 	
 	//CONSTRUCTORES
 	public Prestamo(EstudianteProfesor usuario, Publicacion publicacion,int id,LocalDate inicio) { // constructor para los usuarios de la universidad
@@ -50,7 +52,7 @@ public class Prestamo implements Serializable {
 			this.fin= this.inicio.plusDays(1).atTime(LocalTime.of(12, 0));
 		}
 		else if( publicacion.getTipo() == Libro.tipoLibro.COLECCION_GENERAL) {
-			this.fin= this.inicio.plusDays(30).atTime(LocalTime.of(12, 0));
+			this.fin= this.inicio.plusDays(20).atTime(LocalTime.of(12, 0));
 		}else {}
 	}
 	 
@@ -66,6 +68,9 @@ public class Prestamo implements Serializable {
 	 
 	 public void determinarFin(Externo usuario, Revista publicacion) {
 		 this.fin= this.inicio.plusDays(7).atTime(LocalTime.of(12, 0));
+	}
+	public void determinarFin(Externo usuario, Folleto publicacion) {
+		this.fin= this.inicio.plusDays(7).atTime(LocalTime.of(12, 0));
 	}
 	 public String mostrarInfo() {
 		 return " DETALLE DEL PRESTAMO " + "\n" + "Publicacion: " + this.publicacion.getNombre() + "\n" + "Usuario: " + this.usuario.getNombre() + "\n" 

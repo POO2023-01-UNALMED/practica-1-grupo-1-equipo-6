@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
+import gestorAplicacion.obras.Folleto;
 import gestorAplicacion.obras.Libro;
 import gestorAplicacion.obras.Publicacion;
 import gestorAplicacion.obras.Revista;
@@ -24,13 +25,13 @@ public class Externo extends Persona implements Usuario {
 	//CONSTRUCTORES
 	public Externo(String nombre,int id,String correo,int tel,String direccion, LocalDate nacimiento, String paisOrigen){
 		super( nombre, id, correo, tel, direccion,  nacimiento,  paisOrigen);
-		//usuariosExternos.add(this);
+		usuariosExternos.add(this);
 		Persona.getLista().add(this);
 	}
 	public Externo(String nombre,int id,String correo,int tel,String direccion,LocalDate nacimiento, String paisOrigen, String universidad){// Constructor con el parametro opcional Universidad
 		this( nombre, id, correo, tel, direccion,  nacimiento,  paisOrigen);
 		this.universidad=universidad;
-		//usuariosExternos.add(this);
+		usuariosExternos.add(this);
 		Persona.getLista().add(this);
 	}
 	
@@ -46,16 +47,21 @@ public class Externo extends Persona implements Usuario {
 		String c ="";
 		if(publicacion.verificarPrestado() == false) { // verifica si el libro no esta prestado
 			c= "El material se encuentra disponible para prestamo \n \n";
+			System.out.println(c);
 			Prestamo prestamo = new Prestamo(this,  publicacion, id, inicio);
 			if (publicacion instanceof Libro) {
 				prestamo.determinarFin(this, (Libro) publicacion);
 			}else if(publicacion instanceof Revista) {
 				prestamo.determinarFin(this, (Revista) publicacion);
+			}else if(publicacion instanceof Folleto) {
+				prestamo.determinarFin(this, (Folleto) publicacion);
 			}
 			publicacion.setEstado(Publicacion.Estados.PRESTADO);
-			c= c+ this.nombre + " ha prestado exitosamente el siguiente material \n \n";
+			c=this.nombre + " ha prestado exitosamente el siguiente material \n \n";
 			c= c + publicacion.mostrarInfo()+"\n"; //ligadura dinamica
 			c=c+ prestamo.mostrarInfo();
+			System.out.println(c);
+
 			
 			
 		}else {
@@ -86,15 +92,24 @@ public class Externo extends Persona implements Usuario {
 						prestamo.determinarFin(this, (Libro) publicacion);
 					}else if(publicacion instanceof Revista) {
 						prestamo.determinarFin(this, (Revista) publicacion);
+					}else if(publicacion instanceof Folleto){
+						prestamo.determinarFin(this, (Folleto) publicacion);
 					}
-					c += "\nRenovación exitosa !";}
+					c += "\nRenovación exitosa !";
+				c= c + publicacion.mostrarInfo()+"\n"; //ligadura dinamica
+				c=c+ prestamo.mostrarInfo();
+				System.out.println(c);
+			}
 			
 			
 			if (publicacion instanceof Libro) {
 				prestamo.determinarFin(this, (Libro) publicacion);
 			}else if(publicacion instanceof Revista) {
 				prestamo.determinarFin(this, (Revista) publicacion);
-				}
+			}else if(publicacion instanceof Folleto){
+				prestamo.determinarFin(this, (Folleto) publicacion);
+			}
+
 				return c;}
 		
 		
@@ -103,8 +118,10 @@ public class Externo extends Persona implements Usuario {
 			String c = "";
 			for(Prestamo prest : Prestamo.getLista()) {
 				if (prest.getId() == idprestamo){
-					prestamo = prest;c ="\nPrestamo encontrado" + this.renovar(prest) ;}} 
-			if (prestamo == null) {c= "\nPrestamo no encontrado";}
+					prestamo = prest;c ="\nPrestamo encontrado" + this.renovar(prest) ;
+					System.out.println(c);}}
+			if (prestamo == null) {c= "\nPrestamo no encontrado";
+				System.out.println(c);}
 			return c;
 			}
 		//Fin funcionalidad Renovar

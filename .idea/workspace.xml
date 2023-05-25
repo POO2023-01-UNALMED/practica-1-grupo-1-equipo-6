@@ -7,10 +7,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed731e79-80dc-4d63-a9a4-368a6bcf95ab" name="Changes" comment="re-construccion del modelo2">
-      <change afterPath="$PROJECT_DIR$/practica1/src/xd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ed731e79-80dc-4d63-a9a4-368a6bcf95ab" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/practica1/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/practica1/baseDatos/temp/estanterias.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/practica1/baseDatos/temp/estanterias.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/practica1/xd.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practica1/src/gestorAplicacion/personas/EstudianteProfesor.java" beforeDir="false" afterPath="$PROJECT_DIR$/practica1/src/gestorAplicacion/personas/EstudianteProfesor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practica1/src/gestorAplicacion/personas/Externo.java" beforeDir="false" afterPath="$PROJECT_DIR$/practica1/src/gestorAplicacion/personas/Externo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practica1/src/gestorAplicacion/personas/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/practica1/src/gestorAplicacion/personas/Persona.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practica1/src/gestorAplicacion/prestamo/Prestamo.java" beforeDir="false" afterPath="$PROJECT_DIR$/practica1/src/gestorAplicacion/prestamo/Prestamo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practica1/src/uiMain/bibliotecario.java" beforeDir="false" afterPath="$PROJECT_DIR$/practica1/src/uiMain/Bibliotecario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +40,19 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="6b224011-13af-47b6-8556-88cc5772f3f0" />
+        <option name="url" value="https://github.com/POO2023-01-UNALMED/practica-1-grupo-1-equipo-6.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/practica1/src/Main.java" root0="SKIP_INSPECTION" />
   </component>
@@ -50,6 +71,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "jdk.selected.JAVA_MODULE": "20",
     "last_opened_file_path": "D:/OneDrive - Universidad Nacional de Colombia/Escritorio/modelo2",
     "onboarding.tips.debug.path": "D:/OneDrive - Universidad Nacional de Colombia/Escritorio/modelo2/practica1/src/Main.java",
@@ -140,5 +162,21 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="re-construccion del modelo2" />
     <option name="LAST_COMMIT_MESSAGE" value="re-construccion del modelo2" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/practica1/src/uiMain/Bibliotecario.java</url>
+          <line>716</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/practica1/src/uiMain/Bibliotecario.java</url>
+          <line>674</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

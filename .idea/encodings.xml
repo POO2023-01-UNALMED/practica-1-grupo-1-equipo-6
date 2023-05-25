@@ -10,16 +10,13 @@
     <file url="file://$PROJECT_DIR$/src/gestorAplicacion/personas/EstudianteProfesor.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/gestorAplicacion/personas/Externo.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/gestorAplicacion/personas/Folleto.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/src/gestorAplicacion/personas/Folleto.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/src/gestorAplicacion/personas/Libro.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/gestorAplicacion/personas/Libro.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/gestorAplicacion/personas/Persona.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/gestorAplicacion/personas/Publicacion.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/src/gestorAplicacion/personas/Publicacion.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/src/gestorAplicacion/personas/Revista.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/gestorAplicacion/personas/Revista.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/gestorAplicacion/personas/Usuario.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/gestorAplicacion/prestamo/Prestamo.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/uiMain/bibliotecario.java" charset="windows-1252" />
+    <file url="PROJECT" charset="windows-1252" />
   </component>
 </project>

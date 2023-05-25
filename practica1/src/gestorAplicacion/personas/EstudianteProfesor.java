@@ -28,7 +28,7 @@ public class EstudianteProfesor extends Persona implements Usuario {
 	public EstudianteProfesor(String nombre,int id,Rol rol,String correo,int tel,String direccion, LocalDate nacimiento, String paisOrigen){
 		super( nombre, id, correo, tel, direccion,  nacimiento,  paisOrigen);
 		this.rol=rol;
-		//estudiantesyprofesores.add(this);
+		estudiantesyprofesores.add(this);
 		Persona.lista.add(this);
 		
 	}
@@ -44,6 +44,7 @@ public class EstudianteProfesor extends Persona implements Usuario {
 		String c ="";
 		if(publicacion.verificarPrestado() == false) { // verifica si el libro no esta prestado
 			c= "El material se encuentra disponible para prestamo \n \n";
+			System.out.println(c);
 			Prestamo prestamo = new Prestamo(this,  publicacion, id, inicio);
 			if (publicacion instanceof Libro) {
 				prestamo.determinarFin(this, (Libro) publicacion);
@@ -51,13 +52,14 @@ public class EstudianteProfesor extends Persona implements Usuario {
 				prestamo.determinarFin(this, (Revista) publicacion);
 			}
 			publicacion.setEstado(Publicacion.Estados.PRESTADO);
-			c= c+ this.nombre + " ha prestado exitosamente el siguiente material \n \n";
+			c=this.nombre + " ha prestado exitosamente el siguiente material \n \n";
 			c= c + publicacion.mostrarInfo()+"\n \n"; //ligadura dinamica
 			c=c+ prestamo.mostrarInfo();
-			
+			System.out.println(c);
 			
 		}else {
 			c="La publicacion ya se encuentra en prestamo.";
+			System.out.println(c);
 		}
 		
 	
@@ -86,7 +88,11 @@ public class EstudianteProfesor extends Persona implements Usuario {
 				}else if(publicacion instanceof Revista) {
 					prestamo.determinarFin(this, (Revista) publicacion);
 				}
-				c += "\nRenovación exitosa !";}
+				c += "\nRenovación exitosa !";
+			c= c + publicacion.mostrarInfo()+"\n"; //ligadura dinamica
+			c=c+ prestamo.mostrarInfo();
+			System.out.println(c);}
+
 		
 		
 		if (publicacion instanceof Libro) {

@@ -1,8 +1,14 @@
 package gestorAplicacion.personas;
 
+import gestorAplicacion.obras.Libro;
+import gestorAplicacion.obras.Publicacion;
+import gestorAplicacion.obras.Revista;
+import gestorAplicacion.prestamo.Prestamo;
+
 import java.io.Serializable;
 import java.time.*;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 
 public abstract class Persona implements Serializable{
@@ -37,7 +43,9 @@ public abstract class Persona implements Serializable{
 		this.direccion=direccion;
 		this.paisOrigen=paisOrigen;
 	}
-	
+
+
+
 	//METODOS
 	public static void eliminarPersona(Persona p) { // elimina un registro de Persona
 		lista.remove(lista.indexOf(p));
@@ -112,4 +120,7 @@ public abstract class Persona implements Serializable{
 	public void setNacimiento(LocalDate nacimiento) {
 		this.nacimiento = nacimiento;
 	}
+
+
+
 }
