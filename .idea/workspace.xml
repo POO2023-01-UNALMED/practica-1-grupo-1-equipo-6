@@ -7,18 +7,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed731e79-80dc-4d63-a9a4-368a6bcf95ab" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="ed731e79-80dc-4d63-a9a4-368a6bcf95ab" name="Changes" comment="CONSTRUCCION DE NUEVOS OBJETOS, MEJORAMIENTO DE LA EXPERIENCIA AL USUARIO.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/practica1/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/practica1/baseDatos/temp/estanterias.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/practica1/baseDatos/temp/estanterias.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/practica1/xd.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/practica1/src/gestorAplicacion/personas/EstudianteProfesor.java" beforeDir="false" afterPath="$PROJECT_DIR$/practica1/src/gestorAplicacion/personas/EstudianteProfesor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practica1/src/gestorAplicacion/personas/Externo.java" beforeDir="false" afterPath="$PROJECT_DIR$/practica1/src/gestorAplicacion/personas/Externo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practica1/src/gestorAplicacion/personas/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/practica1/src/gestorAplicacion/personas/Persona.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practica1/src/gestorAplicacion/prestamo/Prestamo.java" beforeDir="false" afterPath="$PROJECT_DIR$/practica1/src/gestorAplicacion/prestamo/Prestamo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practica1/src/uiMain/bibliotecario.java" beforeDir="false" afterPath="$PROJECT_DIR$/practica1/src/uiMain/Bibliotecario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684857397504</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="CONSTRUCCION DE NUEVOS OBJETOS, MEJORAMIENTO DE LA EXPERIENCIA AL USUARIO.">
+      <created>1685011462126</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1685011462126</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -161,7 +158,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="re-construccion del modelo2" />
-    <option name="LAST_COMMIT_MESSAGE" value="re-construccion del modelo2" />
+    <MESSAGE value="CONSTRUCCION DE NUEVOS OBJETOS, MEJORAMIENTO DE LA EXPERIENCIA AL USUARIO." />
+    <option name="LAST_COMMIT_MESSAGE" value="CONSTRUCCION DE NUEVOS OBJETOS, MEJORAMIENTO DE LA EXPERIENCIA AL USUARIO." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -175,6 +173,16 @@
           <url>file://$PROJECT_DIR$/practica1/src/uiMain/Bibliotecario.java</url>
           <line>674</line>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/practica1/src/uiMain/Bibliotecario.java</url>
+          <line>501</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/practica1/src/uiMain/Bibliotecario.java</url>
+          <line>661</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

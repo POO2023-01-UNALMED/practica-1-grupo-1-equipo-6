@@ -91,17 +91,17 @@ public class Bibliotecario {
 		Autor maria =new Autor((int)3,(String) "maria antonia",LocalDate.parse((String)"2001-02-01"),(String)"Col");
 		Autor hector =new Autor((int)4,(String) "maria antonia",LocalDate.parse((String)"2001-02-01"),(String)"Col");
 
-
+		//creacion de libros
 		Libro libro3= new Libro((int)13,(String)"Acer",(short)1999,(short)1000,maria,tipoLibro.COLECCION_GENERAL,(String) "medicina",(short) 1,estanteria5);
 		Libro libro4= new Libro((int)14,(String)"Acero",(short)1999,(short)1000,jorge,tipoLibro.TESIS,(String) "medicina",(short) 1,estanteria6);
 		Libro libro5= new Libro((int)15,(String)"metal",(short)1999,(short)1000,josepo,tipoLibro.INVESTIGACION,(String) "medicina",(short) 1,estanteria7);
 		Libro libro6= new Libro((int)16,(String)"haceb",(short)1999,(short)1000,hector,tipoLibro.SEMINARIO,(String) "medicina",(short) 1,estanteria8);
-
+		//creacion de EstudianteProfesor
 		EstudianteProfesor juan= new EstudianteProfesor((String)"juan", (int)5,Rol.ESTUDIANTE, (String) "@gmail.com",(int) 312,(String) "cra",LocalDate.parse((String)"2000-01-01"),(String)"Col");
 		EstudianteProfesor marco= new EstudianteProfesor((String)"marco", (int)6,Rol.PROFESOR, (String) "1@gmail.com",(int) 311,(String) "cra",LocalDate.parse((String)"2000-01-01"),(String)"Col");
 		EstudianteProfesor fidel= new EstudianteProfesor((String)"fidel", (int)7,Rol.ESTUDIANTE, (String) "2@gmail.com",(int) 310,(String) "cra",LocalDate.parse((String)"2000-01-01"),(String)"Col");
 		EstudianteProfesor castro= new EstudianteProfesor((String)"castro", (int)8,Rol.PROFESOR, (String) "3@gmail.com",(int) 300,(String) "cra",LocalDate.parse((String)"2000-01-01"),(String)"Col");
-
+		//creacion externo
 		Externo armando= new Externo((String)"Armando casas", (int)9, (String) "3@gmail.com",(int) 300,(String) "cra",LocalDate.parse((String)"2000-01-01") ,(String)"Col");
 		Externo lusia= new Externo((String)"lusia", (int)10, (String) "3@gmail.com",(int) 300,(String) "cra",LocalDate.parse((String)"2000-01-01") ,(String)"Col");
 
