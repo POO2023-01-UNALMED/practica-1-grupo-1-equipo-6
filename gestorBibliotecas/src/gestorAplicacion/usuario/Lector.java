@@ -1,16 +1,22 @@
 package gestorAplicacion.usuario;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
+import javax.swing.text.html.HTMLDocument.Iterator;
+
+import gestorAplicacion.gestion.Biblioteca;
 import gestorAplicacion.gestion.Computador;
 import gestorAplicacion.gestion.Facultad;
 import gestorAplicacion.gestion.Laptop;
 import gestorAplicacion.gestion.Libro;
 
-public class Lector extends Persona {
-	static ArrayList<Lector> lectoresExistentes = new ArrayList<>();
+public class Lector extends Persona implements Serializable {
+	public static ArrayList<Lector> lectoresExistentes = new ArrayList<>();
 	private boolean reporte = false;
+	private String informe;
 	
     //--things to borrow 
     private ArrayList<Libro> librosPrestados  = new ArrayList<>();
@@ -21,14 +27,118 @@ public class Lector extends Persona {
         super(nombre, apellido, edad, direccion, tipoId, Id);
         lectoresExistentes.add(this);
         this.reporte = reporte;
+        crearInforme();
     }
 
     //METHODS 
+    
+    public String objetosPrestadosPorLector(Lector lector) {
+        StringBuilder result = new StringBuilder();
+        
+        if (!lector.librosPrestados.isEmpty() || !lector.computadoresPrestados.isEmpty() || !lector.laptopsPrestados.isEmpty()) {
+            result.append("Lector: ").append(lector.getNombre()).append(" ").append(lector.getApellido()).append("\n");
+
+            if (!lector.librosPrestados.isEmpty()) {
+                result.append("Libros prestados:\n");
+                for (Libro libro : lector.librosPrestados) {
+                    result.append("- ").append(libro.getTitulo()).append("\n");
+                }
+            }
+
+            if (!lector.computadoresPrestados.isEmpty()) {
+                result.append("Computadores prestados:\n");
+                for (Computador computador : lector.computadoresPrestados) {
+                    result.append("- ").append(computador.getModelo()).append("\n");
+                }
+            }
+
+            if (!lector.laptopsPrestados.isEmpty()) {
+                result.append("Laptops prestados:\n");
+                for (Laptop laptop : lector.laptopsPrestados) {
+                    result.append("- ").append(laptop.getModelo()).append("\n");
+                }
+            }
+
+            result.append("--------------------------------------\n");
+        }
+        
+        return result.toString();
+    }
+
+    
+    public static String ObjetosPrestados() {
+        StringBuilder result = new StringBuilder();
+        for (Lector lector : lectoresExistentes) {
+            if (!lector.librosPrestados.isEmpty() || !lector.computadoresPrestados.isEmpty() || !lector.laptopsPrestados.isEmpty()) {
+                result.append("Lector: ").append(lector.getNombre()).append(" ").append(lector.getApellido()).append("\n");
+                
+                if (!lector.librosPrestados.isEmpty()) {
+                    result.append("Libros prestados:\n");
+                    for (Libro libro : lector.librosPrestados) {
+                        result.append("- ").append(libro.getTitulo()).append("\n");
+                    }
+                }
+                
+                if (!lector.computadoresPrestados.isEmpty()) {
+                    result.append("Computadores prestados:\n");
+                    for (Computador computador : lector.computadoresPrestados) {
+                        result.append("- ").append(computador.getModelo()).append("\n");
+                    }
+                }
+                
+                if (!lector.laptopsPrestados.isEmpty()) {
+                    result.append("Laptops prestados:\n");
+                    for (Laptop laptop : lector.laptopsPrestados) {
+                        result.append("- ").append(laptop.getModelo()).append("\n");
+                    }
+                }
+                
+                result.append("--------------------------------------\n");
+            }
+        }
+        return result.toString();
+    }
+
+
+    
+    private void crearInforme() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Nombre: ").append(getNombre()).append("\n");
+        sb.append("Apellido: ").append(getApellido()).append("\n");
+        sb.append("Edad: ").append(getEdad()).append("\n");
+        sb.append("Dirección: ").append(getDireccion()).append("\n");
+        sb.append("Tipo de ID: ").append(getTipoId()).append("\n");
+        sb.append("ID: ").append(getId()).append("\n");
+        sb.append("\n");
+        informe = sb.toString();
+    }
+    public void desertar() {
+    	lectoresExistentes.remove(this);
+    }
+    
+    
+    public void asignarLaptop(String permisoDeTransporte, Biblioteca biblioteca) {
+        String[] componentesPermiso = permisoDeTransporte.split("/");
+        List<Laptop> laptopsDisponibles = biblioteca.getLaptopsDisponibles();
+        
+        for (Laptop laptop : new ArrayList<>(laptopsDisponibles)) {
+            if (laptop.getId() == Integer.parseInt(componentesPermiso[2])) {
+                this.agregarLaptop(laptop);
+                laptopsDisponibles.remove(laptop);
+            }
+        }
+    }
+
+
+    
+    
+    
     //MAKE REPORT 
     public void hacerReporte() {
         int numObjetosPrestados = librosPrestados.size() + computadoresPrestados.size() + laptopsPrestados.size();
         if (numObjetosPrestados > 5) {
             reporte = true;
+            this.setInforme(this.getInforme() + "PROCESO POR EXCEDER CANTIDAD DE PRESTAMOS\n");
         } else {
             reporte = false;
         }
@@ -40,89 +150,18 @@ public class Lector extends Persona {
                 return lector;
             }
         }
-        System.out.println("-----------------------------------------------------------------");
-        System.out.println("Lector no encontrado");
+
         return null;
     }
     
     //REGISTER USERS 
-    public static void registerUser() {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.println("Ingrese el nombre del lector:");
-        String nombre = sc.nextLine();
-
-        System.out.println("Ingrese el apellido del lector:");
-        String apellido = sc.nextLine();
-
-        System.out.println("Ingrese la edad del lector:");
-        int edad;
-        while (!sc.hasNextInt()) {
-            System.out.println("Edad inválida. Por favor, ingrese un número válido:");
-            sc.nextLine();
+    public static void registerUser(String nombre, String apellido, int edad, String direccion, String tipoId, int id,Facultad facultad, int tipoLector) {
+        if(tipoLector == 1) {
+    	    Estudiante nuevoEstudiante = new Estudiante(nombre, apellido, edad, direccion, tipoId, id, false, facultad);
+        }else if(tipoLector == 2) {
+        	Profesor nuevoProfesor = new Profesor(nombre, apellido, edad, direccion, tipoId, id, false);
         }
-        edad = sc.nextInt();
-        sc.nextLine(); // buffer cleaner
 
-        System.out.println("Ingrese la dirección del lector:");
-        String direccion = sc.nextLine();
-
-        System.out.println("Ingrese el tipo de identificación del lector:");
-        String tipoId = sc.nextLine();
-
-        System.out.println("Ingrese el número de identificación del lector:");
-        int id;
-        while (!sc.hasNextInt()) {
-            System.out.println("Número de identificación inválido. Por favor, ingrese un número válido:");
-            sc.nextLine();
-        }
-        id = sc.nextInt();
-        sc.nextLine(); // buffer cleaner
-
-        System.out.println("Seleccione el tipo de lector a registrar:");
-        System.out.println("1. Estudiante");
-        System.out.println("2. Profesor");
-
-        int tipoLector;
-        while (!sc.hasNextInt()) {
-            System.out.println("Tipo de lector inválido. Por favor, ingrese un número válido:");
-            sc.nextLine();
-        }
-        tipoLector = sc.nextInt();
-        sc.nextLine(); // buffer cleaner
-
-        if (tipoLector == 1) {
-            System.out.println("-----------------------------------------------------------------");
-            System.out.println("1. Estudiante");
-            System.out.println("-----------------------------------------------------------------");
-            System.out.println("Ingrese la facultad del estudiante:");
-            System.out.println("");
-            System.out.println("Facultades disponibles:");
-            for (Facultad fac : Facultad.values()) {
-                System.out.println(fac.ordinal() + ". " + fac.getNombre());
-            }
-            int indexFacultad;
-            while (!sc.hasNextInt()) {
-                System.out.println("Facultad inválida. Por favor, ingrese un número válido:");
-                sc.nextLine();
-            }
-            indexFacultad = sc.nextInt();
-            sc.nextLine(); // buffer cleaner
-            Facultad facultad = Facultad.values()[indexFacultad];
-
-            // creating student
-            Estudiante nuevoEstudiante = new Estudiante(nombre, apellido, edad, direccion, tipoId, id, false, facultad);
-            System.out.println("¡Estudiante registrado exitosamente!");
-        } else if (tipoLector == 2) {
-
-            // creating professor 
-            Profesor nuevoProfesor = new Profesor(nombre, apellido, edad, direccion, tipoId, id, false);
-            System.out.println("¡Profesor registrado exitosamente!");
-        } else {
-            System.out.println("Opción no válida. Intente de nuevo.");
-        }
-        System.out.println("-----------------------------------------------------------------");
-        System.out.println("Para continuar elija de nuevo las opciones que necesita:");
     }
 
 
@@ -182,7 +221,15 @@ public class Lector extends Persona {
 	public void setReporte(boolean reporte) {
 		this.reporte = reporte;
 	}
+
+	public String getInforme() {
+		return informe;
+	}
+
+	public void setInforme(String informe) {
+		this.informe = informe;
+	}
     
-    //get the info if the user is reported
+    
     
 }

@@ -1,7 +1,9 @@
 package gestorAplicacion.gestion;
 
-public class Computador {
-    private boolean esPortable = false;
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Computador implements Serializable {
     private boolean reporte = false;
     private String marca;
     private String modelo;
@@ -9,21 +11,17 @@ public class Computador {
     private int capacidadDiscoDuro;
     private int id;
     
+    public static ArrayList<Computador> computadoresExistentes=new ArrayList<Computador>();
+    
     public Computador(String marca, String modelo, int capacidadRAM, int capacidadDiscoDuro, int id) {
         this.marca = marca;
         this.modelo = modelo;
         this.capacidadRAM = capacidadRAM;
         this.capacidadDiscoDuro = capacidadDiscoDuro;
         this.id = id;
+        computadoresExistentes.add(this);
     }
     
-    public boolean isEsPortable() {
-        return esPortable;
-    }
-    
-    public void setEsPortable(boolean esPortable) {
-        this.esPortable = esPortable;
-    }
     
     public boolean isReporte() {
         return reporte;

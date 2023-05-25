@@ -2,10 +2,9 @@ package uiMain;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.List;
-import java.util.Comparator;
 
-
+import baseDatos.Deserializador;
+import baseDatos.Serializador;
 import gestorAplicacion.gestion.Biblioteca;
 import gestorAplicacion.gestion.Computador;
 import gestorAplicacion.gestion.Facultad;
@@ -14,12 +13,21 @@ import gestorAplicacion.gestion.Libro;
 import gestorAplicacion.usuario.Bibliotecario;
 import gestorAplicacion.usuario.Estudiante;
 import gestorAplicacion.usuario.Lector;
+import gestorAplicacion.usuario.Persona;
 import gestorAplicacion.usuario.Profesor;
 
 public class Main {
 	
 	
 	//--------OBJETOS CREADOS-----------//
+
+    static void serializar(){
+        Serializador.serializarTodo();}
+    static void deserializar(){
+            Deserializador.deserializarTodo();}
+	
+	
+	//----------------------------------//
 	static void cargarObjetos() {
 		// creating books
 		Libro libro1 = new Libro("Ciencia ficción", 1, "Dune", "Frank Herbert", "Ace Books", 1965);
@@ -113,15 +121,67 @@ public class Main {
 		biblioteca3.agregarBibliotecario(bibliotecario3);
 		
 		
+		
+		//COMPUTERS
+        Computador computador1 = new Computador("Dell", "Inspiron 2002", 16, 1000, 4);
+        Computador computador2 = new Computador("HP", "Pavilion 2005", 8, 500, 5);
+        Computador computador3 = new Computador("Lenovo", "ThinkPad 2004", 32, 2000, 6);
+        Computador computador4 = new Computador("Apple", "MacBook 2023", 16, 512, 7);
+        
+		
+        Laptop laptop1 = new Laptop("Marca1", "Modelo 2002", 8, 500, 1);
+        Laptop laptop2 = new Laptop("Marca2", "Modelo 2020", 16, 1000, 2);
+        Laptop laptop3 = new Laptop("Marca3", "Modelo 2023", 32, 2000, 3);
+        
+        biblioteca1.agregarComputador(computador1);
+        biblioteca1.agregarComputador(computador2);
+        biblioteca1.agregarComputador(computador3);
+        
+        
+        
+        biblioteca1.agregarLaptopDisponible(laptop1);
+        biblioteca1.agregarLaptopDisponible(laptop2);
+        biblioteca1.agregarLaptopDisponible(laptop3);
 	}
-	//----------------------------------//
 	
-	
-	//---------------  MAIN --------------------//
-	static Scanner sc = new Scanner(System.in);
+    public static Computador crearComputadorPorConsola() {
+        System.out.println("Ingrese los datos del computador:");
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Marca: ");
+        String marca = scanner.nextLine();
+        
+        System.out.print("Modelo: ");
+        String modelo = scanner.nextLine();
+        
+        System.out.print("Capacidad de RAM: ");
+        int capacidadRAM = scanner.nextInt();
+        scanner.nextLine();
+        
+        System.out.print("Capacidad de disco duro: ");
+        int capacidadDiscoDuro = scanner.nextInt();
+        scanner.nextLine();
+        
+        System.out.print("ID: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+        
+        Computador computador = new Computador(marca, modelo, capacidadRAM, capacidadDiscoDuro, id);
+        return computador;
+    }
 
+    
+    //---------------  MAIN --------------------//
+    
+    
+	static Scanner sc = new Scanner(System.in);
+	
 	public static void main(String[] args) {
-	    cargarObjetos();
+	    //cargarObjetos();
+		crearComputadorPorConsola();
+	    deserializar();
+	    
+	    System.out.println(Computador.computadoresExistentes.get(28).getId());
 	    boolean stop = false;
 	    String usuario;
 	    String contraseña;
@@ -176,9 +236,9 @@ public class Main {
 				System.out.println(" ------ MENU PRINCIPAL------ ");
 
 				System.out.println("1. Prestar");
-				System.out.println("2. Devolver");
-				System.out.println("3. funcionalidad 3");
-				System.out.println("4. funcionalidad 4");
+				System.out.println("2. Informacion Usuario");
+				System.out.println("3. GUARDAR");
+				System.out.println("4. Crear");
 				System.out.println("5. funcionalidad 5");
 				System.out.println("6. Salir");
 				
@@ -197,18 +257,21 @@ public class Main {
 							break;
 						case 2:
 							System.out.println("-----------------------------------------------------------------");
-							System.out.println("Lo siento, aun no se ha creado esta funcionalidad :(");
+							System.out.println("Informacion Usuario");
 							System.out.println("-----------------------------------------------------------------");
+							opcionMenuVerInformacionUsuario(bibliotecario);
 							break;
 						case 3:
 							System.out.println("-----------------------------------------------------------------");
-							System.out.println("Lo siento, aun no se ha creado esta funcionalidad :(");
+							System.out.println("GUARDAR");
 							System.out.println("-----------------------------------------------------------------");
+							serializar();
 							break;
 						case 4:
 							System.out.println("-----------------------------------------------------------------");
-							System.out.println("Lo siento, aun no se ha creado esta funcionalidad :(");
+							System.out.println("Crear");
 							System.out.println("-----------------------------------------------------------------");
+							
 							break;
 						case 5:
 							System.out.println("-----------------------------------------------------------------");
@@ -231,12 +294,90 @@ public class Main {
 					System.out.println("-----------------------------------------------------------------");
 					sc.nextLine();
 				}
-			} while (opcionMenuPrincipal != 6);
+			} while (opcionMenuPrincipal != 6  );
 	}
 
 	//--------------------------------//
 	
 	//----------------MENUS GENERALES USADOS -----------------//
+	    //MenuForm registerUser
+	    static void registerUserForm() {
+	        Scanner sc = new Scanner(System.in);
+
+	        System.out.println("Ingrese el nombre del lector:");
+	        String nombre = sc.nextLine();
+
+	        System.out.println("Ingrese el apellido del lector:");
+	        String apellido = sc.nextLine();
+
+	        System.out.println("Ingrese la edad del lector:");
+	        int edad;
+	        while (!sc.hasNextInt()) {
+	            System.out.println("Edad inválida. Por favor, ingrese un número válido:");
+	            sc.nextLine();
+	        }
+	        edad = sc.nextInt();
+	        sc.nextLine(); // buffer cleaner
+
+	        System.out.println("Ingrese la dirección del lector:");
+	        String direccion = sc.nextLine();
+
+	        System.out.println("Ingrese el tipo de identificación del lector:");
+	        String tipoId = sc.nextLine();
+
+	        System.out.println("Ingrese el número de identificación del lector:");
+	        int id;
+	        while (!sc.hasNextInt()) {
+	            System.out.println("Número de identificación inválido. Por favor, ingrese un número válido:");
+	            sc.nextLine();
+	        }
+	        id = sc.nextInt();
+	        sc.nextLine(); // buffer cleaner
+
+	        System.out.println("Seleccione el tipo de lector a registrar:");
+	        System.out.println("1. Estudiante");
+	        System.out.println("2. Profesor");
+
+	        int tipoLector;
+	        while (!sc.hasNextInt()) {
+	            System.out.println("Tipo de lector inválido. Por favor, ingrese un número válido:");
+	            sc.nextLine();
+	        }
+	        tipoLector = sc.nextInt();
+	        sc.nextLine(); // buffer cleaner
+	        if (tipoLector == 1) {
+	            System.out.println("-----------------------------------------------------------------");
+	            System.out.println("1. Estudiante");
+	            System.out.println("-----------------------------------------------------------------");
+	            System.out.println("Ingrese la facultad del estudiante:");
+	            System.out.println("");
+	            System.out.println("Facultades disponibles:");
+	            for (Facultad fac : Facultad.values()) {
+	                System.out.println(fac.ordinal() + ". " + fac.getNombre());
+	            }
+	            int indexFacultad;
+	            while (!sc.hasNextInt()) {
+	                System.out.println("Facultad inválida. Por favor, ingrese un número válido:");
+	                sc.nextLine();
+	            }
+	            indexFacultad = sc.nextInt();
+	            sc.nextLine(); // buffer cleaner
+	            Facultad facultad = Facultad.values()[indexFacultad];
+
+	            // creating student
+	            Lector.registerUser(nombre, apellido, edad, direccion, tipoId, id, facultad, tipoLector);
+	            System.out.println("¡Estudiante registrado exitosamente!");
+	        } else if (tipoLector == 2) {
+
+	            // creating professor 
+	            Lector.registerUser(nombre, apellido, edad, direccion, tipoId, id, null, tipoLector);
+	            System.out.println("¡Profesor registrado exitosamente!");
+	        } else {
+	            System.out.println("Opción no válida. Intente de nuevo.");
+	        }
+	        System.out.println("-----------------------------------------------------------------");
+	        System.out.println("Para continuar elija de nuevo las opciones que necesita:");
+	    }	    
         //menu for searching an user
         static Lector searchUser(){
 		Scanner sc = new Scanner(System.in);
@@ -245,8 +386,12 @@ public class Main {
 		int documento = sc.nextInt(); //reader of document
 		sc.nextLine(); //buffer cleaner 
 		
-		return Lector.buscarLector(documento);
-		
+		Lector lector = Lector.buscarLector(documento);
+		if(lector== null) {
+	        System.out.println("-----------------------------------------------------------------");
+	        System.out.println("Lector no encontrado");
+		}
+		return lector;
 	}
         //menu for getting the user 
     	static int opcionGetUser = 0;
@@ -289,7 +434,7 @@ public class Main {
             System.out.println("-----------------------------------------------------------------");
             System.out.println("Registrar");
             System.out.println("-----------------------------------------------------------------");
-            Lector.registerUser();
+            registerUserForm();
             opcionRegisterUser = 3;
             opcionGetUser =1;
             System.out.println("-----------------------------------------------------------------");
@@ -430,11 +575,11 @@ public class Main {
 	    				System.out.println("Libro");	                    
 	                    System.out.println("-----------------------------------------------------------------");
 	                    
-	                    Lector user = getUser();
-	                    Biblioteca biblioteca =seleccionBiblioteca(user);
-	                    Libro libro = seleccionTipoBusquedaLibroPrestar(biblioteca, user );
+	                    Lector user1 = getUser();
+	                    Biblioteca biblioteca1 =seleccionBiblioteca(user1);
+	                    Libro libro1 = seleccionTipoBusquedaLibroPrestar(biblioteca1, user1 );
 	                    
-	                    asignarLibro(user,biblioteca,libro,bibliotecario);
+	                    asignarLibro(user1,biblioteca1,libro1,bibliotecario);
 	                    
 	                    
 	                    break;
@@ -442,11 +587,26 @@ public class Main {
 	                    System.out.println("-----------------------------------------------------------------");
 	                    System.out.println("Computadora");
 	                    System.out.println("-----------------------------------------------------------------");
+	                    
+	                    Lector user2 = getUser();
+	                    Biblioteca biblioteca2 = seleccionBiblioteca(user2);
+	                    
+	                    Computador computador2 = seleccionComputadora( bibliotecario, user2, biblioteca2); 
+	                    
+	                    asignarComputador(computador2,bibliotecario,user2,biblioteca2);
 	                    break;
 	                case 3:
 	                    System.out.println("-----------------------------------------------------------------");
-	                    System.out.println("Lo siento, aun no se ha creado esta Opcion :(");
+	                    System.out.println("Laptop");
 	                    System.out.println("-----------------------------------------------------------------");
+	                    
+	                    Lector user3 = getUser();
+	                    Biblioteca biblioteca3 = seleccionBiblioteca(user3);
+	                    
+	                    menuLaptopTransporte( bibliotecario, user3, biblioteca3); 
+	                    
+	                    
+	                    
 	                    break;
 	                case 4:
 	                    System.out.println("-----------------------------------------------------------------");
@@ -841,11 +1001,149 @@ public class Main {
 	            
                              //==============menus to borrow a computer=============//
 	            
+	       
+	            public static Computador seleccionComputadora(Bibliotecario bibliotecario, Lector user, Biblioteca biblioteca) {
+	                if (bibliotecario != null && biblioteca != null && user != null) {
+	                    if (biblioteca.getComputadoresDisponibles().isEmpty()) {
+	                        System.out.println("No hay computadoras disponibles en esta biblioteca.");
+	                        return null;
+	                    }
+
+	                    System.out.println("Opciones de computadoras disponibles:");
+	                    for (int i = 0; i < biblioteca.getComputadoresDisponibles().size(); i++) {
+	                        Computador computadora = biblioteca.getComputadoresDisponibles().get(i);
+	                        System.out.println((i + 1) + ". " + computadora.getModelo());
+	                    }
+
+	                    System.out.println("Seleccione una opción (1-" + biblioteca.getComputadoresDisponibles().size() + "):");
+
+	                    Scanner scanner = new Scanner(System.in);
+	                    int opcion = scanner.nextInt();
+
+	                    if (opcion < 1 || opcion > biblioteca.getComputadoresDisponibles().size()) {
+	                        System.out.println("Opción inválida.");
+	                        return null;
+	                    }
+
+	                    return biblioteca.getComputadoresDisponibles().get(opcion - 1);
+	                } else {
+	                    return null;
+	                }
+	            }
+
+	            public static void asignarComputador(Computador computadora, Bibliotecario bibliotecario, Lector user, Biblioteca biblioteca) {
+	                if (computadora != null && bibliotecario != null && user != null && biblioteca != null) {
+	                    user.agregarComputador(computadora);
+	                    biblioteca.getComputadoresDisponibles().remove(computadora);
+	                    user.hacerReporte();
+	                    user.setInforme(user.getInforme() + "COMPUTADOR PRESTADO\n");
+	                }
+	            }
+
+	            
+	                       //==============menus to borrow a lap top =============//
+	            public static void menuLaptopTransporte(Bibliotecario bibliotecario, Lector user, Biblioteca biblioteca) {
+	                if (bibliotecario == null || user == null || biblioteca == null) {
+	                    return;
+	                }
+
+	                Scanner scanner = new Scanner(System.in);
+
+	                System.out.println("Desea transportar la laptop fuera de la universidad? (Ingrese el número correspondiente)");
+	                System.out.println("1. Sí");
+	                System.out.println("2. No");
+
+	                int respuesta = scanner.nextInt();
+	                scanner.nextLine();
+
+	                switch (respuesta) {
+	                    case 1:
+	                        System.out.println("-----------------------------------------------------------------");
+	                        System.out.println("Ha seleccionado transportar la laptop fuera de la universidad.");
+	                        System.out.println("-----------------------------------------------------------------");
+
+	                        Laptop laptopSeleccionadaCase1 = seleccionLaptop(bibliotecario, user, biblioteca);
+
+	                        if (laptopSeleccionadaCase1 != null) {
+	                            String permisoTransporte1 = bibliotecario.crearPermisoTransporte(user, laptopSeleccionadaCase1);
+
+	                            if (!permisoTransporte1.equals("PERMISO-DENEGADO")) {
+	                                System.out.println("Ingrese la fecha de transporte (en formato dd/mm/aaaa):");
+	                                String fechaTransporte = scanner.next();
+	                                scanner.nextLine();
+	                                String permisoTransporte2 = laptopSeleccionadaCase1.transportar(permisoTransporte1, fechaTransporte, user.getDireccion());
+	                                user.asignarLaptop(permisoTransporte2, biblioteca);
+	                                user.hacerReporte();
+	                                user.setInforme(user.getInforme() + "LAPTOP PRESTADA\n");
+	                                System.out.println("-----------------------------------------------------------------");
+	                                System.out.println("LAPTOP PRESTADA");
+	                                System.out.println("-----------------------------------------------------------------");
+	                            } else {
+	                                System.out.println("-----------------------------------------------------------------");
+	                                System.out.println("PERMISO DE PRESTAMO DENEGADO");
+	                                System.out.println("-----------------------------------------------------------------");
+	                            }
+	                        }
+	                        break;
+	                    case 2:
+	                        System.out.println("-----------------------------------------------------------------");
+	                        System.out.println("Ha seleccionado no transportar la laptop fuera de la universidad.");
+	                        System.out.println("-----------------------------------------------------------------");
+
+	                        Laptop laptopSeleccionadaCase2 = seleccionLaptop(bibliotecario, user, biblioteca);
+
+	                        if (laptopSeleccionadaCase2 != null) {
+	                            user.asignarLaptop(user.getTipoId() + '/' + bibliotecario.getId() + '/' + laptopSeleccionadaCase2.getId() + '/', biblioteca);
+	                            user.hacerReporte();
+	                            user.setInforme(user.getInforme() + "LAPTOP PRESTADA\n");
+	                            System.out.println("-----------------------------------------------------------------");
+	                            System.out.println("LAPTOP PRESTADA");
+	                            System.out.println("-----------------------------------------------------------------");
+	                        }
+	                        break;
+	                    default:
+	                        System.out.println("-----------------------------------------------------------------");
+	                        System.out.println("Respuesta inválida.");
+	                        System.out.println("-----------------------------------------------------------------");
+	                        break;
+	                }
+	            }
+
+
 	            
 	            
+	            public static Laptop seleccionLaptop(Bibliotecario bibliotecario, Lector user, Biblioteca biblioteca) {
+	                if (bibliotecario != null && user != null && biblioteca != null) {
+	                    if (biblioteca.getLaptopsDisponibles().isEmpty()) {
+	                        System.out.println("No hay laptops disponibles en esta biblioteca.");
+	                        return null;
+	                    }
+
+	                    System.out.println("Opciones de laptops disponibles:");
+	                    for (int i = 0; i < biblioteca.getLaptopsDisponibles().size(); i++) {
+	                        Laptop laptop = biblioteca.getLaptopsDisponibles().get(i);
+	                        System.out.println((i + 1) + ". " + laptop.getModelo());
+	                    }
+
+	                    System.out.println("Seleccione una opción (1-" + biblioteca.getLaptopsDisponibles().size() + "):");
+
+	                    Scanner scanner = new Scanner(System.in);
+	                    int opcion = scanner.nextInt();
+
+	                    if (opcion < 1 || opcion > biblioteca.getLaptopsDisponibles().size()) {
+	                        System.out.println("Opción inválida.");
+	                        return null;
+	                    }
+
+	                    return biblioteca.getLaptopsDisponibles().get(opcion - 1);
+	                } else {
+	                    return null;
+	                }
+	            }
+
+
 	            
-	            
-	            
+
 	       //GENERAL DESCRIPTION:
 	            /* this function is based on three main methods from 3 different objects
 	                1. BuscarBiblioteca, actually there are two different methods named the same but
@@ -867,5 +1165,216 @@ public class Main {
 	            
 	                
 	 //---------------------------------------------------------------------------------------------------//
+	     static int opcionMenuVerInformacionUsuario = 0;
+		    static void opcionMenuVerInformacionUsuario(Bibliotecario bibliotecario) {
+		       
+				Scanner sc = new Scanner(System.in);
+				
+				do {
+
+					System.out.println("1. Ver Informe Usuario");
+					System.out.println("2. Ver Objetos Prestados");
+					System.out.println("3. Eliminar un usuario");
+					System.out.println("4. Regresar");
+					System.out.println("5. Salir del Sistema");
+					System.out.println(" Por favor ingrese su opcion:");
+					
+					
+					if (sc.hasNextInt()) {
+						opcionMenuVerInformacionUsuario = sc.nextInt();
+						sc.nextLine(); 
+						
+		            switch (opcionMenuVerInformacionUsuario) {
+		                case 0:
+
+		                break;
+		                case 1:
+		                    System.out.println("-----------------------------------------------------------------");
+		    				System.out.println("Ver Informe Usuario");	                    
+		                    System.out.println("-----------------------------------------------------------------");
+		                    
+		                    Lector user1 = getUser();
+		                    System.out.println("-----------------------------------------------------------------");
+		                    System.out.println(user1.getInforme());
+		                    System.out.println("-----------------------------------------------------------------");
+		                    
+		                    break;
+		                case 2:
+		                    System.out.println("-----------------------------------------------------------------");
+		                    System.out.println("Ver Objetos Prestados");
+		                    System.out.println("-----------------------------------------------------------------");
+		                    MenuObjetosPrestados();
+		                    break;
+		                case 3:
+		                    System.out.println("-----------------------------------------------------------------");
+		                    System.out.println("Eliminar un usuario");
+		                    System.out.println("-----------------------------------------------------------------");
+		                    
+		                    Lector user2 = getUser();
+		                    
+		                    eliminarUser(user2);
+		                    
+		                    break;
+		                case 4:
+		                    System.out.println("-----------------------------------------------------------------");
+		                    System.out.println("Regresando al menu anterior");
+		                    break;
+		                case 5:
+		                    System.out.println("-----------------------------------------------------------------");
+		                    System.out.println("Saliendo del sistema");
+		                    opcionMenuPrincipal = 6;
+		                    System.out.println("-----------------------------------------------------------------");
+		                
+		                    break;
+		                default:
+		 	            	System.out.println("-----------------------------------------------------------------");
+							System.out.println("Por favor ingrese una opcion valida");
+							System.out.println("-----------------------------------------------------------------");
+		                }//end of the switch
+		            }else {
+		            	System.out.println("-----------------------------------------------------------------");
+						System.out.println("Por favor ingrese una opcion valida");
+						System.out.println("-----------------------------------------------------------------");
+						sc.nextLine();
+					
+				}
+				
+			}while(opcionMenuVerInformacionUsuario !=4 && opcionMenuVerInformacionUsuario !=5);
+		}
+		    
+		    
+		     static int opcionMenuObjetosPrestados = 0;
+			    static void MenuObjetosPrestados() {
+			       
+					Scanner sc = new Scanner(System.in);
+					
+					do {
+
+			            System.out.println("1. Todos los objetos Prestados");
+			            System.out.println("2. Objetos prestados de un usuario");
+			            System.out.println("3. Regresar al menú anterior");
+			            System.out.println("4. Cerrar el sistema");
+			            System.out.print("Elija una opción: ");
+						
+						
+						if (sc.hasNextInt()) {
+							opcionMenuObjetosPrestados = sc.nextInt();
+							sc.nextLine(); 
+							
+			            switch (opcionMenuObjetosPrestados) {
+			                case 0:
+
+			                break;
+			                case 1:
+			                    System.out.println("------------------------------------------------------");
+			                    System.out.println("Todos los objetos Prestados");
+			                    System.out.println("------------------------------------------------------");
+			                    
+			                    String todosObjetosPrestados = Lector.ObjetosPrestados();
+			                    
+			                    System.out.println(todosObjetosPrestados);
+			                    
+			                    break;
+			                case 2:
+			                    System.out.println("------------------------------------------------------");
+			                    System.out.println("Objetos Prestados por usuario específico");
+			                    System.out.println("------------------------------------------------------");
+			                    Lector user = getUser();
+			                    String objetosPrestados= user.objetosPrestadosPorLector(user);
+			                    
+			                    System.out.println(objetosPrestados);
+			                    break;
+			                case 3:
+			                    System.out.println("-----------------------------------------------------------------");
+			                    System.out.println("Regresar al menú anterior");
+			                    System.out.println("-----------------------------------------------------------------");
+
+			                    break;
+			                default:
+			 	            	System.out.println("-----------------------------------------------------------------");
+								System.out.println("Por favor ingrese una opcion valida");
+								System.out.println("-----------------------------------------------------------------");
+			                }//end of the switch
+			            }else {
+			            	System.out.println("-----------------------------------------------------------------");
+							System.out.println("Por favor ingrese una opcion valida");
+							System.out.println("-----------------------------------------------------------------");
+							sc.nextLine();
+						
+					}
+					
+				}while(opcionMenuObjetosPrestados !=3 );
+			}
+	            
+			    static int opcionEliminarUser = 0;
+
+			    static void eliminarUser(Persona user) {
+
+			        Scanner sc = new Scanner(System.in);
+
+			        do {
+			            System.out.println("1. Eliminar Permanentemente");
+			            System.out.println("2. Suspender");
+			            System.out.println("3. Regresar");
+			            System.out.println("Por favor ingrese su opción:");
+
+			            if (sc.hasNextInt()) {
+			                opcionEliminarUser = sc.nextInt();
+			                sc.nextLine();
+
+			                switch (opcionEliminarUser) {
+			                    case 1:
+			                        System.out.println("-----------------------------------------------------------------");
+			                        System.out.println("Eliminar Permanentemente");
+			                        System.out.println("-----------------------------------------------------------------");
+			                        
+			                        if (user instanceof Lector) {
+			                            ((Lector) user).desertar();
+			                        }
+			                        break;
+			                    case 2:
+			                        System.out.println("-----------------------------------------------------------------");
+			                        System.out.println("Suspender");
+			                        System.out.println("-----------------------------------------------------------------");
+
+			                        if (user instanceof Estudiante) {
+			                            Estudiante estudiante = (Estudiante) user;
+			                            user.desertar();
+			                            
+			                        } else if (user instanceof Profesor) {
+			                            Profesor profesor = (Profesor) user;
+			                            user.desertar();
+			                        } else {
+			                            System.out.println("No se puede suspender este tipo de usuario.");
+			                        }
+
+			                        break;
+			                    case 3:
+			                        System.out.println("-----------------------------------------------------------------");
+			                        System.out.println("Regresar");
+			                        System.out.println("-----------------------------------------------------------------");
+
+			                        break;
+
+			                    default:
+			                        System.out.println("-----------------------------------------------------------------");
+			                        System.out.println("Por favor ingrese una opción válida");
+			                        System.out.println("-----------------------------------------------------------------");
+			                }
+			            } else {
+			                System.out.println("-----------------------------------------------------------------");
+			                System.out.println("Por favor ingrese una opción válida");
+			                System.out.println("-----------------------------------------------------------------");
+			                sc.nextLine();
+			            }
+
+			        } while (opcionEliminarUser != 3);
+			    }
+			    
+
+
+		        // Método para serializar un bibliotecario
+
+
 }
 

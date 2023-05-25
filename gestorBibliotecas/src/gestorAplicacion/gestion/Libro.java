@@ -3,19 +3,22 @@ package gestorAplicacion.gestion;
 import gestorAplicacion.usuario.Bibliotecario;
 import gestorAplicacion.usuario.Lector;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import gestorAplicacion.gestion.Biblioteca;
 
-public class Libro {
+public class Libro implements Serializable {
     private String genero;
     private int id;
     private String titulo;
     private String autor;
     private String editorial;
     private int anioPublicacion;
-    private String reporte;
+    private String informe;
+    
+    public static ArrayList<Libro> librosExistentes = new ArrayList<Libro>();
 
     public Libro(String genero, int id, String titulo, String autor, String editorial, int anioPublicacion) {
         this.genero = genero;
@@ -24,6 +27,7 @@ public class Libro {
         this.autor = autor;
         this.editorial = editorial;
         this.anioPublicacion = anioPublicacion;
+        librosExistentes.add(this);
     }
 
     //methods
@@ -37,8 +41,11 @@ public class Libro {
             if (librosDisponibles.get(i).getId() == libro.getId()) {
                
                 librosDisponibles.remove(i); 
-                libro.setReporte("Libro Prestado por el bibliotecario: " + bibliotecario.getNombre() + "con id: " + bibliotecario.getId());
+                libro.setInforme("Libro Prestado por el bibliotecario: " + bibliotecario.getNombre() + "con id: " + bibliotecario.getId());
                 librosPrestados.add(libro); 
+                
+                lector.setInforme(lector.getInforme() + "PRESTAMO LIBRO\n");
+                
                 break; 
             }
         }
@@ -100,12 +107,12 @@ public class Libro {
         this.anioPublicacion = anioPublicacion;
     }
 
-	public String getReporte() {
-		return reporte;
+	public String getInforme() {
+		return informe;
 	}
 
-	public void setReporte(String reporte) {
-		this.reporte = reporte;
+	public void setInforme(String informe) {
+		this.informe = informe;
 	}
     
     

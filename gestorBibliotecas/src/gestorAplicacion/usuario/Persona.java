@@ -11,6 +11,8 @@ public abstract class Persona {
     protected String direccion;
     protected String tipoId;
     protected int Id;
+    
+    public static ArrayList<Persona> personasExistentes = new ArrayList<Persona>();
 
     public Persona(String nombre, String apellido, int edad, String direccion, String tipoId, int id) {
 		this.nombre = nombre;
@@ -19,8 +21,10 @@ public abstract class Persona {
 		this.direccion = direccion;
 		this.tipoId = tipoId;
 		Id = id;
+		personasExistentes.add(this);
 	}
-
+    
+    public abstract void desertar();
 
 	public int getId() {
 		return Id;

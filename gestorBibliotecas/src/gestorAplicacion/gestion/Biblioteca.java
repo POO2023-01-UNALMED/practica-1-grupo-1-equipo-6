@@ -1,5 +1,6 @@
 package gestorAplicacion.gestion;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.Scanner;
 
 import gestorAplicacion.usuario.Bibliotecario;
 
-public class Biblioteca {
+public class Biblioteca implements Serializable {
 	
 	
 	// attributes
@@ -17,22 +18,22 @@ public class Biblioteca {
     
     
     //things to borrow
-    private ArrayList<String> computadoresMesaDisponibles= new ArrayList<>();
-    private ArrayList<String> laptopsDisponibles= new ArrayList<>();
+    private ArrayList<Computador> computadores= new ArrayList<>();
+    private ArrayList<Laptop> laptopsDisponibles= new ArrayList<>();
     private ArrayList<Libro> librosDisponibles = new ArrayList<>();
     private ArrayList<String> generosDisponibles = new ArrayList<>();
     private ArrayList<Bibliotecario> bibliotecarios = new ArrayList<>();
     
     
     // libraries 
-    public static ArrayList<Biblioteca> bibliotecasExistentetes = new ArrayList<>();
+    public static ArrayList<Biblioteca> bibliotecasExistentes = new ArrayList<>();
     
     //constructor
     public Biblioteca(String direccion, Facultad facultad, String nombre) {
         this.direccion = direccion;
         this.facultad = facultad;
         this.nombre = nombre;
-        bibliotecasExistentetes.add(this);
+        bibliotecasExistentes.add(this);
     }
 
     //------------------ METHODS
@@ -129,11 +130,11 @@ public class Biblioteca {
     public void agregarBibliotecario(Bibliotecario bibliotecario) {
         bibliotecarios.add(bibliotecario);
     }
-    public void agregarComputadorMesaDisponible(String computadorMesa) {
-        computadoresMesaDisponibles.add(computadorMesa);
+    public void agregarComputador(Computador computadorMesa) {
+        computadores.add(computadorMesa);
     }
 
-    public void agregarLaptopDisponible(String laptop) {
+    public void agregarLaptopDisponible(Laptop laptop) {
         laptopsDisponibles.add(laptop);
     }
     
@@ -146,11 +147,11 @@ public class Biblioteca {
         this.nombre = nombre;
     }
 
-    public ArrayList<String> getComputadoresMesaDisponibles() {
-        return computadoresMesaDisponibles;
+    public ArrayList<Computador> getComputadoresDisponibles() {
+        return computadores;
     }
 
-    public ArrayList<String> getLaptopsDisponibles() {
+    public ArrayList<Laptop> getLaptopsDisponibles() {
         return laptopsDisponibles;
     }
 
@@ -183,11 +184,11 @@ public class Biblioteca {
         return bibliotecarios;
     }
 
-	public void setComputadoresMesaDisponibles(ArrayList<String> computadoresMesaDisponibles) {
-		this.computadoresMesaDisponibles = computadoresMesaDisponibles;
+	public void setComputadoresMesaDisponibles(ArrayList<Computador> computadores) {
+		this.computadores = computadores;
 	}
 
-	public void setLaptopsDisponibles(ArrayList<String> laptopsDisponibles) {
+	public void setLaptopsDisponibles(ArrayList<Laptop> laptopsDisponibles) {
 		this.laptopsDisponibles = laptopsDisponibles;
 	}
 
