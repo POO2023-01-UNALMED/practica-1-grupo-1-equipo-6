@@ -705,7 +705,7 @@ public class Bibliotecario {
 					for (int i =0 ; i < nprestamos; i++) {
 						Publicacion pp = null; // Publicación a prestar
 						System.out.println("\n--------------------------\nPrestamo "+(i+1)+" :");
-						System.out.println("Código de a publicación (N):"); codigo =(int) readLong();readLn();
+						System.out.println("Código de la publicación (N):"); codigo =(int) readLong();readLn();
 						System.out.println("ID del préstamo (N):"); idprestamo =(int) readLong();readLn();
 						System.out.println("Fecha en formato AAAA-MM-DD (S):"); fecha = readLn();
 						
