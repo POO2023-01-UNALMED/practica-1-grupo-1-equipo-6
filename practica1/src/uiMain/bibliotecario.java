@@ -118,6 +118,10 @@ public class bibliotecario {
 		Folleto folleto21= new Folleto((int)40,(String) "Link",(short) 2013,(short)3, (String)"Medicina",estanteria3);
 
 
+		//Creación de objetos libros
+
+		Libro libro3= new Libro((int)41,(String)"Acer",(short)1999,(short)1000,);
+
 
 		///////////////////////////
 		 /// INICIO DEL SISTEMA ////
