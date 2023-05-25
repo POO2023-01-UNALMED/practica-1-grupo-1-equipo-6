@@ -35,25 +35,62 @@ public class bibliotecario {
 		// Se eliminan todos los objetos creados para trabajar solamente con los de los archivos almacenados
 		//Deserializador.resetarMemoria();
 		Deserializador.deserializar();
-		
+
+
 		// Crear autor anónimo y estantería vacía si no oestán ya creados
 		
 		ArrayList<Integer> autores_id = new ArrayList<Integer>();
 		for(Autor autor1 : Autor.getAutores()) {autores_id.add(autor1.getId());}
-		if (autores_id.contains(0) == false) {new Autor();}
+		if (!autores_id.contains(0)) {new Autor();}
 		
 		ArrayList<Short> estanterias_numeros = new ArrayList<Short>();
 		for(Estanteria estanteria1 : Estanteria.getLista()) {estanterias_numeros.add(estanteria1.getNumero());}
-		if (estanterias_numeros.contains((short) 0) == false) {new Estanteria();}
+		if (!estanterias_numeros.contains((short) 0)) {new Estanteria();}
+
+		//Creación de objetos estanterías
 
 		Estanteria estanteria3 = new Estanteria(numerorando, piso12, limites);
 		Estanteria estanteria4 = new Estanteria((short) 12, (short) 12, limites);
 		Estanteria estanteria5 = new Estanteria((short) 1, (short) 2, limites);
 		Estanteria estanteria6 = new Estanteria((short) 2, (short) 2, limites);
 		Estanteria estanteria7 = new Estanteria((short) 3, (short) 1, limites);
+		Estanteria estanteria8 = new Estanteria((short) 4, (short) 1, limites);
+		Estanteria estanteria9 = new Estanteria((short) 5, (short) 3, limites);
+		Estanteria estanteria10 = new Estanteria((short) 6, (short) 4, limites);
+		Estanteria estanteria11 = new Estanteria((short) 7, (short) 6, limites);
+		Estanteria estanteria12 = new Estanteria((short) 9, (short) 5, limites);
+		Estanteria estanteria13 = new Estanteria(numerorando, piso12, limites);
+		Estanteria estanteria14 = new Estanteria(numerorando, piso12, limites);
+		Estanteria estanteria15 = new Estanteria(numerorando, piso12, limites);
+		Estanteria estanteria16 = new Estanteria(numerorando, piso12, limites);
+		Estanteria estanteria17 = new Estanteria(numerorando, piso12, limites);
+		Estanteria estanteria18 = new Estanteria(numerorando, piso12, limites);
+		Estanteria estanteria19 = new Estanteria(numerorando, piso12, limites);
+		Estanteria estanteria20 = new Estanteria(numerorando, piso12, limites);
 
-		Revista Revista3= new Revista((int)1,(String)"uwu",(short) 2000,(short) 1, (short) 1, gestorAplicacion.obras.Revista.Meses.AGOSTO,(String)"uwu",estanteria7);
-		Revista Revista4= new Revista((int)2,(String)"Análisis Político",(short) 2023,(short) 1, (short) 1, gestorAplicacion.obras.Revista.Meses.AGOSTO,(String)"uwu",estanteria7);
+
+		//Creación de objetos revistas
+		Revista revista3= new Revista((int)1,(String)"Nature",(short) 2000,(short) 1, (short) 103, Revista.Meses.AGOSTO,(String)"primera",estanteria7);
+		Revista revista4= new Revista((int)2,(String)"Análisis Político",(short) 2023,(short) 10, (short) 104, Revista.Meses.AGOSTO,(String)"primera",estanteria7);
+		Revista revista5= new Revista((int)3,(String)"Forbes",(short) 2001,(short) 101, (short) 105, Revista.Meses.OCTUBRE,(String)"segunda",estanteria6);
+		Revista revista6= new Revista((int)4,(String)"Rolling Stones",(short) 2003,(short) 123, (short) 100, Revista.Meses.DICIEMBRE,(String)"tercera",estanteria7);
+		Revista revista7= new Revista((int)5,(String)"Semana",(short) 2002,(short) 12, (short) 106, Revista.Meses.ENERO,(String)"primera",estanteria6);
+		Revista revista8= new Revista((int)6,(String)"Science",(short) 2004,(short) 13, (short) 108, Revista.Meses.FEBRERO,(String)"tercera",estanteria7);
+		Revista revista9= new Revista((int)7,(String)"Blood",(short) 2006,(short) 15, (short) 1, Revista.Meses.MARZO,(String)"segunda",estanteria7);
+		Revista revista10= new Revista((int)8,(String)"Cell",(short) 2005,(short) 16, (short) 178, Revista.Meses.ABRIL,(String)"primera",estanteria6);
+		Revista Revista11= new Revista((int)9,(String)"Apple",(short) 2007,(short) 17, (short) 156, Revista.Meses.MAYO,(String)"tercera",estanteria7);
+		Revista Revista12= new Revista((int)10,(String)"City",(short) 2009,(short) 18, (short) 187, Revista.Meses.JUNIO,(String)"segunda",estanteria7);
+		Revista Revista13= new Revista((int)11,(String)"London",(short) 2008,(short) 19, (short) 146, Revista.Meses.JULIO,(String)"cuarta",estanteria6);
+		Revista Revista14= new Revista((int)12,(String)"Berlín",(short) 2009,(short) 20, (short) 147, Revista.Meses.NOVIEMBRE,(String)"primera",estanteria6);
+		Revista Revista15= new Revista((int)13,(String)"Berry",(short) 2002,(short) 21, (short) 158, Revista.Meses.SEPTIEMBRE,(String)"segunda",estanteria7);
+		Revista Revista16= new Revista((int)14,(String)"Assist",(short) 1999,(short) 22, (short) 125, Revista.Meses.DICIEMBRE,(String)"tercera",estanteria7);
+		Revista Revista17= new Revista((int)15,(String)"Boss",(short) 2022,(short) 23, (short) 10, Revista.Meses.ENERO,(String)"cuarta",estanteria7);
+		Revista Revista18= new Revista((int)16,(String)"Scoope",(short) 2003,(short) 24, (short) 105, Revista.Meses.ABRIL,(String)"primera",estanteria6);
+		Revista Revista19= new Revista((int)17,(String)"Jenos",(short) 2004,(short) 25, (short) 7, Revista.Meses.JULIO,(String)"primera",estanteria6);
+		Revista Revista20= new Revista((int)18,(String)"World",(short) 1998,(short) 26, (short) 78, Revista.Meses.MAYO,(String)"cuarta",estanteria7);
+		Revista Revista21= new Revista((int)19,(String)"Casio",(short) 2015,(short) 27, (short) 63, Revista.Meses.NOVIEMBRE,(String)"tercera",estanteria7);
+		Revista Revista22= new Revista((int)20,(String)"Rex",(short) 2018,(short) 28, (short) 19, Revista.Meses.OCTUBRE,(String)"cuarta",estanteria6);
+
 
 		///////////////////////////
 		 /// INICIO DEL SISTEMA ////
@@ -158,7 +195,8 @@ public class bibliotecario {
 						case 4: tipo = tipoLibro.SEMINARIO;break;
 						case 5: tipo = tipoLibro.TESIS;break;
 						case 6: break;
-						default:; System.out.println("Tipo de libro inválido");break;
+						default:
+							System.out.println("Tipo de libro inválido");break;
 						}}while(opcion2 !=1 & opcion2 != 2 & opcion2 != 3 & opcion2 != 4 & opcion2 != 5);
 
 						System.out.println("Código (N):"); int cod = (int) readLong();readLn();
@@ -208,7 +246,7 @@ public class bibliotecario {
 							}while(asignar_autor_existente != 1 & asignar_autor_existente != 2);
 
 							}
-						}while(asignar_autor_existente == 2 & puedo_salir == false);
+						}while(asignar_autor_existente == 2 & !puedo_salir);
 		
 						int v = 0;
 						if (asignar_autor_existente != 1) {
@@ -278,7 +316,7 @@ public class bibliotecario {
 							list.add(m);}
 						readLn();
 						System.out.println("Mes en español y en Mayúsculas (N):"); String m = readLn();
-						if (list.contains(m) == false) {System.out.println("Mes inválido");
+						if (!list.contains(m)) {System.out.println("Mes inválido");
 						System.out.println("De vuelta al Menú de Registro de Datos");break;}
 						Revista.Meses mes = Revista.Meses.valueOf(m);
 						System.out.println("Código (N):"); int cod2 = (int) readLong();readLn();
@@ -353,7 +391,8 @@ public class bibliotecario {
 						case 2: rol = Rol.PROFESOR;break;
 						case 3: rol = Rol.OTRO;break;
 						case 4: break;
-						default:; System.out.println("Tipo de libro inválido");break;
+						default:
+							System.out.println("Tipo de libro inválido");break;
 						}}while(opcion_rol !=1 & opcion_rol != 2 & opcion_rol != 3 & opcion_rol != 4);
 						
 						
