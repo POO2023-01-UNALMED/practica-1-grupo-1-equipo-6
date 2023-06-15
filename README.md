@@ -4,5 +4,4 @@ proyecto gestor bibliotecas
 
 hecho por >
 
-andres yair carvajal bolivar \n
-juan jose pineda sanchez
+andres yair carvajal bolivar, juan jose pineda sanchez, camilo, esteban
