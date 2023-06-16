@@ -191,26 +191,26 @@ Institución:\tUniversidad Nacional de Colombia")
 
     #programador 2
 
-    imagen_original5 = Image.open("practica2-python/src/Graficas/images/foto5.png")
-    imagen_original6 = Image.open("practica2-python/src/Graficas/images/foto6.png")
-    imagen_original7 = Image.open("practica2-python/src/Graficas/images/foto7.png")
-    imagen_original8 = Image.open("practica2-python/src/Graficas/images/foto8.png")
+    imagen_original5 = Image.open("practica2-python/src/Graficas/images/foto#.png")
+    imagen_original6 = Image.open("practica2-python/src/Graficas/images/foto#.png")
+    imagen_original7 = Image.open("practica2-python/src/Graficas/images/foto#.png")
+    imagen_original8 = Image.open("practica2-python/src/Graficas/images/foto#.png")
 
 
-    #programador 3
+    # #programador 3
 
-    imagen_original9 = Image.open("practica2-python/src/Graficas/images/foto9.png")
-    imagen_original10 = Image.open("practica2-python/src/Graficas/images/foto10.png")
-    imagen_original11 = Image.open("practica2-python/src/Graficas/images/foto11.png")
-    imagen_original12 = Image.open("practica2-python/src/Graficas/images/foto12.png")
+    # imagen_original9 = Image.open("practica2-python/src/Graficas/images/foto9.png")
+    # imagen_original10 = Image.open("practica2-python/src/Graficas/images/foto10.png")
+    # imagen_original11 = Image.open("practica2-python/src/Graficas/images/foto11.png")
+    # imagen_original12 = Image.open("practica2-python/src/Graficas/images/foto12.png")
 
 
-    #programador 4
+    # #programador 4
 
-    imagen_original13 = Image.open("practica2-python/src/Graficas/images/foto13.png")
-    imagen_original14 = Image.open("practica2-python/src/Graficas/images/foto14.png")
-    imagen_original15 = Image.open("practica2-python/src/Graficas/images/foto15.png")
-    imagen_original16 = Image.open("practica2-python/src/Graficas/images/foto16.png")
+    # imagen_original13 = Image.open("practica2-python/src/Graficas/images/foto13.png")
+    # imagen_original14 = Image.open("practica2-python/src/Graficas/images/foto14.png")
+    # imagen_original15 = Image.open("practica2-python/src/Graficas/images/foto15.png")
+    # imagen_original16 = Image.open("practica2-python/src/Graficas/images/foto16.png")
 
 
     #---------redimensionar imagenes de hoja de vida (tamaño)--------------#
@@ -238,18 +238,18 @@ Institución:\tUniversidad Nacional de Colombia")
     imagen_redimensionada7 = imagen_original7.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
     imagen_redimensionada8 = imagen_original8.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
 
-    #programador 3
-    imagen_redimensionada9 = imagen_original9.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
-    imagen_redimensionada10 = imagen_original10.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
-    imagen_redimensionada11 = imagen_original11.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
-    imagen_redimensionada12 = imagen_original12.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
+    # #programador 3
+    # imagen_redimensionada9 = imagen_original9.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
+    # imagen_redimensionada10 = imagen_original10.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
+    # imagen_redimensionada11 = imagen_original11.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
+    # imagen_redimensionada12 = imagen_original12.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
 
-    #programador 4
+    # #programador 4
 
-    imagen_redimensionada13 = imagen_original13.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
-    imagen_redimensionada14 = imagen_original14.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
-    imagen_redimensionada15 = imagen_original15.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
-    imagen_redimensionada16 = imagen_original16.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
+    # imagen_redimensionada13 = imagen_original13.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
+    # imagen_redimensionada14 = imagen_original14.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
+    # imagen_redimensionada15 = imagen_original15.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
+    # imagen_redimensionada16 = imagen_original16.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
 
     #---------vincular variable a la foto ya redimensionada--------------#
 
@@ -265,17 +265,17 @@ Institución:\tUniversidad Nacional de Colombia")
     foto7 = ImageTk.PhotoImage(imagen_redimensionada7)
     foto8 = ImageTk.PhotoImage(imagen_redimensionada8)
 
-    #programador 3
-    foto9 = ImageTk.PhotoImage(imagen_redimensionada9)
-    foto10 = ImageTk.PhotoImage(imagen_redimensionada10)
-    foto11 = ImageTk.PhotoImage(imagen_redimensionada11)
-    foto12 = ImageTk.PhotoImage(imagen_redimensionada12)
+    # #programador 3
+    # foto9 = ImageTk.PhotoImage(imagen_redimensionada9)
+    # foto10 = ImageTk.PhotoImage(imagen_redimensionada10)
+    # foto11 = ImageTk.PhotoImage(imagen_redimensionada11)
+    # foto12 = ImageTk.PhotoImage(imagen_redimensionada12)
 
-    #programador 4 
-    foto13 = ImageTk.PhotoImage(imagen_redimensionada13)
-    foto14 = ImageTk.PhotoImage(imagen_redimensionada14)
-    foto15 = ImageTk.PhotoImage(imagen_redimensionada15)
-    foto16 = ImageTk.PhotoImage(imagen_redimensionada16)
+    # #programador 4 
+    # foto13 = ImageTk.PhotoImage(imagen_redimensionada13)
+    # foto14 = ImageTk.PhotoImage(imagen_redimensionada14)
+    # foto15 = ImageTk.PhotoImage(imagen_redimensionada15)
+    # foto16 = ImageTk.PhotoImage(imagen_redimensionada16)
 
     #---------configurar ubicacion fotos--------------#
 
@@ -327,55 +327,55 @@ Institución:\tUniversidad Nacional de Colombia")
     labelfoto8.pack()
     framefoto8.grid(row=4, column=2)
 
-    # Programador 3
-    framefoto9 = Frame(master=p6)
-    labelfoto9 = Label(framefoto9)
-    labelfoto9['image'] = foto9
-    labelfoto9.pack()
-    framefoto9.grid(row=5, column=1)
+    # # Programador 3
+    # framefoto9 = Frame(master=p6)
+    # labelfoto9 = Label(framefoto9)
+    # labelfoto9['image'] = foto9
+    # labelfoto9.pack()
+    # framefoto9.grid(row=5, column=1)
 
-    framefoto10 = Frame(master=p6)
-    labelfoto10 = Label(framefoto10)
-    labelfoto10['image'] = foto10
-    labelfoto10.pack()
-    framefoto10.grid(row=5, column=2)
+    # framefoto10 = Frame(master=p6)
+    # labelfoto10 = Label(framefoto10)
+    # labelfoto10['image'] = foto10
+    # labelfoto10.pack()
+    # framefoto10.grid(row=5, column=2)
 
-    framefoto11 = Frame(master=p6)
-    labelfoto11 = Label(framefoto11)
-    labelfoto11['image'] = foto11
-    labelfoto11.pack()
-    framefoto11.grid(row=6, column=1)
+    # framefoto11 = Frame(master=p6)
+    # labelfoto11 = Label(framefoto11)
+    # labelfoto11['image'] = foto11
+    # labelfoto11.pack()
+    # framefoto11.grid(row=6, column=1)
 
-    framefoto12 = Frame(master=p6)
-    labelfoto12 = Label(framefoto12)
-    labelfoto12['image'] = foto12
-    labelfoto12.pack()
-    framefoto12.grid(row=6, column=2)
+    # framefoto12 = Frame(master=p6)
+    # labelfoto12 = Label(framefoto12)
+    # labelfoto12['image'] = foto12
+    # labelfoto12.pack()
+    # framefoto12.grid(row=6, column=2)
 
-    # Programador 4
-    framefoto13 = Frame(master=p6)
-    labelfoto13 = Label(framefoto13)
-    labelfoto13['image'] = foto13
-    labelfoto13.pack()
-    framefoto13.grid(row=7, column=1)
+    # # Programador 4
+    # framefoto13 = Frame(master=p6)
+    # labelfoto13 = Label(framefoto13)
+    # labelfoto13['image'] = foto13
+    # labelfoto13.pack()
+    # framefoto13.grid(row=7, column=1)
 
-    framefoto14 = Frame(master=p6)
-    labelfoto14 = Label(framefoto14)
-    labelfoto14['image'] = foto14
-    labelfoto14.pack()
-    framefoto14.grid(row=7, column=2)
+    # framefoto14 = Frame(master=p6)
+    # labelfoto14 = Label(framefoto14)
+    # labelfoto14['image'] = foto14
+    # labelfoto14.pack()
+    # framefoto14.grid(row=7, column=2)
 
-    framefoto15 = Frame(master=p6)
-    labelfoto15 = Label(framefoto15)
-    labelfoto15['image'] = foto15
-    labelfoto15.pack()
-    framefoto15.grid(row=8, column=1)
+    # framefoto15 = Frame(master=p6)
+    # labelfoto15 = Label(framefoto15)
+    # labelfoto15['image'] = foto15
+    # labelfoto15.pack()
+    # framefoto15.grid(row=8, column=1)
 
-    framefoto16 = Frame(master=p6)
-    labelfoto16 = Label(framefoto16)
-    labelfoto16['image'] = foto16
-    labelfoto16.pack()
-    framefoto16.grid(row=8, column=2)
+    # framefoto16 = Frame(master=p6)
+    # labelfoto16 = Label(framefoto16)
+    # labelfoto16['image'] = foto16
+    # labelfoto16.pack()
+    # framefoto16.grid(row=8, column=2)
 
     #---------FUNCION 3 : CLICK: FOTO1 : ABRIR WEB CON PDF HOJA VIDA--------------#
     def abrir_pdf():
