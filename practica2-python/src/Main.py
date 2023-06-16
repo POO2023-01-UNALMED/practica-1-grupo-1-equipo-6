@@ -192,7 +192,7 @@ Institución:\tUniversidad Nacional de Colombia")
     imagen_original12 = Image.open("practica2-python/src/Graficas/images/foto12.png")
 
 
-    #programador 2
+    #programador 4
 
     imagen_original13 = Image.open("practica2-python/src/Graficas/images/foto13.png")
     imagen_original14 = Image.open("practica2-python/src/Graficas/images/foto14.png")
