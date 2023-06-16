@@ -1,54 +1,116 @@
-from ttkthemes import ThemedStyle
-import time
-import os
-import pickle
-from tkinter import *
-from functools import partial
-from PIL import Image, ImageTk
-import webbrowser
-if __name__ == "__main__":
+#################### VENTANA PRINCIPAL #######################
     
+##############################################################
+
+
+
+#################### IMPORTAR HERRAMIENTAS #######################
+from ttkthemes import ThemedStyle   #ESTILOS ADICIONALES
+import time                         #TIEMPO PARA EJECUTAR CIERTAS ACCIONES
+import os                           #INTERACTUAR CON EL SISTEMA OPERATIVO
+import pickle                       #SERIALIZAR DESERIALIZAR
+from tkinter import *               #HERRAMIENTAS DE TTINKER
+from functools import partial       #SIMPLIFICAR LLAMADA DE FUNCIONES
+from PIL import Image, ImageTk      #CARGAR Y MANEJAR IMAGENES 
+import webbrowser                   #ABRIR PAGINAS WEB CON NAVEGADOR.
+##############################################################
+
+
+if __name__ == "__main__":
+
+
+# SCENE : CONTENEDOR DE MENU,P1,P2,P3,P4,P5,P6 #
     WindowBegin = Tk()
     WindowBegin.title("Gestor Bibliotecario")
     WindowBegin.geometry("1000x1000")
+    WindowBegin.option_add('*tearOff', False)
+################################################
 
+
+
+
+#############################################  MENU: (PARTE DE ARRIBA) ##########################################################
+    menubar = Menu(WindowBegin)
+    inicio = Menu(menubar)
+    menubar.add_cascade(menu=inicio, label='Inicio')
+
+  #--------------------------FUNCION 1 : CLICK-MENU:Inicio, Descripcion:muestra desc en p3 ---------------------------------------
     def description():
         p3.pack_forget()
         label1.place_forget()
         desc = "Descripción:\n\nEl presente es un sistema de información\ndiseñado para una biblioteca, \
-el cual permite mantener un registro actualizado del material bibliográfico y controlar el estado de los préstamos realizados."
-        
+el cual permite mantener un registro actualizado del material bibliográfico y controlar el estado de los préstamos realizados."  
         label2 = Label(p3,text=desc, font=("Georgia",18))
         label2.place(x=6,y=10)
         p3.pack(side=TOP)
+#-------------------------------------------------------------------------------------------------------------------------------
+    inicio.add_command(label="Descripción", command=description) # utiliza FUNCION 1
 
-    # Manejo del menú
-    WindowBegin.option_add('*tearOff', False)
-    menubar = Menu(WindowBegin)
-    inicio = Menu(menubar)
-    menubar.add_cascade(menu=inicio, label='Inicio')
-    inicio.add_command(label="Descripción", command=description)
+    
     inicio.add_command(label="Salir", command=WindowBegin.destroy)
 
     WindowBegin['menu'] = menubar
+################################################################################################################################
 
-    # Manejo de frames
+
+
+
+
+#################### FRAME1 : CONTENEDOR DE P3, P4 ################################################
     p1 = Frame(master=WindowBegin,width=500,height=1000,relief=GROOVE, borderwidth=4,bg="#c0e0fa")
-    
-    
-    #p3
+###################################################################################################
+
+
+#################### FRAME2 : CONTENEDOR DE P5, P6 ###############################################
+    p2 = Frame(master=WindowBegin,width=490,height=1000,relief=GROOVE, borderwidth=4,bg="#344b42")
+###################################################################################################
+
+
+############## FRAME3 : CONTENEDOR DE label1, desc(FUNCION 1)  #############
+
     p3 = Frame(master=p1,width=500,height=155,relief=GROOVE, borderwidth=4)
+    #------------------------Configuracion de p3--------------------------#
     p3.pack(side=TOP)
-
-    label1 = Label(p3,text="Damos la más cordial bienvenida a nuestro\n Sistema de Gestión de Información Bibliotecaria. \n\n¡Nos complace tenerte como\n parte de nuestra \ncomunidad!",font=("Georgia",14))
+    bienv = "Damos la más cordial bienvenida a nuestro\n Sistema de Gestión de Información Bibliotecaria. \n\n¡Nos complace tenerte como\n parte de nuestra \ncomunidad!"
+    label1 = Label(p3,text=bienv,font=("Georgia",14))
     label1.place(x=20,y=0)
+############################################################################
+    
 
-    #p4
+##### FRAME4 : CONTENEDOR DE       ,  ############################################
+    p4 = Frame(p1,width=500,height=600)
+    #-------------Configuracion de p4-----------#
+
+    #--------agregar imagenes del sistema ------#
     imagen_ori1 = Image.open("practica2-python/src/Graficas/images/imagen1.png")
     imagen_ori2 = Image.open("practica2-python/src/Graficas/images/imagen2.png")
     imagen_ori3 = Image.open("practica2-python/src/Graficas/images/imagen3.png")
     imagen_ori4 = Image.open("practica2-python/src/Graficas/images/imagen4.png")
     imagen_ori5 = Image.open("practica2-python/src/Graficas/images/imagen5.png")
+    #-------------------------------------------#
+
+################################################################################
+
+
+##### FRAME4 : CONTENEDOR DE       ,  ########
+    p5 = Frame(master=p2,width=490,height=150)
+##############################################
+
+##### FRAME4 : CONTENEDOR DE       ,  ########
+    p6 = Frame(master=p2,width=500,height=700)  
+##############################################
+
+
+
+  
+    
+
+
+    
+
+
+
+
      # Redimensionar la imagen a un tamaño deseado
     x_deseada = 500
     y_deseada = 600  
@@ -63,7 +125,7 @@ el cual permite mantener un registro actualizado del material bibliográfico y c
     imagen4 = ImageTk.PhotoImage(imagen_redimen4)
     imagen5 = ImageTk.PhotoImage(imagen_redimen5)
     # Estado incial del frame
-    p4 = Frame(p1,width=500,height=600)   
+      
     label = Label(p4)
     label['image'] = imagen1
     label.place(x=0,y=0)
@@ -120,9 +182,9 @@ el cual permite mantener un registro actualizado del material bibliográfico y c
     label.bind('<Enter>',p4_1)
 
     p1.pack(side=LEFT)
-    p2 = Frame(master=WindowBegin,width=490,height=1000,relief=GROOVE, borderwidth=4,bg="#344b42")
+    
     #p
-    p5 = Frame(master=p2,width=490,height=150)
+    
 
     hojavida = Text(p5, font=("Georgia",12),relief=GROOVE, borderwidth=4)
     hojavida.insert(1.0,"Programador 1:\n\
@@ -136,7 +198,7 @@ Institución:\tUniversidad Nacional de Colombia")
     p5.pack(side=TOP)
 
     #p6
-    p6 = Frame(master=p2,width=500,height=700)
+    
 
         # Cargar la imagen original
     imagen_original = Image.open("practica2-python/src/Graficas/images/foto1.png")
