@@ -1,8 +1,3 @@
-#################### VENTANA PRINCIPAL #######################
-    
-##############################################################
-
-
 
 #################### IMPORTAR HERRAMIENTAS #######################
 from ttkthemes import ThemedStyle   #ESTILOS ADICIONALES
@@ -58,6 +53,7 @@ el cual permite mantener un registro actualizado del material bibliográfico y c
 
 #################### FRAME1 : CONTENEDOR DE P3, P4 ################################################
     p1 = Frame(master=WindowBegin,width=500,height=1000,relief=GROOVE, borderwidth=4,bg="#c0e0fa")
+    
 ###################################################################################################
 
 
@@ -105,7 +101,7 @@ el cual permite mantener un registro actualizado del material bibliográfico y c
     # Estado incial del frame
       
     label = Label(p4)
-    label['image'] = imagen1
+    label['image'] = imagen1 
     label.place(x=0,y=0)
     # command=partial(Principal().VentanaPrincipal,WindowBegin)
 
@@ -156,8 +152,9 @@ el cual permite mantener un registro actualizado del material bibliográfico y c
         p4.pack(side=BOTTOM) 
 
 
-    #Bind inicial
     label.bind('<Enter>',p4_1)
+
+    p1.pack(side=TOP)
 
 
     ##### FRAME 5 : CONTENEDOR DE hoja de vida (texto)##################
