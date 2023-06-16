@@ -1,8 +1,3 @@
-#################### VENTANA PRINCIPAL #######################
-    
-##############################################################
-
-
 
 #################### IMPORTAR HERRAMIENTAS #######################
 from ttkthemes import ThemedStyle   #ESTILOS ADICIONALES
@@ -19,17 +14,17 @@ import webbrowser                   #ABRIR PAGINAS WEB CON NAVEGADOR.
 if __name__ == "__main__":
 
 
-# SCENE : CONTENEDOR DE MENU,P1,P2,P3,P4,P5,P6 #
+   # SCENE : CONTENEDOR DE MENU,P1,P2,P3,P4,P5,P6 #
     WindowBegin = Tk()
     WindowBegin.title("Gestor Bibliotecario")
     WindowBegin.geometry("1000x1000")
     WindowBegin.option_add('*tearOff', False)
-################################################
+   ################################################
 
 
 
 
-#############################################  MENU: (PARTE DE ARRIBA) ##########################################################
+   #############################################  MENU: (PARTE DE ARRIBA) ##########################################################
     menubar = Menu(WindowBegin)
     inicio = Menu(menubar)
     menubar.add_cascade(menu=inicio, label='Inicio')
@@ -43,30 +38,32 @@ el cual permite mantener un registro actualizado del material bibliográfico y c
         label2 = Label(p3,text=desc, font=("Georgia",18))
         label2.place(x=6,y=10)
         p3.pack(side=TOP)
-#-------------------------------------------------------------------------------------------------------------------------------
+    #-------------------------------------------------------------------------------------------------------------------------------
     inicio.add_command(label="Descripción", command=description) # utiliza FUNCION 1
 
     
     inicio.add_command(label="Salir", command=WindowBegin.destroy)
 
     WindowBegin['menu'] = menubar
-################################################################################################################################
+    ################################################################################################################################
 
 
 
 
 
-#################### FRAME1 : CONTENEDOR DE P3, P4 ################################################
+    #################### FRAME 1 : CONTENEDOR DE P3, P4 ################################################
     p1 = Frame(master=WindowBegin,width=500,height=1000,relief=GROOVE, borderwidth=4,bg="#c0e0fa")
-###################################################################################################
+    #-------------Configuracion de p1-----------#
+    p1.pack(side=LEFT)
+    ###################################################################################################
 
 
-#################### FRAME2 : CONTENEDOR DE P5, P6 ###############################################
+    #################### FRAME2 : CONTENEDOR DE P5, P6 ###############################################
     p2 = Frame(master=WindowBegin,width=490,height=1000,relief=GROOVE, borderwidth=4,bg="#344b42")
-###################################################################################################
+    ###################################################################################################
 
 
-############## FRAME3 : CONTENEDOR DE label1, desc(FUNCION 1)  #############
+    ############## FRAME 3 : CONTENEDOR DE label1, desc(FUNCION 1)  #############
 
     p3 = Frame(master=p1,width=500,height=155,relief=GROOVE, borderwidth=4)
     #------------------------Configuracion de p3--------------------------#
@@ -74,10 +71,10 @@ el cual permite mantener un registro actualizado del material bibliográfico y c
     bienv = "Damos la más cordial bienvenida a nuestro\n Sistema de Gestión de Información Bibliotecaria. \n\n¡Nos complace tenerte como\n parte de nuestra \ncomunidad!"
     label1 = Label(p3,text=bienv,font=("Georgia",14))
     label1.place(x=20,y=0)
-############################################################################
+    ############################################################################
     
 
-##### FRAME4 : CONTENEDOR DE       ,  ############################################
+    ##### FRAME 4 : CONTENEDOR DE  imagenes del sistema, boton inciar app  ############################################
     p4 = Frame(p1,width=500,height=600)
     #-------------Configuracion de p4-----------#
 
@@ -87,31 +84,7 @@ el cual permite mantener un registro actualizado del material bibliográfico y c
     imagen_ori3 = Image.open("practica2-python/src/Graficas/images/imagen3.png")
     imagen_ori4 = Image.open("practica2-python/src/Graficas/images/imagen4.png")
     imagen_ori5 = Image.open("practica2-python/src/Graficas/images/imagen5.png")
-    #-------------------------------------------#
-
-################################################################################
-
-
-##### FRAME4 : CONTENEDOR DE       ,  ########
-    p5 = Frame(master=p2,width=490,height=150)
-##############################################
-
-##### FRAME4 : CONTENEDOR DE       ,  ########
-    p6 = Frame(master=p2,width=500,height=700)  
-##############################################
-
-
-
-  
-    
-
-
-    
-
-
-
-
-     # Redimensionar la imagen a un tamaño deseado
+    #---------redimensionar imagenes del sistema (tamaño)--------------#
     x_deseada = 500
     y_deseada = 600  
     imagen_redimen1 = imagen_ori1.resize((x_deseada, y_deseada), Image.LANCZOS)
@@ -124,67 +97,58 @@ el cual permite mantener un registro actualizado del material bibliográfico y c
     imagen3 = ImageTk.PhotoImage(imagen_redimen3)
     imagen4 = ImageTk.PhotoImage(imagen_redimen4)
     imagen5 = ImageTk.PhotoImage(imagen_redimen5)
-    # Estado incial del frame
-      
+    #---------estado inicial del frame (siempre empieza con la imagen 1)--------------#
     label = Label(p4)
     label['image'] = imagen1
     label.place(x=0,y=0)
-    # command=partial(Principal().VentanaPrincipal,WindowBegin)
-
-
-
-    # Crear el botón con el estilo personalizado
-    ingresar = Button(p4, text="Ingresar al Sistema", font=("Arial", 13),background="#1a42e6",width=20, height=2)   
-    ingresar.place(x=310,y=150)
-    p4.pack(side=BOTTOM)  
-
-    
-
+    #---FUNCION 2 (conjunto): Mouse-Hover: cambiar imagen cuando posiciona el mouse o lo quita---#
     def p4_1(e):
         p4.pack_forget()
         label['image'] = imagen1
-        time.sleep(1)
+        time.sleep(0.3)
         label.bind('<Enter>',p4_2)
         p4.pack(side=BOTTOM)   
 
     def p4_2(e):
         p4.pack_forget()
         label['image'] = imagen2
-        time.sleep(1)
+        time.sleep(0.3)
         label.bind('<Enter>',p4_3)
         p4.pack(side=BOTTOM)
-
-    
 
     def p4_3(e):
         p4.pack_forget()
         label['image'] = imagen3
-        time.sleep(1)
+        time.sleep(0.3)
         label.bind('<Enter>',p4_4)
         p4.pack(side=BOTTOM)
 
     def p4_4(e):
         p4.pack_forget()
         label['image'] = imagen4
-        time.sleep(1)
+        time.sleep(0.3)
         label.bind('<Enter>',p4_5)
         p4.pack(side=BOTTOM) 
 
     def p4_5(e):
         p4.pack_forget()
         label['image'] = imagen5
-        time.sleep(1)
+        time.sleep(0.3)
         label.bind('<Enter>',p4_1)
-        p4.pack(side=BOTTOM) 
-
-
-    #Bind inicial
+        p4.pack(side=BOTTOM)
+    #--------- generar un enlace con la p4-1--------------#    
     label.bind('<Enter>',p4_1)
+    #---------Crear el botón para inicar la APP--------------#
+    ingresar = Button(p4, text="Ingresar al Sistema", font=("Arial", 13),background="#1a42e6",width=20, height=2)   
+    ingresar.place(x=310,y=150)
+    p4.pack(side=BOTTOM)  
+    ################################################################################
 
-    p1.pack(side=LEFT)
-    
-    #p
-    
+
+    ##### FRAME 5 : CONTENEDOR DE hoja de vida (texto)##################
+    p5 = Frame(master=p2,width=490,height=150)
+    #---------Configuracion de p5--------------#
+    p5.pack(side=TOP)
 
     hojavida = Text(p5, font=("Georgia",12),relief=GROOVE, borderwidth=4)
     hojavida.insert(1.0,"Programador 1:\n\
@@ -195,39 +159,36 @@ Correo:\tancarvajalb@unal.edu.co\n\
 Carrera:\tIngeniería de Sistemas e Informática\n\
 Institución:\tUniversidad Nacional de Colombia")
     hojavida.place(x=0,y=0)
-    p5.pack(side=TOP)
+    ######################################################################
 
-    #p6
-    
+    ##### FRAME 6 : CONTENEDOR DE  imagenes de hoja de vida,######################################
+    p6 = Frame(master=p2,width=500,height=700)
+    #---------Configuracion de p6--------------#
 
-        # Cargar la imagen original
+    #--------agregar imagenes de hoja de vida ------#
     imagen_original = Image.open("practica2-python/src/Graficas/images/foto1.png")
     imagen_original1 = Image.open("practica2-python/src/Graficas/images/foto2.png")
     imagen_original2 = Image.open("practica2-python/src/Graficas/images/foto3.png")
     imagen_original3 = Image.open("practica2-python/src/Graficas/images/foto4.png")
-    # Redimensionar la imagen a un tamaño deseado
+    #---------redimensionar imagenes de hoja de vida (tamaño)--------------#
     ancho_deseado = 200
     alto_deseado = 300  
     imagen_redimensionada = imagen_original.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
     imagen_redimensionada1 = imagen_original1.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
     imagen_redimensionada2 = imagen_original2.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
     imagen_redimensionada3 = imagen_original3.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
-    # Convertir la imagen redimensionada a formato compatible con Tkinter
-    
-
-    # Crear el widget Label y asignar la imagen redimensionada
-        
-        # Abrir la imagen JPEG
+    #---------arreglo para abrir imagen con formato distinto al png (foto 2)--------------#
     imagen_jpeg = Image.open("practica2-python/src/Graficas/images/foto2.jpeg")
-
-    # Convertir la imagen a formato PNG
     ruta_destino = "practica2-python/src/Graficas/images/foto2.png"
     imagen_jpeg.save(ruta_destino, "PNG")
+    #---------vincular variable a la foto ya redimensionada--------------#
     foto1 = ImageTk.PhotoImage(imagen_redimensionada)
     foto2 = ImageTk.PhotoImage(imagen_redimensionada1)
     foto3 = ImageTk.PhotoImage(imagen_redimensionada2)
     foto4 = ImageTk.PhotoImage(imagen_redimensionada3)
-    
+    ###############################################################################################
+
+
     foto5 = PhotoImage(file="practica2-python/src/Graficas/images/foto#.png")
     foto6 = PhotoImage(file="practica2-python/src/Graficas/images/foto#.png")
     foto7 = PhotoImage(file="practica2-python/src/Graficas/images/foto#.png")
