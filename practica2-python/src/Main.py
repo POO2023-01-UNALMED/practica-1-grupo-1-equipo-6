@@ -375,19 +375,23 @@ Institución:\tUniversidad Nacional de Colombia")
     # framefoto16.grid(row=8, column=2)
 
     #---------FUNCION 3 : CLICK: FOTO1 : ABRIR WEB CON PDF HOJA VIDA--------------#
-    def abrir_pdf():
+    def abrir_pdf1():
         # Ruta del archivo PDF
         rr = "practica2-python\src\Graficas\hojas\hojavida1.pdf"  
         
         # Abrir el archivo PDF en el navegador por defecto
         webbrowser.open(rr)
     #-----------------------------------------------------------------------------#
-    labelfoto1.bind("<Button-1>", lambda event: abrir_pdf())
+    labelfoto1.bind("<Button-1>", lambda event: abrir_pdf1())
     labelfoto1.pack()
     framefoto1.grid(row=1,column=1)
     #-----------------------------------------------------------------------------#
 
     #-----------------FUNCION 4 : CAMBIO DE HOJA DE VIDA :CLICK:------------------#
+
+
+
+
 
     def frameB_1(e):
         hojavida.delete(1.0,8.0)
@@ -435,11 +439,35 @@ Institución:\tUniversidad Nacional de Colombia\n")
 
     ###############################################################################################
 
+    def abrir_pdf3():
+        # Ruta del archivo PDF
+        rr = "practica2-python\src\Graficas\hojas\hojavida3.pdf"  
+        
+        # Abrir el archivo PDF en el navegador por defecto
+        webbrowser.open(rr)
+    #-----------------------------------------------------------------------------#
+    labelfoto9.bind("<Button-1>", lambda event: abrir_pdf3())
+    labelfoto9.pack()
+    framefoto9.grid(row=1,column=1)
 
+    def frameB_3(e):
+        hojavida.delete(1.0,8.0)
+        hojavida.insert(1.0,"Programador 3:\n\
+(Click en el texto para ver más Programadores!)\n\n\
+Nombre:\tAndres Camilo Uyazan Torres\n\
+CC:\t1007697124\n\
+Correo:\tauyazan@unal.edu.co\n\
+Carrera:\tCiencias de la Computacion\n\
+Institución:\tUniversidad Nacional de Colombia\n")
+        hojavida.place(x=0,y=0)
 
+        p6.pack_forget()
+        labelfoto9['image']= foto9
+        labelfoto10['image']= foto10
+        labelfoto11['image']= foto11
+        labelfoto12['image']= foto12
+        p6.pack(side=BOTTOM)
 
-
-
-
+        hojavida.bind('<ButtonPress-1>',frameB_2) 
 
 WindowBegin.mainloop()
