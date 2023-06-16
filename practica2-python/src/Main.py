@@ -21,9 +21,6 @@ if __name__ == "__main__":
     WindowBegin.option_add('*tearOff', False)
 ################################################
 
-
-
-
 #############################################  MENU: (PARTE DE ARRIBA) ##########################################################
     menubar = Menu(WindowBegin)
     inicio = Menu(menubar)
