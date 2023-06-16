@@ -276,3 +276,5 @@ Institución:\tUniversidad Nacional de Colombia\n")
     p2.pack(side=RIGHT)
 
     WindowBegin.mainloop()
+
+    
