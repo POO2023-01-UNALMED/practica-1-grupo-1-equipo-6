@@ -278,6 +278,8 @@ Institución:\tUniversidad Nacional de Colombia")
     foto16 = ImageTk.PhotoImage(imagen_redimensionada16)
 
     #---------configurar ubicacion fotos--------------#
+
+    #programador 1
     framefoto1 = Frame(master=p6)
     labelfoto1 = Label(framefoto1)
     labelfoto1['image'] = foto1
@@ -299,6 +301,81 @@ Institución:\tUniversidad Nacional de Colombia")
     labelfoto4['image'] = foto4
     labelfoto4.pack()
     framefoto4.grid(row=2,column=2)
+
+    #programador 2
+    framefoto5 = Frame(master=p6)
+    labelfoto5 = Label(framefoto5)
+    labelfoto5['image'] = foto5
+    labelfoto5.pack()
+    framefoto5.grid(row=3, column=1)
+     
+    framefoto6 = Frame(master=p6)
+    labelfoto6 = Label(framefoto6)
+    labelfoto6['image'] = foto6
+    labelfoto6.pack()
+    framefoto6.grid(row=3, column=2)
+
+    framefoto7 = Frame(master=p6)
+    labelfoto7 = Label(framefoto7)
+    labelfoto7['image'] = foto7
+    labelfoto7.pack()
+    framefoto7.grid(row=4, column=1)
+
+    framefoto8 = Frame(master=p6)
+    labelfoto8 = Label(framefoto8)
+    labelfoto8['image'] = foto8
+    labelfoto8.pack()
+    framefoto8.grid(row=4, column=2)
+
+    # Programador 3
+    framefoto9 = Frame(master=p6)
+    labelfoto9 = Label(framefoto9)
+    labelfoto9['image'] = foto9
+    labelfoto9.pack()
+    framefoto9.grid(row=5, column=1)
+
+    framefoto10 = Frame(master=p6)
+    labelfoto10 = Label(framefoto10)
+    labelfoto10['image'] = foto10
+    labelfoto10.pack()
+    framefoto10.grid(row=5, column=2)
+
+    framefoto11 = Frame(master=p6)
+    labelfoto11 = Label(framefoto11)
+    labelfoto11['image'] = foto11
+    labelfoto11.pack()
+    framefoto11.grid(row=6, column=1)
+
+    framefoto12 = Frame(master=p6)
+    labelfoto12 = Label(framefoto12)
+    labelfoto12['image'] = foto12
+    labelfoto12.pack()
+    framefoto12.grid(row=6, column=2)
+
+    # Programador 4
+    framefoto13 = Frame(master=p6)
+    labelfoto13 = Label(framefoto13)
+    labelfoto13['image'] = foto13
+    labelfoto13.pack()
+    framefoto13.grid(row=7, column=1)
+
+    framefoto14 = Frame(master=p6)
+    labelfoto14 = Label(framefoto14)
+    labelfoto14['image'] = foto14
+    labelfoto14.pack()
+    framefoto14.grid(row=7, column=2)
+
+    framefoto15 = Frame(master=p6)
+    labelfoto15 = Label(framefoto15)
+    labelfoto15['image'] = foto15
+    labelfoto15.pack()
+    framefoto15.grid(row=8, column=1)
+
+    framefoto16 = Frame(master=p6)
+    labelfoto16 = Label(framefoto16)
+    labelfoto16['image'] = foto16
+    labelfoto16.pack()
+    framefoto16.grid(row=8, column=2)
 
     #---------FUNCION 3 : CLICK: FOTO1 : ABRIR WEB CON PDF HOJA VIDA--------------#
     def abrir_pdf():
