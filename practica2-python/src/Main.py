@@ -60,6 +60,8 @@ el cual permite mantener un registro actualizado del material bibliográfico y c
 
     #################### FRAME2 : CONTENEDOR DE P5, P6 ###############################################
     p2 = Frame(master=WindowBegin,width=490,height=1000,relief=GROOVE, borderwidth=4,bg="#344b42")
+    #-------------Configuracion de p2-----------#
+    p2.pack(side=RIGHT)
     ###################################################################################################
 
 
@@ -149,7 +151,7 @@ el cual permite mantener un registro actualizado del material bibliográfico y c
     p5 = Frame(master=p2,width=490,height=150)
     #---------Configuracion de p5--------------#
     p5.pack(side=TOP)
-
+    #---------inicializar hoja de vida programador 1--------------#
     hojavida = Text(p5, font=("Georgia",12),relief=GROOVE, borderwidth=4)
     hojavida.insert(1.0,"Programador 1:\n\
 (Click en el texto para ver más Programadores!)\n\n\
@@ -164,50 +166,106 @@ Institución:\tUniversidad Nacional de Colombia")
     ##### FRAME 6 : CONTENEDOR DE  imagenes de hoja de vida,######################################
     p6 = Frame(master=p2,width=500,height=700)
     #---------Configuracion de p6--------------#
+    p6.pack(side=BOTTOM) 
 
     #--------agregar imagenes de hoja de vida ------#
-    imagen_original = Image.open("practica2-python/src/Graficas/images/foto1.png")
-    imagen_original1 = Image.open("practica2-python/src/Graficas/images/foto2.png")
-    imagen_original2 = Image.open("practica2-python/src/Graficas/images/foto3.png")
-    imagen_original3 = Image.open("practica2-python/src/Graficas/images/foto4.png")
+
+    #programador 1
+    imagen_original1 = Image.open("practica2-python/src/Graficas/images/foto1.png")
+    imagen_original2 = Image.open("practica2-python/src/Graficas/images/foto2.png")
+    imagen_original3 = Image.open("practica2-python/src/Graficas/images/foto3.png")
+    imagen_original4 = Image.open("practica2-python/src/Graficas/images/foto4.png")
+
+    #programador 2
+
+    imagen_original5 = Image.open("practica2-python/src/Graficas/images/foto5.png")
+    imagen_original6 = Image.open("practica2-python/src/Graficas/images/foto6.png")
+    imagen_original7 = Image.open("practica2-python/src/Graficas/images/foto7.png")
+    imagen_original8 = Image.open("practica2-python/src/Graficas/images/foto8.png")
+
+
+    #programador 3
+
+    imagen_original9 = Image.open("practica2-python/src/Graficas/images/foto9.png")
+    imagen_original10 = Image.open("practica2-python/src/Graficas/images/foto10.png")
+    imagen_original11 = Image.open("practica2-python/src/Graficas/images/foto11.png")
+    imagen_original12 = Image.open("practica2-python/src/Graficas/images/foto12.png")
+
+
+    #programador 2
+
+    imagen_original13 = Image.open("practica2-python/src/Graficas/images/foto13.png")
+    imagen_original14 = Image.open("practica2-python/src/Graficas/images/foto14.png")
+    imagen_original15 = Image.open("practica2-python/src/Graficas/images/foto15.png")
+    imagen_original16 = Image.open("practica2-python/src/Graficas/images/foto16.png")
+
+
     #---------redimensionar imagenes de hoja de vida (tamaño)--------------#
     ancho_deseado = 200
     alto_deseado = 300  
-    imagen_redimensionada = imagen_original.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
+
+    #programador 1
     imagen_redimensionada1 = imagen_original1.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
     imagen_redimensionada2 = imagen_original2.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
     imagen_redimensionada3 = imagen_original3.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
+    imagen_redimensionada4 = imagen_original4.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
+    
     #---------arreglo para abrir imagen con formato distinto al png (foto 2)--------------#
     imagen_jpeg = Image.open("practica2-python/src/Graficas/images/foto2.jpeg")
     ruta_destino = "practica2-python/src/Graficas/images/foto2.png"
     imagen_jpeg.save(ruta_destino, "PNG")
+
+
+    #programador 2
+
+    imagen_redimensionada5 = imagen_original5.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
+    imagen_redimensionada6 = imagen_original6.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
+    imagen_redimensionada7 = imagen_original7.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
+    imagen_redimensionada8 = imagen_original8.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
+
+    #programador 3
+    imagen_redimensionada9 = imagen_original9.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
+    imagen_redimensionada10 = imagen_original10.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
+    imagen_redimensionada11 = imagen_original11.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
+    imagen_redimensionada12 = imagen_original12.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
+
+    #programador 4
+
+    imagen_redimensionada13 = imagen_original13.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
+    imagen_redimensionada14 = imagen_original14.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
+    imagen_redimensionada15 = imagen_original15.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
+    imagen_redimensionada16 = imagen_original16.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
+
     #---------vincular variable a la foto ya redimensionada--------------#
-    foto1 = ImageTk.PhotoImage(imagen_redimensionada)
-    foto2 = ImageTk.PhotoImage(imagen_redimensionada1)
-    foto3 = ImageTk.PhotoImage(imagen_redimensionada2)
-    foto4 = ImageTk.PhotoImage(imagen_redimensionada3)
-    ###############################################################################################
 
+    #programador 1
+    foto1 = ImageTk.PhotoImage(imagen_redimensionada1)
+    foto2 = ImageTk.PhotoImage(imagen_redimensionada2)
+    foto3 = ImageTk.PhotoImage(imagen_redimensionada3)
+    foto4 = ImageTk.PhotoImage(imagen_redimensionada4)
 
-    foto5 = PhotoImage(file="practica2-python/src/Graficas/images/foto#.png")
-    foto6 = PhotoImage(file="practica2-python/src/Graficas/images/foto#.png")
-    foto7 = PhotoImage(file="practica2-python/src/Graficas/images/foto#.png")
-    foto8 = PhotoImage(file="practica2-python/src/Graficas/images/foto#.png")
+    #programador 2
+    foto5 = ImageTk.PhotoImage(imagen_redimensionada5)
+    foto6 = ImageTk.PhotoImage(imagen_redimensionada6)
+    foto7 = ImageTk.PhotoImage(imagen_redimensionada7)
+    foto8 = ImageTk.PhotoImage(imagen_redimensionada8)
 
-    def abrir_pdf():
-        # Ruta del archivo PDF
-        rr = "practica2-python\src\Graficas\hojas\hojavida1.pdf"  # Reemplaza con la ruta de tu archivo PDF
-        
-        # Abrir el archivo PDF en el navegador por defecto
-        webbrowser.open(rr)
+    #programador 3
+    foto9 = ImageTk.PhotoImage(imagen_redimensionada9)
+    foto10 = ImageTk.PhotoImage(imagen_redimensionada10)
+    foto11 = ImageTk.PhotoImage(imagen_redimensionada11)
+    foto12 = ImageTk.PhotoImage(imagen_redimensionada12)
 
+    #programador 4 
+    foto13 = ImageTk.PhotoImage(imagen_redimensionada13)
+    foto14 = ImageTk.PhotoImage(imagen_redimensionada14)
+    foto15 = ImageTk.PhotoImage(imagen_redimensionada15)
+    foto16 = ImageTk.PhotoImage(imagen_redimensionada16)
+
+    #---------configurar ubicacion fotos--------------#
     framefoto1 = Frame(master=p6)
     labelfoto1 = Label(framefoto1)
     labelfoto1['image'] = foto1
-
-    labelfoto1.bind("<Button-1>", lambda event: abrir_pdf())
-    labelfoto1.pack()
-    framefoto1.grid(row=1,column=1)
 
     framefoto2 = Frame(master=p6)
     labelfoto2 = Label(framefoto2)
@@ -227,8 +285,20 @@ Institución:\tUniversidad Nacional de Colombia")
     labelfoto4.pack()
     framefoto4.grid(row=2,column=2)
 
-    p6.pack(side=BOTTOM) 
+    #---------FUNCION 3 : CLICK: FOTO1 : ABRIR WEB CON PDF HOJA VIDA--------------#
+    def abrir_pdf():
+        # Ruta del archivo PDF
+        rr = "practica2-python\src\Graficas\hojas\hojavida1.pdf"  
+        
+        # Abrir el archivo PDF en el navegador por defecto
+        webbrowser.open(rr)
+    #-----------------------------------------------------------------------------#
+    labelfoto1.bind("<Button-1>", lambda event: abrir_pdf())
+    labelfoto1.pack()
+    framefoto1.grid(row=1,column=1)
+    #-----------------------------------------------------------------------------#
 
+    #-----------------FUNCION 4 : CAMBIO DE HOJA DE VIDA :CLICK:------------------#
 
     def frameB_1(e):
         hojavida.delete(1.0,8.0)
@@ -256,7 +326,7 @@ Institución:\tUniversidad Nacional de Colombia\n")
         hojavida.insert(1.0,"Programador 2:\n\
 (Click en el texto para ver más Programadores!)\n\n\
 Nombre:\tJuan Jose Pineda\n\
-CC:\t#\n\
+CC:\t1193078466\n\
 Correo:\t@unal.edu.co\n\
 Carrera:\tIngeniería de Sistemas e Informática\n\
 Institución:\tUniversidad Nacional de Colombia\n")
@@ -272,7 +342,21 @@ Institución:\tUniversidad Nacional de Colombia\n")
         hojavida.bind('<ButtonPress-1>',frameB_1) 
     #Bind inicial
     hojavida.bind('<ButtonPress-1>',frameB_2)
+    
 
-    p2.pack(side=RIGHT)
 
-    WindowBegin.mainloop()
+
+
+
+
+
+    ###############################################################################################
+
+
+
+
+
+
+
+
+WindowBegin.mainloop()
