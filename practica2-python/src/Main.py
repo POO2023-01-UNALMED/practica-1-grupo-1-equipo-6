@@ -63,13 +63,9 @@ el cual permite mantener un registro actualizado del material bibliográfico y c
 
 #################### FRAME2 : CONTENEDOR DE P5, P6 ###############################################
     p2 = Frame(master=WindowBegin,width=490,height=1000,relief=GROOVE, borderwidth=4,bg="#344b42")
-<<<<<<< HEAD
-###################################################################################################
-=======
     #-------------Configuracion de p2-----------#
     p2.pack(side=RIGHT)
     ###################################################################################################
->>>>>>> c47e0345083746e47f3972f865b3a6762bdb862c
 
 
 ############## FRAME3 : CONTENEDOR DE label1, desc(FUNCION 1)  #############
@@ -163,20 +159,12 @@ el cual permite mantener un registro actualizado del material bibliográfico y c
     #Bind inicial
     label.bind('<Enter>',p4_1)
 
-<<<<<<< HEAD
-    p1.pack(side=LEFT)
-    
-    #p
-    
-
-=======
 
     ##### FRAME 5 : CONTENEDOR DE hoja de vida (texto)##################
     p5 = Frame(master=p2,width=490,height=150)
     #---------Configuracion de p5--------------#
     p5.pack(side=TOP)
     #---------inicializar hoja de vida programador 1--------------#
->>>>>>> c47e0345083746e47f3972f865b3a6762bdb862c
     hojavida = Text(p5, font=("Georgia",12),relief=GROOVE, borderwidth=4)
     hojavida.insert(1.0,"Programador 1:\n\
 (Click en el texto para ver más Programadores!)\n\n\
@@ -188,17 +176,6 @@ Institución:\tUniversidad Nacional de Colombia")
     hojavida.place(x=0,y=0)
     p5.pack(side=TOP)
 
-<<<<<<< HEAD
-    #p6
-    
-
-        # Cargar la imagen original
-    imagen_original = Image.open("practica2-python/src/Graficas/images/foto1.png")
-    imagen_original1 = Image.open("practica2-python/src/Graficas/images/foto2.png")
-    imagen_original2 = Image.open("practica2-python/src/Graficas/images/foto3.png")
-    imagen_original3 = Image.open("practica2-python/src/Graficas/images/foto4.png")
-    # Redimensionar la imagen a un tamaño deseado
-=======
     ##### FRAME 6 : CONTENEDOR DE  imagenes de hoja de vida,######################################
     p6 = Frame(master=p2,width=500,height=700)
     #---------Configuracion de p6--------------#
@@ -237,7 +214,6 @@ Institución:\tUniversidad Nacional de Colombia")
 
 
     #---------redimensionar imagenes de hoja de vida (tamaño)--------------#
->>>>>>> c47e0345083746e47f3972f865b3a6762bdb862c
     ancho_deseado = 200
     alto_deseado = 300  
 
@@ -245,34 +221,14 @@ Institución:\tUniversidad Nacional de Colombia")
     imagen_redimensionada1 = imagen_original1.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
     imagen_redimensionada2 = imagen_original2.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
     imagen_redimensionada3 = imagen_original3.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
-<<<<<<< HEAD
-    # Convertir la imagen redimensionada a formato compatible con Tkinter
-    
-
-    # Crear el widget Label y asignar la imagen redimensionada
-        
-        # Abrir la imagen JPEG
-=======
     imagen_redimensionada4 = imagen_original4.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
     
     #---------arreglo para abrir imagen con formato distinto al png (foto 2)--------------#
->>>>>>> c47e0345083746e47f3972f865b3a6762bdb862c
     imagen_jpeg = Image.open("practica2-python/src/Graficas/images/foto2.jpeg")
 
     # Convertir la imagen a formato PNG
     ruta_destino = "practica2-python/src/Graficas/images/foto2.png"
     imagen_jpeg.save(ruta_destino, "PNG")
-<<<<<<< HEAD
-    foto1 = ImageTk.PhotoImage(imagen_redimensionada)
-    foto2 = ImageTk.PhotoImage(imagen_redimensionada1)
-    foto3 = ImageTk.PhotoImage(imagen_redimensionada2)
-    foto4 = ImageTk.PhotoImage(imagen_redimensionada3)
-    
-    foto5 = PhotoImage(file="practica2-python/src/Graficas/images/foto#.png")
-    foto6 = PhotoImage(file="practica2-python/src/Graficas/images/foto#.png")
-    foto7 = PhotoImage(file="practica2-python/src/Graficas/images/foto#.png")
-    foto8 = PhotoImage(file="practica2-python/src/Graficas/images/foto#.png")
-=======
 
 
     #programador 2
@@ -308,7 +264,6 @@ Institución:\tUniversidad Nacional de Colombia")
     foto6 = ImageTk.PhotoImage(imagen_redimensionada6)
     foto7 = ImageTk.PhotoImage(imagen_redimensionada7)
     foto8 = ImageTk.PhotoImage(imagen_redimensionada8)
->>>>>>> c47e0345083746e47f3972f865b3a6762bdb862c
 
     #programador 3
     foto9 = ImageTk.PhotoImage(imagen_redimensionada9)
@@ -404,15 +359,6 @@ Institución:\tUniversidad Nacional de Colombia\n")
     hojavida.bind('<ButtonPress-1>',frameB_2)
     
 
-
-
-
-<<<<<<< HEAD
-  
-=======
-
-
-
     ###############################################################################################
 
 
@@ -423,4 +369,3 @@ Institución:\tUniversidad Nacional de Colombia\n")
 
 
 WindowBegin.mainloop()
->>>>>>> c47e0345083746e47f3972f865b3a6762bdb862c
