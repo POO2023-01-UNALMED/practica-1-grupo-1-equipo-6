@@ -432,23 +432,9 @@ Institución:\tUniversidad Nacional de Colombia\n")
         labelfoto4['image']= foto8
         p6.pack(side=BOTTOM)
 
-        hojavida.bind('<ButtonPress-1>',frameB_1) 
+        hojavida.bind('<ButtonPress-1>',frameB_3) 
     #Bind inicial
     hojavida.bind('<ButtonPress-1>',frameB_2)
-    
-
-    ###############################################################################################
-
-    def abrir_pdf3():
-        # Ruta del archivo PDF
-        rr = "practica2-python\src\Graficas\hojas\hojavida3.pdf"  
-        
-        # Abrir el archivo PDF en el navegador por defecto
-        webbrowser.open(rr)
-    #-----------------------------------------------------------------------------#
-    labelfoto9.bind("<Button-1>", lambda event: abrir_pdf3())
-    labelfoto9.pack()
-    framefoto9.grid(row=1,column=1)
 
     def frameB_3(e):
         hojavida.delete(1.0,8.0)
@@ -468,6 +454,22 @@ Institución:\tUniversidad Nacional de Colombia\n")
         labelfoto12['image']= foto12
         p6.pack(side=BOTTOM)
 
-        hojavida.bind('<ButtonPress-1>',frameB_2) 
+        hojavida.bind('<ButtonPress-1>',frameB_1) 
+    
+
+    ###############################################################################################
+
+    def abrir_pdf3():
+        # Ruta del archivo PDF
+        rr = "practica2-python\src\Graficas\hojas\hojavida3.pdf"  
+        
+        # Abrir el archivo PDF en el navegador por defecto
+        webbrowser.open(rr)
+    #-----------------------------------------------------------------------------#
+    labelfoto9.bind("<Button-1>", lambda event: abrir_pdf3())
+    labelfoto9.pack()
+    framefoto9.grid(row=1,column=1)
+
+    
 
 WindowBegin.mainloop()
