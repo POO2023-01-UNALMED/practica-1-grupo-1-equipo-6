@@ -31,10 +31,14 @@ if __name__ == "__main__":
         p3.pack_forget()
         label1.place_forget()
         desc = "Descripción:\n\nEl presente es un sistema de información\ndiseñado para una biblioteca, \
-el cual permite mantener un registro actualizado del material bibliográfico y controlar el estado de los préstamos realizados."  
-        label2 = Label(p3,text=desc, font=("Georgia",18))
-        label2.place(x=6,y=10)
-        p3.pack(side=TOP)
+el cual permite mantener un registro actualizado\n del material bibliográfico\n y controlar el estado de los préstamos realizados."  
+        text = Text(p3, font=("Georgia", 18))
+        scrollbar = Scrollbar(p3, command=text.yview)
+        text.insert(END, desc)
+        text.config(state=DISABLED, yscrollcommand=scrollbar.set)
+        text.pack(side=LEFT, fill=BOTH, expand=True)
+        scrollbar.pack(side=RIGHT, fill=Y)
+        p3.pack(side=TOP, fill=BOTH, expand=True)  # Aumenta la altura del marco p3
 #-------------------------------------------------------------------------------------------------------------------------------
     inicio.add_command(label="Descripción", command=description) # utiliza FUNCION 1
 
