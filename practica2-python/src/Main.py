@@ -88,7 +88,7 @@ el cual permite mantener un registro actualizado del material bibliográfico y c
     imagen_redimen3 = imagen_ori3.resize((x_deseada, y_deseada), Image.LANCZOS)
     imagen_redimen4 = imagen_ori4.resize((x_deseada, y_deseada), Image.LANCZOS)
     imagen_redimen5 = imagen_ori5.resize((x_deseada, y_deseada), Image.LANCZOS)
-    
+
     imagen1 = ImageTk.PhotoImage(imagen_redimen1)
     imagen2 = ImageTk.PhotoImage(imagen_redimen2)
     imagen3 = ImageTk.PhotoImage(imagen_redimen3)
@@ -149,7 +149,6 @@ el cual permite mantener un registro actualizado del material bibliográfico y c
     ##### FRAME 5 : CONTENEDOR DE hoja de vida (texto) ########
     p5 = Frame(master=p2,width=490,height=150)
     #-------------Configuracion de p5-----------#
-    p5.pack(side=TOP)
 
 
     hojavida = Text(p5, font=("Georgia",12),relief=GROOVE, borderwidth=4)
