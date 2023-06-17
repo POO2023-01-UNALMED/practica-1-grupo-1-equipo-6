@@ -1,5 +1,5 @@
 
-#################### IMPORTAR HERRAMIENTAS #######################
+#################### IMPORTAR HERRAMIENTAS #######################               
 from ttkthemes import ThemedStyle   #ESTILOS ADICIONALES
 import time                         #TIEMPO PARA EJECUTAR CIERTAS ACCIONES
 import os                           #INTERACTUAR CON EL SISTEMA OPERATIVO
@@ -50,16 +50,19 @@ el cual permite mantener un registro actualizado del material bibliográfico y c
 
 #################### FRAME1 : CONTENEDOR DE P3, P4 ################################################
     p1 = Frame(master=WindowBegin,width=500,height=1000,relief=GROOVE, borderwidth=4,bg="#c0e0fa")
+    #------------------------Configuracion de p1--------------------------#
     p1.pack(side=LEFT)
 ###################################################################################################
 
 
 #################### FRAME2 : CONTENEDOR DE P5, P6 ###############################################
     p2 = Frame(master=WindowBegin,width=490,height=1000,relief=GROOVE, borderwidth=4,bg="#344b42")
+    #------------------------Configuracion de p5--------------------------#
+    p2.pack(side=RIGHT)
 ###################################################################################################
 
 
-############## FRAME3 : CONTENEDOR DE label1, desc(FUNCION 1)  #############
+#################### FRAME3 : CONTENEDOR DE label1, desc(FUNCION 1)  #######################################################################################################
 
     p3 = Frame(master=p1,width=500,height=155,relief=GROOVE, borderwidth=4)
     #------------------------Configuracion de p3--------------------------#
@@ -67,13 +70,13 @@ el cual permite mantener un registro actualizado del material bibliográfico y c
     bienv = "Damos la más cordial bienvenida a nuestro\n Sistema de Gestión de Información Bibliotecaria. \n\n¡Nos complace tenerte como\n parte de nuestra \ncomunidad!"
     label1 = Label(p3,text=bienv,font=("Georgia",14))
     label1.place(x=20,y=0)
-############################################################################
+############################################################################################################################################################################
     
 
-##### FRAME4 : CONTENEDOR DE imagenes del sistema  ############################################
+################### FRAME4 : CONTENEDOR DE imagenes del sistema  ############################################
     p4 = Frame(p1,width=500,height=600)
     #-------------Configuracion de p4-----------#
-
+    p4.pack(side=BOTTOM)
     #--------agregar imagenes del sistema ------#
     imagen_ori1 = Image.open("practica2-python/src/Graficas/images/imagen1.png")
     imagen_ori2 = Image.open("practica2-python/src/Graficas/images/imagen2.png")
@@ -82,7 +85,7 @@ el cual permite mantener un registro actualizado del material bibliográfico y c
     imagen_ori5 = Image.open("practica2-python/src/Graficas/images/imagen5.png")
     #---------redimensionar imagenes del sistema (tamaño) --------------#
     x_deseada = 500
-    y_deseada = 600  
+    y_deseada = 400  
     imagen_redimen1 = imagen_ori1.resize((x_deseada, y_deseada), Image.LANCZOS)
     imagen_redimen2 = imagen_ori2.resize((x_deseada, y_deseada), Image.LANCZOS)
     imagen_redimen3 = imagen_ori3.resize((x_deseada, y_deseada), Image.LANCZOS)
@@ -97,50 +100,30 @@ el cual permite mantener un registro actualizado del material bibliográfico y c
     #---------imagen inicial de p4 al inicar el programa --------------#
     label = Label(p4)
     label['image'] = imagen1 
-    label.place(x=0,y=0)
+    label.grid(row=0, column=0, padx=10, pady=10)
     #---------Boton para iniciar el proyecto--------------#
-    ingresar = Button(p4, text="Ingresar al Sistema", font=("Arial", 13),background="#1a42e6",width=20, height=2)   
-    ingresar.place(x=310,y=150)
-    p4.pack(side=BOTTOM)  
+    ingresar = Button(p4, text="Ingresar al Sistema", font=("Arial", 13), background="#1a42e6", width=20, height=2)
+    ingresar.grid(row=1, column=0, pady=50)  # Ubicar el botón debajo de las imágenes con un espacio de 10 píxeles
     #--------------------------FUNCION 2 (conjunto) : EVENTO MOUSE-HOOVER:pasar imagen ---------------------------------------
-    def p4_1(e):
-        p4.pack_forget()
-        label['image'] = imagen1
-        time.sleep(0.3)
-        label.bind('<Enter>',p4_2)
-        p4.pack(side=BOTTOM)   
+    image_index = 1
 
-    def p4_2(e):
-        p4.pack_forget()
-        label['image'] = imagen2
-        time.sleep(0.3)
-        label.bind('<Enter>',p4_3)
-        p4.pack(side=BOTTOM)
+    def change_image():
+       global image_index
+       image_index = (image_index % 5) + 1
+       image_variable = globals()[f"imagen{image_index}"]
+       label['image'] = image_variable
 
-    def p4_3(e):
-        p4.pack_forget()
-        label['image'] = imagen3
-        time.sleep(0.3)
-        label.bind('<Enter>',p4_4)
-        p4.pack(side=BOTTOM)
+    def p4_enter(e):
+       global image_change_enabled
+       image_change_enabled = True
+       change_image()
 
-    def p4_4(e):
-        p4.pack_forget()
-        label['image'] = imagen4
-        time.sleep(0.3)
-        label.bind('<Enter>',p4_5)
-        p4.pack(side=BOTTOM) 
+    def p4_leave(e):
+       global image_change_enabled
+       image_change_enabled = False
 
-    def p4_5(e):
-        p4.pack_forget()
-        label['image'] = imagen5
-        time.sleep(0.3)
-        label.bind('<Enter>',p4_1)
-        p4.pack(side=BOTTOM) 
-
-    #--------------------------FUNCION 2 (conjunto) : EVENTO MOUSE-HOOVER:pasar imagen ------------------#
-    label.bind('<Enter>',p4_1)
-
+    label.bind('<Enter>', p4_enter)
+    label.bind('<Leave>', p4_leave)
 
     ####################################################################################
 
@@ -149,17 +132,8 @@ el cual permite mantener un registro actualizado del material bibliográfico y c
     ##### FRAME 5 : CONTENEDOR DE hoja de vida (texto) ########
     p5 = Frame(master=p2,width=490,height=150)
     #-------------Configuracion de p5-----------#
-
-
-    hojavida = Text(p5, font=("Georgia",12),relief=GROOVE, borderwidth=4)
-    hojavida.insert(1.0,"Programador 1:\n\
-(Click en el texto para ver más Programadores!)\n\n\
-Nombre:\tAndres Yair Carvajal Bolivar\n\
-CC:\t1002579021\n\
-Correo:\tancarvajalb@unal.edu.co\n\
-Carrera:\tIngeniería de Sistemas e Informática\n\
-Institución:\tUniversidad Nacional de Colombia")
-    hojavida.place(x=0,y=0)
+    p5.pack(side=TOP)
+    #-------------texto hoja de vida -----------#
     #########################################################################################
 
 
@@ -168,310 +142,68 @@ Institución:\tUniversidad Nacional de Colombia")
     #---------Configuracion de p6--------------#
     p6.pack(side=BOTTOM) 
 
+
+
     #--------agregar imagenes de hoja de vida ------#
 
-    #programador 1
-    imagen_original1 = Image.open("practica2-python/src/Graficas/images/foto1.png")
-    imagen_original2 = Image.open("practica2-python/src/Graficas/images/foto2.png")
-    imagen_original3 = Image.open("practica2-python/src/Graficas/images/foto3.png")
-    imagen_original4 = Image.open("practica2-python/src/Graficas/images/foto4.png")
+    images = ["practica2-python/src/Graficas/images/foto{}.png".format(i) for i in range(1, 17)]
+    texts = []
+    for i in range(1, 5):
+        file_path = "practica2-python/src/Graficas/textos/texto{}.txt".format(i)
+        with open(file_path, 'r') as file:
+            text_content = file.read()
+            texts.append(text_content)
 
-    #programador 2
+    current_text_index = 0
+    current_image_index = 0
 
-    imagen_original5 = Image.open("practica2-python/src/Graficas/images/foto5.png")
-    imagen_original6 = Image.open("practica2-python/src/Graficas/images/foto6.png")
-    imagen_original7 = Image.open("practica2-python/src/Graficas/images/foto7.png")
-    imagen_original8 = Image.open("practica2-python/src/Graficas/images/foto8.png")
+    # Función para cargar las imágenes
+    def load_images():
+        for i in range(4):
+            image_path = images[current_image_index + i]
+            image = Image.open(image_path)
+            image = image.resize((200, 300))
+            photo = ImageTk.PhotoImage(image)
+            image_labels[i].configure(image=photo)
+            image_labels[i].image = photo
 
+            # Agregar controlador de evento para abrir el archivo PDF correspondiente
+            if current_image_index + i + 1 in [1, 5, 9, 13]:
+                image_labels[i].bind("<Button-1>", partial(open_pdf, current_image_index + i + 1))
+    def open_pdf(image_number, event):
+        pdfs = {
+            1: "practica2-python\src\Graficas\hojas\hojavida1.pdf",
+            5: "practica2-python\src\Graficas\hojas\hojavida2.pdf",
+            9: "practica2-python\src\Graficas\hojas\hojavida3.pdf",
+            13: "practica2-python\src\Graficas\hojas\hojavida4.pdf"
+            }
+        pdf_path = pdfs.get(image_number)
+        if pdf_path:
+            webbrowser.open(pdf_path)
 
-    #programador 3
-
-    imagen_original9 = Image.open("practica2-python/src/Graficas/images/foto9.png")
-    imagen_original10 = Image.open("practica2-python/src/Graficas/images/foto10.png")
-    imagen_original11 = Image.open("practica2-python/src/Graficas/images/foto11.png")
-    imagen_original12 = Image.open("practica2-python/src/Graficas/images/foto12.png")
-
-
-    #programador 4
-
-    imagen_original13 = Image.open("practica2-python/src/Graficas/images/foto13.png")
-    imagen_original14 = Image.open("practica2-python/src/Graficas/images/foto14.png")
-    imagen_original15 = Image.open("practica2-python/src/Graficas/images/foto15.png")
-    imagen_original16 = Image.open("practica2-python/src/Graficas/images/foto16.png")
-
-
-    #---------redimensionar imagenes de hoja de vida (tamaño)--------------#
-    ancho_deseado = 200
-    alto_deseado = 300  
-
-    #programador 1
-    imagen_redimensionada1 = imagen_original1.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
-    imagen_redimensionada2 = imagen_original2.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
-    imagen_redimensionada3 = imagen_original3.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
-    imagen_redimensionada4 = imagen_original4.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
-    
-    #---------arreglo para abrir imagen con formato distinto al png (foto 2)--------------#
-    imagen_jpeg = Image.open("practica2-python/src/Graficas/images/foto2.jpeg")
-
-    # Convertir la imagen a formato PNG
-    ruta_destino = "practica2-python/src/Graficas/images/foto2.png"
-    imagen_jpeg.save(ruta_destino, "PNG")
-
-    foto1 = ImageTk.PhotoImage(imagen_redimensionada1)
-    foto2 = ImageTk.PhotoImage(imagen_redimensionada2)
-    foto3 = ImageTk.PhotoImage(imagen_redimensionada3)
-    foto4 = ImageTk.PhotoImage(imagen_redimensionada4)
-    
-    foto5 = PhotoImage(file="practica2-python/src/Graficas/images/foto#.png")
-    foto6 = PhotoImage(file="practica2-python/src/Graficas/images/foto#.png")
-    foto7 = PhotoImage(file="practica2-python/src/Graficas/images/foto#.png")
-    foto8 = PhotoImage(file="practica2-python/src/Graficas/images/foto#.png")
-
-
-
-    #programador 2
-
-    imagen_redimensionada5 = imagen_original5.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
-    imagen_redimensionada6 = imagen_original6.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
-    imagen_redimensionada7 = imagen_original7.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
-    imagen_redimensionada8 = imagen_original8.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
-
-    #programador 3
-    imagen_redimensionada9 = imagen_original9.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
-    imagen_redimensionada10 = imagen_original10.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
-    imagen_redimensionada11 = imagen_original11.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
-    imagen_redimensionada12 = imagen_original12.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
-
-    #programador 4
-
-    imagen_redimensionada13 = imagen_original13.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
-    imagen_redimensionada14 = imagen_original14.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
-    imagen_redimensionada15 = imagen_original15.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
-    imagen_redimensionada16 = imagen_original16.resize((ancho_deseado, alto_deseado), Image.LANCZOS)
-
-    #---------vincular variable a la foto ya redimensionada--------------#
-
-    #programador 1
-    foto1 = ImageTk.PhotoImage(imagen_redimensionada1)
-    foto2 = ImageTk.PhotoImage(imagen_redimensionada2)
-    foto3 = ImageTk.PhotoImage(imagen_redimensionada3)
-    foto4 = ImageTk.PhotoImage(imagen_redimensionada4)
-
-    #programador 2
-    foto5 = ImageTk.PhotoImage(imagen_redimensionada5)
-    foto6 = ImageTk.PhotoImage(imagen_redimensionada6)
-    foto7 = ImageTk.PhotoImage(imagen_redimensionada7)
-    foto8 = ImageTk.PhotoImage(imagen_redimensionada8)
-
-
-    #programador 3
-    foto9 = ImageTk.PhotoImage(imagen_redimensionada9)
-    foto10 = ImageTk.PhotoImage(imagen_redimensionada10)
-    foto11 = ImageTk.PhotoImage(imagen_redimensionada11)
-    foto12 = ImageTk.PhotoImage(imagen_redimensionada12)
-
-    #programador 4 
-    foto13 = ImageTk.PhotoImage(imagen_redimensionada13)
-    foto14 = ImageTk.PhotoImage(imagen_redimensionada14)
-    foto15 = ImageTk.PhotoImage(imagen_redimensionada15)
-    foto16 = ImageTk.PhotoImage(imagen_redimensionada16)
-
-    #---------configurar ubicacion fotos--------------#
-
-    #programador 1
-    framefoto1 = Frame(master=p6)
-    labelfoto1 = Label(framefoto1)
-    labelfoto1['image'] = foto1
-
-    framefoto2 = Frame(master=p6)
-    labelfoto2 = Label(framefoto2)
-    labelfoto2['image'] = foto2
-    labelfoto2.pack()
-    framefoto2.grid(row=1,column=2)
-
-    framefoto3 = Frame(master=p6)
-    labelfoto3 = Label(framefoto3)
-    labelfoto3['image'] = foto3
-    labelfoto3.pack()
-    framefoto3.grid(row=2,column=1)
-
-    framefoto4 = Frame(master=p6)
-    labelfoto4 = Label(framefoto4)
-    labelfoto4['image'] = foto4
-    labelfoto4.pack()
-    framefoto4.grid(row=2,column=2)
-
-    #programador 2
-    framefoto5 = Frame(master=p6)
-    labelfoto5 = Label(framefoto5)
-    labelfoto5['image'] = foto5
-    labelfoto5.pack()
-    framefoto5.grid(row=3, column=1)
-     
-    framefoto6 = Frame(master=p6)
-    labelfoto6 = Label(framefoto6)
-    labelfoto6['image'] = foto6
-    labelfoto6.pack()
-    framefoto6.grid(row=3, column=2)
-
-    framefoto7 = Frame(master=p6)
-    labelfoto7 = Label(framefoto7)
-    labelfoto7['image'] = foto7
-    labelfoto7.pack()
-    framefoto7.grid(row=4, column=1)
-
-    framefoto8 = Frame(master=p6)
-    labelfoto8 = Label(framefoto8)
-    labelfoto8['image'] = foto8
-    labelfoto8.pack()
-    framefoto8.grid(row=4, column=2)
-
-    # Programador 3
-    framefoto9 = Frame(master=p6)
-    labelfoto9 = Label(framefoto9)
-    labelfoto9['image'] = foto9
-    labelfoto9.pack()
-    framefoto9.grid(row=5, column=1)
-
-    framefoto10 = Frame(master=p6)
-    labelfoto10 = Label(framefoto10)
-    labelfoto10['image'] = foto10
-    labelfoto10.pack()
-    framefoto10.grid(row=5, column=2)
-
-    framefoto11 = Frame(master=p6)
-    labelfoto11 = Label(framefoto11)
-    labelfoto11['image'] = foto11
-    labelfoto11.pack()
-    framefoto11.grid(row=6, column=1)
-
-    framefoto12 = Frame(master=p6)
-    labelfoto12 = Label(framefoto12)
-    labelfoto12['image'] = foto12
-    labelfoto12.pack()
-    framefoto12.grid(row=6, column=2)
-
-    # Programador 4
-    framefoto13 = Frame(master=p6)
-    labelfoto13 = Label(framefoto13)
-    labelfoto13['image'] = foto13
-    labelfoto13.pack()
-    framefoto13.grid(row=7, column=1)
-
-    framefoto14 = Frame(master=p6)
-    labelfoto14 = Label(framefoto14)
-    labelfoto14['image'] = foto14
-    labelfoto14.pack()
-    framefoto14.grid(row=7, column=2)
-
-    framefoto15 = Frame(master=p6)
-    labelfoto15 = Label(framefoto15)
-    labelfoto15['image'] = foto15
-    labelfoto15.pack()
-    framefoto15.grid(row=8, column=1)
-
-    framefoto16 = Frame(master=p6)
-    labelfoto16 = Label(framefoto16)
-    labelfoto16['image'] = foto16
-    labelfoto16.pack()
-    framefoto16.grid(row=8, column=2)
-
-    #---------FUNCION 3 : CLICK: FOTO1 : ABRIR WEB CON PDF HOJA VIDA--------------#
-    def abrir_pdf1():
-        # Ruta del archivo PDF
-        rr = "practica2-python\src\Graficas\hojas\hojavida1.pdf"  
+    # Función para cambiar el texto e imágenes
+    def change_text_and_images(event=None):
+        global current_text_index, current_image_index
+        current_text_index = (current_text_index + 1) % len(texts)
+        current_image_index = (current_image_index + 4) % len(images)
+        text_label.config(text=texts[current_text_index])
+        load_images()
         
-        # Abrir el archivo PDF en el navegador por defecto
-        webbrowser.open(rr)
-    #-----------------------------------------------------------------------------#
-    labelfoto1.bind("<Button-1>", lambda event: abrir_pdf1())
-    labelfoto1.pack()
-    framefoto1.grid(row=1,column=1)
-    #-----------------------------------------------------------------------------#
-
-    #-----------------FUNCION 4 : CAMBIO DE HOJA DE VIDA :CLICK:------------------#
 
 
+    # Configurar el marco p5 para el texto
+    text_label = Label(p5, text=texts[current_text_index], font=("Georgia",14))
+    text_label.pack()
+    text_label.bind("<Button-1>", change_text_and_images)
 
+    # Configurar el marco p6 para las imágenes
+    image_labels = []
+    for i in range(4):
+        image_label = Label(p6)
+        image_label.grid(row=i//2, column=i%2)
+        image_labels.append(image_label)
 
-
-    def frameB_1(e):
-        hojavida.delete(1.0,8.0)
-        hojavida.insert(1.0,"Programador 1:\n\
-(Click en el texto para ver más Programadores!)\n\n\
-Nombre:\tAndres Yair Carvajal Bolivar\n\
-CC:\t1002579021\n\
-Correo:\tancarvajalb@unal.edu.co\n\
-Carrera:\tIngeniería de Sistemas e Informática\n\
-Institución:\tUniversidad Nacional de Colombia\n")
-        hojavida.place(x=0,y=0)
-
-        p6.pack_forget()
-        labelfoto1['image']= foto1
-        labelfoto2['image']= foto2
-        labelfoto3['image']= foto3
-        labelfoto4['image']= foto4
-        p6.pack(side=BOTTOM)
-
-        hojavida.bind('<ButtonPress-1>',frameB_2) 
-
-
-    def frameB_2(e):
-        hojavida.delete(1.0,8.0)
-        hojavida.insert(1.0,"Programador 2:\n\
-(Click en el texto para ver más Programadores!)\n\n\
-Nombre:\tJuan Jose Pineda\n\
-CC:\t1193078466\n\
-Correo:\t@unal.edu.co\n\
-Carrera:\tIngeniería de Sistemas e Informática\n\
-Institución:\tUniversidad Nacional de Colombia\n")
-        hojavida.place(x=0,y=0)
-
-        p6.pack_forget()
-        labelfoto1['image']= foto5
-        labelfoto2['image']= foto6
-        labelfoto3['image']= foto7
-        labelfoto4['image']= foto8
-        p6.pack(side=BOTTOM)
-
-        hojavida.bind('<ButtonPress-1>',frameB_3) 
-    #Bind inicial
-    hojavida.bind('<ButtonPress-1>',frameB_2)
-
-    def frameB_3(e):
-        hojavida.delete(1.0,8.0)
-        hojavida.insert(1.0,"Programador 3:\n\
-(Click en el texto para ver más Programadores!)\n\n\
-Nombre:\tAndres Camilo Uyazan Torres\n\
-CC:\t1007697124\n\
-Correo:\tauyazan@unal.edu.co\n\
-Carrera:\tCiencias de la Computacion\n\
-Institución:\tUniversidad Nacional de Colombia\n")
-        hojavida.place(x=0,y=0)
-
-        p6.pack_forget()
-        labelfoto9['image']= foto9
-        labelfoto10['image']= foto10
-        labelfoto11['image']= foto11
-        labelfoto12['image']= foto12
-        p6.pack(side=BOTTOM)
-
-        hojavida.bind('<ButtonPress-1>',frameB_1) 
-    
-
-    ###############################################################################################
-
-    def abrir_pdf3():
-        # Ruta del archivo PDF
-        rr = "practica2-python\src\Graficas\hojas\hojavida3.pdf"  
-        
-        # Abrir el archivo PDF en el navegador por defecto
-        webbrowser.open(rr)
-    #-----------------------------------------------------------------------------#
-    labelfoto9.bind("<Button-1>", lambda event: abrir_pdf3())
-    labelfoto9.pack()
-    framefoto9.grid(row=1,column=1)
-
-    
-
+    #Cargar las imágenes iniciales
+    load_images()
+    #####################################################
 WindowBegin.mainloop()
