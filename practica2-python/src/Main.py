@@ -8,6 +8,7 @@ from tkinter import *               #HERRAMIENTAS DE TTINKER
 from functools import partial       #SIMPLIFICAR LLAMADA DE FUNCIONES
 from PIL import Image, ImageTk      #CARGAR Y MANEJAR IMAGENES 
 import webbrowser                   #ABRIR PAGINAS WEB CON NAVEGADOR.
+from Graficas.Principal import Principal
 ##############################################################
 
 
@@ -30,10 +31,10 @@ if __name__ == "__main__":
     def description():
         p3.pack_forget()
         label1.place_forget()
-        desc = "Descripción:\n\nEl presente es un sistema de información\ndiseñado para una biblioteca, \
+        desc = "Descripción:\n\nEl presente es un sistema de información\ndiseñado para una biblioteca, \n\
 el cual permite mantener un registro actualizado\n del material bibliográfico\n y controlar el estado de los préstamos realizados."  
-        label2 = Label(p3,text=desc, font=("Georgia",18))
-        label2.place(x=6,y=10)
+        label2 = Label(p3,text=desc, font=("Arial",12))
+        label2.place(x=60,y=0)
         p3.pack(side=TOP)                        #se cambio la funcion descripcion a la original
 #-------------------------------------------------------------------------------------------------------------------------------
     inicio.add_command(label="Descripción", command=description) # utiliza FUNCION 1
@@ -68,7 +69,7 @@ el cual permite mantener un registro actualizado\n del material bibliográfico\n
     #------------------------Configuracion de p3--------------------------#
     p3.pack(side=TOP)
     bienv = "Damos la más cordial bienvenida a nuestro\n Sistema de Gestión de Información Bibliotecaria. \n\n¡Nos complace tenerte como\n parte de nuestra \ncomunidad!"
-    label1 = Label(p3,text=bienv,font=("Georgia",14))
+    label1 = Label(p3,text=bienv,font=("Arial",14))
     label1.place(x=20,y=0)
 ############################################################################################################################################################################
     
@@ -102,7 +103,7 @@ el cual permite mantener un registro actualizado\n del material bibliográfico\n
     label['image'] = imagen1 
     label.grid(row=0, column=0, padx=10, pady=10)
     #---------Boton para iniciar el proyecto--------------#
-    ingresar = Button(p4, text="Ingresar al Sistema", font=("Arial", 13), background="#1a42e6", width=20, height=2)
+    ingresar = Button(p4, text="Ingresar al Sistema", font=("Arial", 13), background="#1a42e6", width=20, height=2,command=partial(Principal().GraficasPrincipal,WindowBegin))
     ingresar.grid(row=1, column=0, pady=50)  # Ubicar el botón debajo de las imágenes con un espacio de 10 píxeles
     #--------------------------FUNCION 2 (conjunto) : EVENTO MOUSE-HOOVER:pasar imagen ---------------------------------------
     image_index = 1
