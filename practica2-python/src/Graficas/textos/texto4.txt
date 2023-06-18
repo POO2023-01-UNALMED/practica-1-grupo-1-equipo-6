@@ -1,6 +1,6 @@
-Programador 3:
-Nombre: ANEXAR NOMBRE
-CC: ANEXAR ID
-Correo: ANEXAR CORREO
-Carrera: ANEXAR CARRERA
+Programador 4:
+Nombre: Estiven Ospina Jaramillo
+CC: 1018227240
+Correo: eospinaj@unal.edu.co
+Carrera: Ingenieria de sistemas e informatica
 Institucion: Universidad Nacional de Colombia
