@@ -32,13 +32,9 @@ if __name__ == "__main__":
         label1.place_forget()
         desc = "Descripción:\n\nEl presente es un sistema de información\ndiseñado para una biblioteca, \
 el cual permite mantener un registro actualizado\n del material bibliográfico\n y controlar el estado de los préstamos realizados."  
-        text = Text(p3, font=("Georgia", 18))
-        scrollbar = Scrollbar(p3, command=text.yview)
-        text.insert(END, desc)
-        text.config(state=DISABLED, yscrollcommand=scrollbar.set)
-        text.pack(side=LEFT, fill=BOTH, expand=True)
-        scrollbar.pack(side=RIGHT, fill=Y)
-        p3.pack(side=TOP, fill=BOTH, expand=True)  # Aumenta la altura del marco p3
+        label2 = Label(p3,text=desc, font=("Georgia",18))
+        label2.place(x=6,y=10)
+        p3.pack(side=TOP)                        #se cambio la funcion descripcion a la original
 #-------------------------------------------------------------------------------------------------------------------------------
     inicio.add_command(label="Descripción", command=description) # utiliza FUNCION 1
 
@@ -95,7 +91,7 @@ el cual permite mantener un registro actualizado\n del material bibliográfico\n
     imagen_redimen3 = imagen_ori3.resize((x_deseada, y_deseada), Image.LANCZOS)
     imagen_redimen4 = imagen_ori4.resize((x_deseada, y_deseada), Image.LANCZOS)
     imagen_redimen5 = imagen_ori5.resize((x_deseada, y_deseada), Image.LANCZOS)
-
+    #---------convertir a formato compatibler con ttinker --------------#
     imagen1 = ImageTk.PhotoImage(imagen_redimen1)
     imagen2 = ImageTk.PhotoImage(imagen_redimen2)
     imagen3 = ImageTk.PhotoImage(imagen_redimen3)
@@ -114,7 +110,7 @@ el cual permite mantener un registro actualizado\n del material bibliográfico\n
     def change_image():
        global image_index
        image_index = (image_index % 5) + 1
-       image_variable = globals()[f"imagen{image_index}"]
+       image_variable = globals()[f"imagen{image_index}"]   # globas() diccionario de variables globales
        label['image'] = image_variable
 
     def p4_enter(e):
@@ -137,20 +133,7 @@ el cual permite mantener un registro actualizado\n del material bibliográfico\n
     p5 = Frame(master=p2,width=490,height=150)
     #-------------Configuracion de p5-----------#
     p5.pack(side=TOP)
-    #-------------texto hoja de vida -----------#
-    #########################################################################################
-
-
-    ##### FRAME 6 : CONTENEDOR DE  imagenes de hoja de vida,######################################
-    p6 = Frame(master=p2,width=500,height=700)
-    #---------Configuracion de p6--------------#
-    p6.pack(side=BOTTOM) 
-
-
-
-    #--------agregar imagenes de hoja de vida ------#
-
-    images = ["practica2-python/src/Graficas/images/foto{}.png".format(i) for i in range(1, 17)]
+    #-------------agregar texto hoja de vida -----------#
     texts = []
     for i in range(1, 5):
         file_path = "practica2-python/src/Graficas/textos/texto{}.txt".format(i)
@@ -158,10 +141,36 @@ el cual permite mantener un registro actualizado\n del material bibliográfico\n
             text_content = file.read()
             texts.append(text_content)
 
-    current_text_index = 0
-    current_image_index = 0
+    
+    #########################################################################################
 
-    # Función para cargar las imágenes
+
+    ##### FRAME 6 : CONTENEDOR DE  imagenes de hoja de vida ######################################
+    p6 = Frame(master=p2,width=500,height=700)
+    #---------Configuracion de p6--------------#
+    p6.pack(side=BOTTOM) 
+
+
+
+    #--------agregar imagenes y texto de hoja de vida ------#
+
+    images = ["practica2-python/src/Graficas/images/foto{}.png".format(i) for i in range(1, 17)]
+
+
+
+    #--------FUNCION 3 (conjunto) CLICK: cambiar imagenes ( cargarlas, cambiar texto, cargar textos) ------#  
+  
+
+    # Configurar el marco p6 para las imágenes
+    image_labels = []
+    for i in range(4):
+        image_label = Label(p6)
+        image_label.grid(row=i//2, column=i%2)
+        image_labels.append(image_label)
+
+    # Función para cargar las imágenes   
+    current_text_index = 0
+    current_image_index = 0  
     def load_images():
         for i in range(4):
             image_path = images[current_image_index + i]
@@ -169,10 +178,10 @@ el cual permite mantener un registro actualizado\n del material bibliográfico\n
             image = image.resize((200, 300))
             photo = ImageTk.PhotoImage(image)
             image_labels[i].configure(image=photo)
-            image_labels[i].image = photo
+            image_labels[i].image = photo             # esto es pa que el recolector de basura no se lo lleve
 
             # Agregar controlador de evento para abrir el archivo PDF correspondiente
-            if current_image_index + i + 1 in [1, 5, 9, 13]:
+            if current_image_index + 1 in [1, 5, 9, 13]:
                 image_labels[i].bind("<Button-1>", partial(open_pdf, current_image_index + i + 1))
     def open_pdf(image_number, event):
         pdfs = {
@@ -192,22 +201,13 @@ el cual permite mantener un registro actualizado\n del material bibliográfico\n
         current_image_index = (current_image_index + 4) % len(images)
         text_label.config(text=texts[current_text_index])
         load_images()
-        
-
 
     # Configurar el marco p5 para el texto
     text_label = Label(p5, text=texts[current_text_index], font=("Georgia",14))
     text_label.pack()
     text_label.bind("<Button-1>", change_text_and_images)
 
-    # Configurar el marco p6 para las imágenes
-    image_labels = []
-    for i in range(4):
-        image_label = Label(p6)
-        image_label.grid(row=i//2, column=i%2)
-        image_labels.append(image_label)
-
     #Cargar las imágenes iniciales
     load_images()
-    #####################################################
+    ###########################################################################################################
 WindowBegin.mainloop()
