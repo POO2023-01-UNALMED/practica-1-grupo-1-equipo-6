@@ -480,3 +480,67 @@ class Frame1(Frame):
             lanzar(None)
 
             f6.pack()
+
+        def siete():
+            Label(master=f7,text="Registrar Usuario Externo", font=("Arial",20)).pack()
+
+            Label(master=f7,text="Llene los siguientes campos:",font=("Arial",12)).pack()
+
+
+            f = Frame(master=f7)  # Frame de la zona de interacción
+
+
+            def lanzar(arg):
+
+                def guardar():
+                    nombre= interaccion.getValue(criterios[0])
+                    id = interaccion.getValue(criterios[1])
+                    correo = interaccion.getValue(criterios[2])
+                    tel = interaccion.getValue(criterios[3])
+                    dir = interaccion.getValue(criterios[4])
+                    nac= interaccion.getValue(criterios[5])
+                    pais= interaccion.getValue(criterios[6])
+                    rol= interaccion.getValue(criterios[7])
+                    uni = interaccion.getValue(criterios[8])
+                    
+                    obj = Externo(nombre,id,correo,tel,dir,nac,pais,rol,uni)
+                    #Label(master=f,text=Persona.mostrarRegistros()).pack()
+                    messagebox.showinfo(title="Ingresar Usuario Externo",
+                    message="INFORMACIÓN:",
+                    detail="El usuario externo ha sido registrado con éxito")
+                    #
+                    #
+                    lanzar(interaccion)
+
+                tituloCriterios = "ATRIBUTO"
+                criterios = ["Nombre", "Id", "Correo",'Telefono' ,"Direccion",'Nacimiento',"Pais","Rol","Universidad"]
+                tituloValores = "VALOR"
+                valores= None
+                habilitado = None
+                if arg is None:
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+                else:
+                    arg.destroy()
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+
+                interaccion.pack(side=TOP)
+                borrar.config(command=partial(lanzar,interaccion))
+                aceptar.config(command=guardar)
+                f.pack()
+
+
+            botones = Frame(f)
+            aceptar = Button(botones,text="Aceptar")
+            aceptar.grid(row=1,column=1)
+            borrar = Button(botones,text="Borrar")
+            borrar.grid(row=1,column=2)
+            botones.pack(side=BOTTOM)
+
+            lanzar(None)
+
+
+            f7.pack()
+        
+
+        ini()
+
