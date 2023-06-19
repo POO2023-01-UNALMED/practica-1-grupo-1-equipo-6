@@ -6,7 +6,7 @@ from tkinter import *
 from tkinter import messagebox
 import pickle
 from PIL import Image, ImageTk
-from Graficas.registro import Frame1
+from Graficas.registro import Frame1, Frame2
 ##########################################################
 
 
@@ -55,6 +55,10 @@ class Principal():
         "Para acceder a estas funcionalidades despliegue el menú de \n'Procesos y Consultas' y haga click en una opción")
         texto.config(state=DISABLED)
         texto.place(x=5,y=40)
+
+        color1 = "#F5F5DC"  # Café claro
+        color2 = "#D2B48C"  # Café más oscuro
+        texto.configure(background="#F5F5DC")
         #---------------------------------------------------------------------------------#
         
         # deserializar() # Cargamos todas las listas guardadas

@@ -544,3 +544,190 @@ class Frame1(Frame):
 
         ini()
 
+class Frame2(Frame):
+    _opcion = None
+
+    def __init__(self, w):
+        super().__init__(master=w, width=450)
+        f_ini = Frame(master=self)
+        f1 = Frame(master=self)
+        f2 = Frame(master=self)
+        f3 = Frame(master=self)
+        f4 = Frame(master=self)
+        f5 = Frame(master=self)
+        f6 = Frame(master=self)
+        f7 = Frame(master=self)
+
+        def ini():
+            Label(master=f_ini, text="Eliminar Registros", font=("Arial", 20)).pack()
+
+            Label(master=f_ini, text="Seleccione el tipo de dato que desee eliminar", font=("Arial", 12)).pack()
+
+            interaccion = Frame(master=f_ini)  # Frame de la zona de interacción
+
+            def ejecutar(arg):
+                self._opcion = arg.get()
+
+                def ejecutar2():
+                    self._opcion = opciones.get()  # Se guarda la opción correcta
+                    f_ini.pack_forget()  # Se oculta la ventana inicial
+                    if self._opcion == "Libro":
+                        tres()
+                    elif self._opcion == "Folleto":
+                        cuatro()
+                    elif self._opcion == "Revista":
+                        cinco()
+                    elif self._opcion == "Interno":
+                        seis()
+                    elif self._opcion == "Externo":
+                        siete()
+
+                if self._opcion == "Estantería":
+                    f_ini.pack_forget()
+                    uno()
+                elif self._opcion == "Autor":
+                    f_ini.pack_forget()
+                    dos()
+                elif self._opcion == "Publicación":
+                    label.config(text="Tipo de Publicación:")
+                    label.pack()
+                    opciones = ttk.Combobox(interaccion)
+                    opciones['values'] = ["Libro", "Folleto", "Revista"]
+                    opciones.pack()
+
+                    Button(interaccion, text="Aceptar", command=ejecutar2).pack()
+
+                elif self._opcion == "Usuario":
+                    label.config(text="Tipo de Usuario:")
+                    label.pack()
+                    opciones = ttk.Combobox(interaccion)
+                    opciones['values'] = ["Interno", "Externo"]
+                    opciones.pack()
+
+                    Button(interaccion, text="Aceptar", command=ejecutar2).pack()
+
+            opciones = ttk.Combobox(interaccion)
+            opciones['values'] = ["Estantería", "Autor", "Publicación", "Usuario"]
+            opciones.pack()
+
+            Button(interaccion, text="Aceptar", command=partial(ejecutar, opciones)).pack()
+
+            label = Label(master=interaccion, font=("Arial", 10))  # Para desplegar otra opción
+
+            interaccion.pack()
+
+            f_ini.pack()
+
+        def uno():
+            Label(master=f1, text="Eliminar Estantería", font=("Arial", 20)).pack()
+            Label(master=f1, text="Seleccione el número de estantería a eliminar:", font=("Arial", 12)).pack()
+
+            f = Frame(master=f1)  # Frame de la zona de interacción
+
+            def lanzar(arg):
+                def eliminar():
+                    numero = interaccion.getValue(criterios[0])
+                    # Lógica para eliminar la estantería con el número especificado
+
+                    messagebox.showinfo(title="Eliminar Estantería",
+                                         message="INFORMACIÓN:",
+                                         detail="La estantería ha sido eliminada con éxito")
+
+                    lanzar(interaccion)
+
+                try:
+                    numero = int(arg.get())
+                    # Lógica para verificar si la estantería existe y mostrar información relevante
+
+                    if numero > 0:
+                        estanteria = Estanteria.buscarPorNumero(numero)
+                        if estanteria is not None:
+                            messagebox.showinfo(title="Eliminar Estantería",
+                                                 message="INFORMACIÓN:",
+                                                 detail="Estantería encontrada\n"
+                                                        f"Número: {estanteria.numero}\n"
+                                                        f"Capacidad: {estanteria.capacidad}")
+                            Button(master=f, text="Eliminar", command=eliminar).pack()
+                        else:
+                            messagebox.showerror(title="Eliminar Estantería",
+                                                 message="ERROR:",
+                                                 detail="La estantería no existe")
+                    else:
+                        messagebox.showerror(title="Eliminar Estantería",
+                                             message="ERROR:",
+                                             detail="Número de estantería inválido")
+
+                except ValueError:
+                    messagebox.showerror(title="Eliminar Estantería",
+                                         message="ERROR:",
+                                         detail="Número de estantería inválido")
+
+            criterios = ["Número de Estantería:"]
+            interaccion = FieldFrame(master=f, criteria=criterios, callback=lanzar)
+            interaccion.pack()
+
+            f.pack()
+            f1.pack()
+
+        def dos():
+            Label(master=f2, text="Eliminar Autor", font=("Arial", 20)).pack()
+            Label(master=f2, text="Seleccione el nombre del autor a eliminar:", font=("Arial", 12)).pack()
+
+            f = Frame(master=f2)  # Frame de la zona de interacción
+
+            def lanzar(arg):
+                def eliminar():
+                    nombre = interaccion.getValue(criterios[0])
+                    # Lógica para eliminar el autor con el nombre especificado
+
+                    messagebox.showinfo(title="Eliminar Autor",
+                                         message="INFORMACIÓN:",
+                                         detail="El autor ha sido eliminado con éxito")
+
+                    lanzar(interaccion)
+
+                nombre = arg.get()
+                # Lógica para verificar si el autor existe y mostrar información relevante
+
+                if nombre != "":
+                    autor = Autor.buscarPorNombre(nombre)
+                    if autor is not None:
+                        messagebox.showinfo(title="Eliminar Autor",
+                                             message="INFORMACIÓN:",
+                                             detail="Autor encontrado\n"
+                                                    f"Nombre: {autor.nombre}\n"
+                                                    f"Nacionalidad: {autor.nacionalidad}")
+                        Button(master=f, text="Eliminar", command=eliminar).pack()
+                    else:
+                        messagebox.showerror(title="Eliminar Autor",
+                                             message="ERROR:",
+                                             detail="El autor no existe")
+
+            criterios = ["Nombre del Autor:"]
+            interaccion = FieldFrame(master=f, criteria=criterios, callback=lanzar)
+            interaccion.pack()
+
+            f.pack()
+            f2.pack()
+
+        def tres():
+            Label(master=f3, text="Eliminar Libro", font=("Arial", 20)).pack()
+            # Resto del código para eliminar libros
+
+        def cuatro():
+            Label(master=f4, text="Eliminar Folleto", font=("Arial", 20)).pack()
+            # Resto del código para eliminar folletos
+
+        def cinco():
+            Label(master=f5, text="Eliminar Revista", font=("Arial", 20)).pack()
+            # Resto del código para eliminar revistas
+
+        def seis():
+            Label(master=f6, text="Eliminar Usuario Interno", font=("Arial", 20)).pack()
+            # Resto del código para eliminar usuarios internos
+
+        def siete():
+            Label(master=f7, text="Eliminar Usuario Externo", font=("Arial", 20)).pack()
+            # Resto del código para eliminar usuarios externos
+
+        ini()
