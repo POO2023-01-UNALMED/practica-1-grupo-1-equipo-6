@@ -19,7 +19,7 @@ class Frame5(Frame):
 
         def ini():
             Label(master=f_ini,text="Devolución de Publicaciones",
-            font=("Georgia",20)).pack()
+            font=("Arial",20)).pack()
 
             Label(master=f_ini,text="Ingrese el código de la publicación de la que desee"+
             " registrar\nsu devolución\n",
