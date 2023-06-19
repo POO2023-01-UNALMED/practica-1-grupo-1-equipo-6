@@ -1,3 +1,6 @@
+
+
+################### IMPORTAMOS HERRAMIENTAS #####################
 from tkinter import *
 from tkinter import messagebox
 from functools import partial
@@ -5,15 +8,16 @@ from Graficas.FieldFrame import FieldFrame
 from tkinter import ttk
 from gestorAplicacion.errores.ErrorAplicacion import Inexistente
 
-## Objetos
+#################### IMPORTAMOS OBJETOS #########################
 from gestorAplicacion.obras.Estanteria import Estanteria
 from gestorAplicacion.obras.Publicacion import Publicacion
 from gestorAplicacion.personas.Autor import Autor
 from gestorAplicacion.personas.Persona import Persona
 from gestorAplicacion.personas.Usuario import Usuario
 from gestorAplicacion.prestamo.Prestamo import Prestamo
-##
+#################################################################
 
+#CLASE FRAME 4 PRESTAMO
 class Frame4(Frame):
     _opcion = None
     _n = None
