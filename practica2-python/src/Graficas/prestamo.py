@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 from functools import partial
-from Ventanas.FieldFrame import FieldFrame
+from Graficas.FieldFrame import FieldFrame
 from tkinter import ttk
 from gestorAplicacion.errores.ErrorAplicacion import Inexistente
 
