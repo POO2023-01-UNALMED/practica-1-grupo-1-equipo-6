@@ -10,6 +10,19 @@ from PIL import Image, ImageTk      #CARGAR Y MANEJAR IMAGENES
 import webbrowser                   #ABRIR PAGINAS WEB CON NAVEGADOR.
 from Graficas.Principal import Principal
 ##############################################################
+## Objetos
+from gestorAplicacion.obras.Estanteria import Estanteria
+from gestorAplicacion.obras.Folleto import Folleto
+from gestorAplicacion.obras.Libro import Libro
+from gestorAplicacion.obras.Publicacion import Publicacion
+from gestorAplicacion.obras.Revista import Revista
+from gestorAplicacion.personas.Autor import Autor
+from gestorAplicacion.personas.Usuario import Usuario
+from gestorAplicacion.personas.EstudianteProfesor import EstudianteProfesor
+from gestorAplicacion.personas.Externo import Externo
+from gestorAplicacion.obras.Publicacion import Estado
+from gestorAplicacion.prestamo.Prestamo import Prestamo
+##
 
 
 if __name__ == "__main__":
@@ -20,7 +33,7 @@ if __name__ == "__main__":
     WindowBegin.title("Gestor Bibliotecario")
     WindowBegin.geometry("1000x1000")
     WindowBegin.option_add('*tearOff', False)
-################################################
+##############################################r##
 
 #############################################  MENU: (PARTE DE ARRIBA) ##########################################################
     menubar = Menu(WindowBegin)

@@ -6,6 +6,20 @@ from Graficas.FieldFrame import FieldFrame
 from tkinter import ttk
 
 
+# Objetos
+from gestorAplicacion.obras.Estanteria import Estanteria
+from gestorAplicacion.obras.Publicacion import Publicacion
+from gestorAplicacion.obras.Libro import Libro
+from gestorAplicacion.obras.Revista import Revista
+from gestorAplicacion.obras.Folleto import Folleto
+from gestorAplicacion.personas.EstudianteProfesor import EstudianteProfesor
+from gestorAplicacion.personas.Externo import Externo
+from gestorAplicacion.personas.Usuario import Usuario
+from gestorAplicacion.personas.Persona import Persona
+from gestorAplicacion.personas.Autor import Autor
+from gestorAplicacion.errores.ErrorAplicacion import Fecha, FueradeRango, Negativo, NumeroE
+##
+
 class Frame1(Frame):
     _opcion = None
     def __init__(self,w):
