@@ -2,7 +2,7 @@ from distutils import command
 from tkinter import *
 from tkinter import messagebox
 from functools import partial
-from Ventanas.FieldFrame import FieldFrame
+from Graficas.FieldFrame import FieldFrame
 from tkinter import ttk
 
 
@@ -82,3 +82,159 @@ class Frame1(Frame):
             interaccion.pack()
 
             f_ini.pack()
+
+            
+
+        def uno():
+            Label(master=f1,text="Registrar Estantería", font=("Arial",20)).pack()
+            Label(master=f1,text="Llene los siguientes campos:",font=("Arial",12)).pack()
+
+
+            f = Frame(master=f1)  # Frame de la zona de interacción
+
+            def lanzar(arg):
+
+
+                def guardar():
+                
+                    numero = interaccion.getValue(criterios[0])
+                    piso = interaccion.getValue(criterios[1])
+                    ls = interaccion.getValue(criterios[2])
+                    li = interaccion.getValue(criterios[3])
+
+                    a = True
+                    
+                    try:
+                        Negativo.ver(piso)
+                        NumeroE.ver(ls,li)
+                        FueradeRango.ver(piso)
+                    except Negativo as n:
+                        messagebox.showinfo(title="ERROR",message = n.error2 , detail= n.imprimir(piso))
+                        a = False
+                    except NumeroE as nu:
+                        messagebox.showinfo(title="ERROR",message = nu.error2 , detail= nu.imprimir(ls,li))
+                        a = False
+                    except FueradeRango as f:
+                        messagebox.showinfo(title="ERROR",message = f.error2 , detail= f.imprimir(piso))
+                        a = False
+
+
+                    lim = [ls,li]
+
+                    if a == True :
+                        Estanteria(numero,piso,lim) # creacion del objeto
+
+                        messagebox.showinfo(title="Ingresar Estantería",
+                        message="INFORMACIÓN:",
+                        detail="La estantería ha sido registrada con éxito")
+                        
+                        lanzar(interaccion)
+                    else:
+                        pass
+
+                tituloCriterios = "ATRIBUTO"
+                criterios = ["Número", "Piso", "Límite Superior", "Límite Inferior"]
+                tituloValores = "VALOR"
+                valores= [Estanteria.getNumeroEstanterias()+1,'','','']
+                habilitado = [1]
+                if arg is None:
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+                else:
+                    arg.destroy()
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+
+                interaccion.pack(side=TOP)
+                borrar.config(command=partial(lanzar,interaccion))
+                aceptar.config(command=guardar)
+                f.pack()
+
+
+            botones = Frame(f)
+            aceptar = Button(botones,text="Aceptar")
+            aceptar.grid(row=1,column=1)
+            borrar = Button(botones,text="Borrar")
+            borrar.grid(row=1,column=2)
+            botones.pack(side=BOTTOM)
+
+            lanzar(None)
+
+            f1.pack()
+
+        def dos():
+            Label(master=f2,text="Registrar Autor", font=("Arial",20)).pack()
+
+            Label(master=f2,text="Llene los siguientes campos:",font=("Arial",12)).pack()
+
+            f = Frame(master=f2)  # Frame de la zona de interacción
+
+            ##
+            def lanzar(arg):
+
+                def guardar():
+                    nombre = interaccion.getValue(criterios[0])
+                    id = interaccion.getValue(criterios[1])
+                    nacimiento = interaccion.getValue(criterios[2])
+                    pais = interaccion.getValue(criterios[3])
+                    vivo= interaccion.getValue(criterios[4])
+                    if vivo == "si" or vivo == "Si" or vivo == "SI":
+                        vivo = True
+                    elif vivo == "no" or vivo == "NO" or vivo == "No":
+                        vivo = False
+
+                    a = True
+                    
+                    try:
+                        NumeroE.ver(nombre,nacimiento,pais)
+                        FueradeRango.ver2(nombre,pais,nacimiento)
+                        #Fecha.ver(nacimiento)
+                        
+                    except NumeroE as nu:
+                        messagebox.showinfo(title="ERROR",message = nu.error2 , detail= nu.imprimir(nombre,nacimiento,pais))
+                        a = False
+                    except FueradeRango as f:
+                        messagebox.showinfo(title="ERROR",message = f.error2 , detail= f.imprimir2(nombre,pais,nacimiento))
+                        a = False
+                    '''except Fecha as fe:
+                        messagebox.showinfo(title="ERROR",message = fe.error2 , detail= '')
+                        a = False'''
+
+                    if a == True:
+
+                        Autor(nombre,id,nacimiento,pais,vivo)
+                        messagebox.showinfo(title="Ingresar Autor",
+                        message="INFORMACIÓN:",
+                        detail="El autor ha sido registrado con éxito")
+                        #Label(master=f,text=Autor.mostrarRegistros()).pack()
+                        #
+                        lanzar(interaccion)
+                    else:
+                        pass
+
+                tituloCriterios = "ATRIBUTO"
+                criterios = ["Nombre", "id", "Nacimiento", "Pais","¿Vivo?"]
+                tituloValores = "VALOR"
+                valores= ['','A' + str(Autor._numeroAutores+1),'','','']
+                habilitado = [2]
+                if arg is None:
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+                else:
+                    arg.destroy()
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+
+                interaccion.pack(side=TOP)
+                borrar.config(command=partial(lanzar,interaccion))
+                aceptar.config(command=guardar)
+                f.pack()
+
+
+            botones = Frame(f)
+            aceptar = Button(botones,text="Aceptar")
+            aceptar.grid(row=1,column=1)
+            borrar = Button(botones,text="Borrar")
+            borrar.grid(row=1,column=2)
+            botones.pack(side=BOTTOM)
+
+            lanzar(None)
+            ##
+
+            f2.pack()
