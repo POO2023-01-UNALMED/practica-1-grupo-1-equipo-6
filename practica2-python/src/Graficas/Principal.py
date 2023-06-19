@@ -7,6 +7,7 @@ from tkinter import messagebox
 import pickle
 from PIL import Image, ImageTk
 from Graficas.registro import Frame1, Frame2
+from Graficas.prestamo import Frame4
 ##########################################################
 
 

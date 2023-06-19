@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 from functools import partial
-from Ventanas.FieldFrame import FieldFrame
+from Graficas.FieldFrame import FieldFrame
 from tkinter import ttk
 from gestorAplicacion.errores.ErrorAplicacion import Inexistente
 
@@ -12,7 +12,7 @@ from gestorAplicacion.personas.Autor import Autor
 from gestorAplicacion.personas.Persona import Persona
 from gestorAplicacion.personas.Usuario import Usuario
 from gestorAplicacion.prestamo.Prestamo import Prestamo
-##
+
 
 class Frame4(Frame):
     _opcion = None
