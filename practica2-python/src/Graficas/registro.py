@@ -238,3 +238,128 @@ class Frame1(Frame):
             ##
 
             f2.pack()
+        def tres():
+            Label(master=f3,text="Registrar Libro", font=("Arial",20)).pack()
+
+            Label(master=f3,text="Llene los siguientes campos:",font=("Arial",12)).pack()
+
+
+            f = Frame(master=f3)  # Frame de la zona de interacción
+
+            ##
+            def lanzar(arg):
+
+                def guardar():
+                    codigo = interaccion.getValue(criterios[0])
+                    nombre = interaccion.getValue(criterios[1])
+                    año = interaccion.getValue(criterios[2])
+                    ejemplar = interaccion.getValue(criterios[3])
+                    idautor = interaccion.getValue(criterios[4])
+                    tipo= interaccion.getValue(criterios[5])
+                    referencia= interaccion.getValue(criterios[6])
+                    volumen= interaccion.getValue(criterios[7])
+                    nestanteria= interaccion.getValue(criterios[8])
+
+
+                    
+                    l = Libro(codigo,nombre,año,ejemplar,None ,tipo,referencia,volumen, None)
+                    l.asignarAutor(idautor)
+                    l.asignarEstanteria(nestanteria)
+
+                    messagebox.showinfo(title="Ingresar Libro",
+                    message="INFORMACIÓN:",
+                    detail="El libro ha sido registrado con éxito")
+
+                    #Label(master=f,text=Publicacion.mostrarRegistros()).pack()
+                    #
+                    #
+                    lanzar(interaccion)
+
+                tituloCriterios = "ATRIBUTO"
+                criterios = ["Codigo", "Nombre", "Año",'Ejemplar' ,"Autor(ID)",'Tipo',"Referencia","Volumen","Estanteria(#)"]
+                tituloValores = "VALOR"
+                valores= ['L'+str(Libro._numeroLibro+1),'','','','','','','','']
+                habilitado = [1]
+                if arg is None:
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+                else:
+                    arg.destroy()
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+
+                interaccion.pack(side=TOP)
+                borrar.config(command=partial(lanzar,interaccion))
+                aceptar.config(command=guardar)
+                f.pack()
+
+
+            botones = Frame(f)
+            aceptar = Button(botones,text="Aceptar")
+            aceptar.grid(row=1,column=1)
+            borrar = Button(botones,text="Borrar")
+            borrar.grid(row=1,column=2)
+            botones.pack(side=BOTTOM)
+
+            lanzar(None)
+
+            ##
+
+
+            f3.pack()
+
+        def cuatro():
+            Label(master=f4,text="Registrar Folleto", font=("Arial",20)).pack()
+
+            Label(master=f4,text="Llene los siguientes campos:",font=("Arial",12)).pack()
+
+
+            f = Frame(master=f4)  # Frame de la zona de interacción
+
+            ##
+            def lanzar(arg):
+
+                def guardar():
+                    codigo = interaccion.getValue(criterios[0])
+                    nombre = interaccion.getValue(criterios[1])
+                    año = interaccion.getValue(criterios[2])
+                    ejemplar = interaccion.getValue(criterios[3])
+                    referencia= interaccion.getValue(criterios[4])
+                    nestanteria= interaccion.getValue(criterios[5])
+                    
+                    f=Folleto(codigo,nombre,año,ejemplar,referencia,None)
+                    f.asignarEstanteria(nestanteria)
+
+                    messagebox.showinfo(title="Ingresar Folleto",
+                    message="INFORMACIÓN:",
+                    detail="El folleto ha sido registrado con éxito")
+                    #
+                    #
+                    lanzar(interaccion)
+
+                tituloCriterios = "ATRIBUTO"
+                criterios = ["Codigo", "Nombre", "Año",'Ejemplar',"Referencia","Estanteria(#)"]
+                tituloValores = "VALOR"
+                valores= ['F'+str(len(Folleto.getFolleto())+1),'','','','','']
+                habilitado = [1]
+                if arg is None:
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+                else:
+                    arg.destroy()
+                    interaccion = FieldFrame(f,tituloCriterios, criterios, tituloValores,valores,habilitado)  # Frame de la zona de interacción
+
+                interaccion.pack(side=TOP)
+                borrar.config(command=partial(lanzar,interaccion))
+                aceptar.config(command=guardar)
+                f.pack()
+
+
+            botones = Frame(f)
+            aceptar = Button(botones,text="Aceptar")
+            aceptar.grid(row=1,column=1)
+            borrar = Button(botones,text="Borrar")
+            borrar.grid(row=1,column=2)
+            botones.pack(side=BOTTOM)
+
+            lanzar(None)
+
+
+            f4.pack()
