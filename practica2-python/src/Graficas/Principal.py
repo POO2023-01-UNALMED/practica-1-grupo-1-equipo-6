@@ -5,6 +5,8 @@
 from tkinter import *
 from tkinter import messagebox
 import pickle
+from PIL import Image, ImageTk
+from Graficas.registro import Frame1
 ##########################################################
 
 
@@ -39,11 +41,11 @@ class Principal():
         #-----------------------------------TEXTO VENTANA INICIAL--------------------------#
         #Frame inicial (TEXTO INICIAL ACOMPAÑANTE DE MENU)
         principal = Frame(master=window, width=750, height=350)
-
+        principal.pack()
 
         Label(master=principal,text="Sistema de Gestion Bibliotecario (SGB)",
         font=("Arial",20)).place(x=0,y=0)
-        texto = Text(principal, font=("Arial",17),width=220,height=25,relief=GROOVE, borderwidth=4)
+        texto = Text(principal, font=("Arial",17),width=100,height=25,relief=GROOVE, borderwidth=4)
         texto.insert(1.0,"En este sistema de gestion podras realizas procesos siguientes:\n\n"+
         "1. Ingresar Registros\n"+
         "2. Mostrar Registros\n"+
@@ -53,7 +55,6 @@ class Principal():
         "Para acceder a estas funcionalidades despliegue el menú de \n'Procesos y Consultas' y haga click en una opción")
         texto.config(state=DISABLED)
         texto.place(x=5,y=40)
-        principal.pack()
         #---------------------------------------------------------------------------------#
         
         # deserializar() # Cargamos todas las listas guardadas
@@ -242,10 +243,10 @@ class Principal():
                     self.frame5.destroy() 
             principal.pack()
 
+        #--------------------------------------------------------------------------------------------------#
         
         
-        
-        #Manejo de menús
+        #--------------------------------MANEJO DE MENUS-------------------------------------------#
         window.option_add('*tearOff', False)
         menubar = Menu(window)
 
@@ -270,5 +271,5 @@ class Principal():
         ayuda.add_command(label="Acerca de", command=acerca)
 
         window['menu'] = menubar
-
+    #--------------------------------------------------------------------------------------------------#
     #######################################################################################
