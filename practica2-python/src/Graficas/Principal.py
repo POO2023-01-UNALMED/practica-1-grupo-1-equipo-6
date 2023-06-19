@@ -6,14 +6,10 @@ from tkinter import *
 from tkinter import messagebox
 import pickle
 from PIL import Image, ImageTk
-<<<<<<< HEAD
 from Graficas.registro import Frame1
 from Graficas.registro import Frame1
 from Graficas.muestra import Frame2
 from Graficas.eliminacion import Frame3
-=======
-from Graficas.registro import Frame1, Frame2
->>>>>>> 80df0436908f4d912fb7fc11b2430f9455a84896
 from Graficas.prestamo import Frame4
 ##########################################################
 
