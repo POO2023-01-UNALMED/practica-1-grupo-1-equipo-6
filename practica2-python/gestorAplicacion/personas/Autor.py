@@ -1,4 +1,3 @@
-from enum import auto
 from gestorAplicacion.personas.Persona import Persona
 
 
