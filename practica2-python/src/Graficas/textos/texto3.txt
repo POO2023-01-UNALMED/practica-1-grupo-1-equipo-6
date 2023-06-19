@@ -1,6 +1,6 @@
 Programador 3:
 Nombre: ANDRES CAMILO UYAZAN TORRES
-CC: ANEXAR ID
-Correo: ANEXAR CORREO
-Carrera: ANEXAR CARRERA
+CC: 1007697124
+Correo: auyazan@unal.edu.co
+Carrera: Ciencias de la Computacion
 Institucion: Universidad Nacional de Colombia
