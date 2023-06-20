@@ -29,10 +29,10 @@ class Frame2(Frame):
 
         def ini():
             Label(master=f_ini,text="Mostrar Registros",
-            font=("Georgia",20)).pack()
+            font=("Arial",20)).pack()
 
             Label(master=f_ini,text="Seleccione el tipo de dato que desee ver",
-            font=("Georgia",12)).pack()
+            font=("Arial",12)).pack()
 
 
             interaccion = Frame(master=f_ini)  # Frame de la zona de interacción
@@ -67,8 +67,8 @@ class Frame2(Frame):
             f_ini.pack()
 
         def uno():
-            Label(master=f1,text="Mostrar Estanterías", font=("Georgia",20)).pack()
-            Label(master=f1,text="Haga click en el botón para mostrar todos los registros\nde estanterías en una ventana nueva:",font=("Georgia",12)).pack()
+            Label(master=f1,text="Mostrar Estanterías", font=("Arial",20)).pack()
+            Label(master=f1,text="Haga click en el botón para mostrar todos los registros\nde estanterías en una ventana nueva:",font=("Arial",12)).pack()
 
             botones = Frame(master=f1)  # Frame de la zona de interacción
             def reg():
@@ -86,7 +86,7 @@ class Frame2(Frame):
 
 
             # Información detallada
-            Label(master=f1,text="Ingrese el número de estantería para ver todas sus\npublicaciones asociadas",font=("Georgia",12)).pack()
+            Label(master=f1,text="Ingrese el número de estantería para ver todas sus\npublicaciones asociadas",font=("Arial",12)).pack()
             f = Frame(master=f1)  # Frame de la zona de interacción
 
             def lanzar(arg):
@@ -147,8 +147,8 @@ class Frame2(Frame):
             f1.pack()
 
         def dos():
-            Label(master=f2,text="Mostrar Autores", font=("Georgia",20)).pack()
-            Label(master=f2,text="Haga click en el botón para mostrar todos los registros\nde autores en una ventana nueva:",font=("Georgia",12)).pack()
+            Label(master=f2,text="Mostrar Autores", font=("Arial",20)).pack()
+            Label(master=f2,text="Haga click en el botón para mostrar todos los registros\nde autores en una ventana nueva:",font=("Arial",12)).pack()
 
             botones = Frame(master=f2)  # Frame de la zona de interacción
             def reg():
@@ -167,7 +167,7 @@ class Frame2(Frame):
 
 
             # Información detallada
-            Label(master=f2,text="Ingrese el Id del autor para ver información detallada de este",font=("Georgia",12)).pack()
+            Label(master=f2,text="Ingrese el Id del autor para ver información detallada de este",font=("Arial",12)).pack()
 
             f = Frame(master=f2)  # Frame de la zona de interacción
 
@@ -230,8 +230,8 @@ class Frame2(Frame):
             f2.pack()
 
         def tres():
-            Label(master=f3,text="Mostrar Publicaciones", font=("Georgia",20)).pack()
-            Label(master=f3,text="Haga click en el botón para mostrar todos los registros\nde publicaciones en una ventana nueva:",font=("Georgia",12)).pack()
+            Label(master=f3,text="Mostrar Publicaciones", font=("Arial",20)).pack()
+            Label(master=f3,text="Haga click en el botón para mostrar todos los registros\nde publicaciones en una ventana nueva:",font=("Arial",12)).pack()
 
             botones = Frame(master=f3)  # Frame de la zona de interacción
             def reg():
@@ -249,7 +249,7 @@ class Frame2(Frame):
 
 
             # Información detallada
-            Label(master=f3,text="Ingrese el codigo de la publicación para ver información detallada de esta",font=("Georgia",12)).pack()
+            Label(master=f3,text="Ingrese el codigo de la publicación para ver información detallada de esta",font=("Arial",12)).pack()
 
             f = Frame(master=f3)  # Frame de la zona de interacción
 
@@ -311,8 +311,8 @@ class Frame2(Frame):
             f3.pack()
 
         def cuatro():
-            Label(master=f4,text="Mostrar Usuarios", font=("Georgia",20)).pack()
-            Label(master=f4,text="Haga click en el botón para mostrar todos los registros\nde usuarios en una ventana nueva:",font=("Georgia",12)).pack()
+            Label(master=f4,text="Mostrar Usuarios", font=("Arial",20)).pack()
+            Label(master=f4,text="Haga click en el botón para mostrar todos los registros\nde usuarios en una ventana nueva:",font=("Arial",12)).pack()
 
             botones = Frame(master=f4)  # Frame de la zona de interacción
             def reg():
@@ -329,7 +329,7 @@ class Frame2(Frame):
             botones.pack()
 
             # Información detallada
-            Label(master=f4,text="Ingrese el ID del usuario para ver su información personal",font=("Georgia",12)).pack()
+            Label(master=f4,text="Ingrese el ID del usuario para ver su información personal",font=("Arial",12)).pack()
 
             f = Frame(master=f4)  # Frame de la zona de interacción
 
@@ -392,8 +392,8 @@ class Frame2(Frame):
             f4.pack()
 
         def cinco():
-            Label(master=f5,text="Mostrar Prestamos", font=("Georgia",20)).pack()
-            Label(master=f5,text="Haga click en el botón para mostrar todos los registros\nde prestamos en una ventana nueva:",font=("Georgia",12)).pack()
+            Label(master=f5,text="Mostrar Prestamos", font=("Arial",20)).pack()
+            Label(master=f5,text="Haga click en el botón para mostrar todos los registros\nde prestamos en una ventana nueva:",font=("Arial",12)).pack()
 
             botones = Frame(master=f5)  # Frame de la zona de interacción
             def reg():

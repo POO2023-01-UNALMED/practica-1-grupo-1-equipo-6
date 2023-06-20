@@ -26,10 +26,10 @@ class Frame3(Frame):
 
         def ini():
             Label(master=f_ini,text="Eliminar Registros",
-            font=("Georgia",20)).pack()
+            font=("Arial",20)).pack()
 
             Label(master=f_ini,text="Seleccione el tipo de resgitro que desea eliminar",
-            font=("Georgia",12)).pack()
+            font=("Arial",12)).pack()
 
 
             interaccion = Frame(master=f_ini)  # Frame de la zona de interacción
@@ -61,11 +61,11 @@ class Frame3(Frame):
             f_ini.pack()
 
         def uno():
-            Label(master=f1,text="Eliminar Estantería", font=("Georgia",20)).pack()
+            Label(master=f1,text="Eliminar Estantería", font=("Arial",20)).pack()
             Label(master=f1,text="Ingrese el número de estantería y haga click en eliminar ",
-            font=("Georgia",12)).pack()
+            font=("Arial",12)).pack()
             Label(master=f1,text="(puede consultar este número haciendo uso de la pestaña 'Mostrar Registros')",
-             font=("Georgia",10)).pack()
+             font=("Arial",10)).pack()
             
             f = Frame(master=f1)  # Frame de la zona de interacción
 
@@ -120,11 +120,11 @@ class Frame3(Frame):
 
 
         def dos():
-            Label(master=f2,text="Eliminar Autor", font=("Georgia",20)).pack()
+            Label(master=f2,text="Eliminar Autor", font=("Arial",20)).pack()
             Label(master=f2,text="Ingrese el ID de autor y haga click en eliminar ",
-            font=("Georgia",12)).pack()
+            font=("Arial",12)).pack()
             Label(master=f1,text="(puede consultar este número haciendo uso de la pestaña 'Mostrar Registros')",
-             font=("Georgia",10)).pack()
+             font=("Arial",10)).pack()
             
             f = Frame(master=f2)  # Frame de la zona de interacción
 
@@ -179,11 +179,11 @@ class Frame3(Frame):
 
 
         def tres():
-            Label(master=f3,text="Eliminar Publicación", font=("Georgia",20)).pack()
+            Label(master=f3,text="Eliminar Publicación", font=("Arial",20)).pack()
             Label(master=f3,text="Ingrese el código de la publicación y haga click en eliminar ",
-            font=("Georgia",12)).pack()
+            font=("Arial",12)).pack()
             Label(master=f3,text="(puede consultar este número haciendo uso de la pestaña 'Mostrar Registros')",
-             font=("Georgia",10)).pack()
+             font=("Arial",10)).pack()
             
             f = Frame(master=f3)  # Frame de la zona de interacción
             def lanzar(arg):
@@ -241,11 +241,11 @@ class Frame3(Frame):
             f3.pack()
 
         def cuatro():
-            Label(master=f4,text="Eliminar Usuario", font=("Georgia",20)).pack()
+            Label(master=f4,text="Eliminar Usuario", font=("Arial",20)).pack()
             Label(master=f4,text="Ingrese el ID del usuario y haga click en eliminar ",
-            font=("Georgia",12)).pack()
+            font=("Arial",12)).pack()
             Label(master=f4,text="(puede consultar este número haciendo uso de la pestaña 'Mostrar Registros')",
-             font=("Georgia",10)).pack()
+             font=("Arial",10)).pack()
             
             f = Frame(master=f4)  # Frame de la zona de interacción
 

@@ -29,7 +29,7 @@ class Frame4(Frame):
 
         def ini():
             presentacion = Label(master=f_ini,text="Ventana de Préstamos",
-            font=("Georgia",20))
+            font=("Arial",20))
             presentacion.pack()
             pregunta = Frame(master=f_ini)  # Frame de la zona de interacción
 
@@ -46,7 +46,7 @@ class Frame4(Frame):
                 botones.pack(side=BOTTOM)
 
                 # Label(master=f,text="Préstamo {}".format(self._i),
-                # font=("Georgia",12)).pack()
+                # font=("Arial",12)).pack()
 
 
                 def lanzar(arg):
@@ -118,7 +118,7 @@ class Frame4(Frame):
 
             
             Label(master=pregunta,text="¿Cuántos prestamos realizará el usuario?",
-            font=("Georgia",12)).pack()
+            font=("Arial",12)).pack()
             nprestamos =Entry (pregunta,width=4,font=('Consolas',14),
             justify='center') # Máximo un número de 2 cifras
             nprestamos.pack()

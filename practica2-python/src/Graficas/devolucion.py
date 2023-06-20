@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 from functools import partial
-from Ventanas.FieldFrame import FieldFrame
+from Graficas.FieldFrame import FieldFrame
 from tkinter import ttk
 
 ## Objetos
@@ -23,7 +23,7 @@ class Frame5(Frame):
 
             Label(master=f_ini,text="Ingrese el código de la publicación de la que desee"+
             " registrar\nsu devolución\n",
-            font=("Georgia",12)).pack()
+            font=("Arial",12)).pack()
 
 
             f = Frame(master=f_ini)  # Frame de la zona de interacción

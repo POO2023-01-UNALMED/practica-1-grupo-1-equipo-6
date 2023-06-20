@@ -4,13 +4,13 @@
 ######## IMPORTAR LA HERRAMIENTAS#########################
 from tkinter import *
 from tkinter import messagebox
-import pickle
-from PIL import Image, ImageTk
+
 from Graficas.registro import Frame1
 from Graficas.registro import Frame1
 from Graficas.muestra import Frame2
 from Graficas.eliminacion import Frame3
 from Graficas.prestamo import Frame4
+from Graficas.devolucion import Frame5
 ##########################################################
 
 

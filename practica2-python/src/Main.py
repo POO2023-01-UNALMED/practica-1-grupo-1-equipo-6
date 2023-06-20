@@ -217,7 +217,7 @@ el cual permite mantener un registro actualizado\n del material bibliográfico\n
         load_images()
 
     # Configurar el marco p5 para el texto
-    text_label = Label(p5, text=texts[current_text_index], font=("Georgia",14))
+    text_label = Label(p5, text=texts[current_text_index], font=("Arial",14))
     text_label.pack()
     text_label.bind("<Button-1>", change_text_and_images)
 
