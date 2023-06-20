@@ -14,7 +14,9 @@ from Graficas.devolucion import Frame5
 
 ##########################################################
 
-
+# Funciones
+from baseDatos.Almacenamiento import serializar,deserializar
+#
 
 #CLASE PRINCIPAL  contiene frames1,2,3,4,5 FUNCIONES: GraficasPrincipal.
 class Principal():
@@ -67,13 +69,13 @@ class Principal():
         texto.configure(background="#F5F5DC")
         #---------------------------------------------------------------------------------#
         
-        # deserializar() # Cargamos todas las listas guardadas
+        deserializar() # Cargamos todas las listas guardadas
 
         #----------------------------FUNCIONES INFORMATIVAS (ARCHIVO, AYUDA)--------------------------------------------#
         #FUNCION INICIO  ARCHIVO:(guardar y salir del sistema)
         def inicio():
 
-            # serializar() # Guardamos todas las listas de objetos
+            serializar() # Guardamos todas las listas de objetos
             
             #se muestra un mensaje en una ventana emergente con titulo Guardar y salir
             messagebox.showinfo(title="Guardar Y Salir",

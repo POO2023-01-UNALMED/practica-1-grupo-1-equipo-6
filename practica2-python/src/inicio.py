@@ -27,6 +27,53 @@ from gestorAplicacion.prestamo.Prestamo import Prestamo
 
 if __name__ == "__main__":
 
+        # Creación de archivos que no existan
+    if not os.path.exists("baseDatos/estanterias"):
+        w = open('baseDatos/estanterias','wb')
+        pickle.dump(Estanteria.getLista(),w)
+        w.close()
+
+    if not os.path.exists("baseDatos/autores"):
+        w = open('baseDatos/autores','wb')
+        pickle.dump(Autor.getAutores(),w)
+        w.close()
+
+    if not os.path.exists("baseDatos/publicaciones"):
+        w = open('baseDatos/publicaciones','wb')
+        pickle.dump(Publicacion.getLista(),w)
+        w.close()
+
+    if not os.path.exists("baseDatos/libros"):
+        w = open('baseDatos/libros','wb')
+        pickle.dump(Libro.getLibro(),w)
+        w.close()
+
+    if not os.path.exists("baseDatos/folletos"):
+        w = open('baseDatos/folletos','wb')
+        pickle.dump(Folleto.getFolleto(),w)
+        w.close()
+
+    if not os.path.exists("baseDatos/revistas"):
+        w = open('baseDatos/revistas','wb')
+        pickle.dump(Revista.getRevista(),w)
+        w.close()
+
+    if not os.path.exists("baseDatos/usuariosI"):
+        w = open('baseDatos/usuariosI','wb')
+        pickle.dump(EstudianteProfesor.l,w)
+        w.close()
+
+    if not os.path.exists("baseDatos/usuariosE"):
+        w = open('baseDatos/usuariosE','wb')
+        pickle.dump(Externo.l,w)
+        w.close()
+
+    if not os.path.exists("baseDatos/prestamos"):
+        w = open('baseDatos/prestamos','wb')
+        pickle.dump(Prestamo.getLista,w)
+        w.close()
+    
+
 
 # SCENE : CONTENEDOR DE MENU,P1,P2,P3,P4,P5,P6 #
     WindowBegin = Tk()
