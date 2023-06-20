@@ -139,11 +139,11 @@ el cual permite mantener un registro actualizado\n del material bibliográfico\n
     #-------------Configuracion de p4-----------#
     p4.pack(side=BOTTOM)
     #--------agregar imagenes del sistema ------#
-    imagen_ori1 = Image.open("practica2-python/src/Graficas/images/imagen1.png")
-    imagen_ori2 = Image.open("practica2-python/src/Graficas/images/imagen2.png")
-    imagen_ori3 = Image.open("practica2-python/src/Graficas/images/imagen3.png")
-    imagen_ori4 = Image.open("practica2-python/src/Graficas/images/imagen4.png")
-    imagen_ori5 = Image.open("practica2-python/src/Graficas/images/imagen5.png")
+    imagen_ori1 = Image.open("Graficas/images/imagen1.png")
+    imagen_ori2 = Image.open("Graficas/images/imagen2.png")
+    imagen_ori3 = Image.open("Graficas/images/imagen3.png")
+    imagen_ori4 = Image.open("Graficas/images/imagen4.png")
+    imagen_ori5 = Image.open("Graficas/images/imagen5.png")
     #---------redimensionar imagenes del sistema (tamaño) --------------#
     x_deseada = 500
     y_deseada = 400  
@@ -197,7 +197,7 @@ el cual permite mantener un registro actualizado\n del material bibliográfico\n
     #-------------agregar texto hoja de vida -----------#
     texts = []
     for i in range(1, 5):
-        file_path = "practica2-python/src/Graficas/textos/texto{}.txt".format(i)
+        file_path = "Graficas/textos/texto{}.txt".format(i)
         with open(file_path, 'r') as file:
             text_content = file.read()
             texts.append(text_content)
@@ -215,7 +215,7 @@ el cual permite mantener un registro actualizado\n del material bibliográfico\n
 
     #--------agregar imagenes y texto de hoja de vida ------#
 
-    images = ["practica2-python/src/Graficas/images/foto{}.png".format(i) for i in range(1, 17)]
+    images = ["Graficas/images/foto{}.png".format(i) for i in range(1, 17)]
 
 
 
@@ -246,10 +246,10 @@ el cual permite mantener un registro actualizado\n del material bibliográfico\n
                 image_labels[i].bind("<Button-1>", partial(open_pdf, current_image_index + i + 1))
     def open_pdf(image_number, event):
         pdfs = {
-            1: "practica2-python\src\Graficas\hojas\hojavida1.pdf",
-            5: "practica2-python\src\Graficas\hojas\hojavida2.pdf",
-            9: "practica2-python\src\Graficas\hojas\hojavida3.pdf",
-            13: "practica2-python\src\Graficas\hojas\hojavida4.pdf"
+            1: "Graficas\hojas\hojavida1.pdf",
+            5: "Graficas\hojas\hojavida2.pdf",
+            9: "Graficas\hojas\hojavida3.pdf",
+            13: "Graficas\hojas\hojavida4.pdf"
             }
         pdf_path = pdfs.get(image_number)
         if pdf_path:

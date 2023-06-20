@@ -1,1 +1,2 @@
-eight=2
+as.Folleto import Folleto
+from gestorAplicacion.obr

@@ -1,2 +1,3 @@
-python inicio.py
+python Main.py
 @echo off
+pause
