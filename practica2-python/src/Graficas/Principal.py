@@ -11,6 +11,7 @@ from Graficas.muestra import Frame2
 from Graficas.eliminacion import Frame3
 from Graficas.prestamo import Frame4
 from Graficas.devolucion import Frame5
+
 ##########################################################
 
 
@@ -46,9 +47,11 @@ class Principal():
         #Frame inicial (TEXTO INICIAL ACOMPAÑANTE DE MENU)
         principal = Frame(master=window, width=750, height=350)
         principal.pack()
-
+        
+        color1 = "#F5F5DC"  # Café claro
+        color2 = "#D2B48C"  # Café más oscuro
         Label(master=principal,text="Sistema de Gestion Bibliotecario (SGB)",
-        font=("Arial",20)).place(x=0,y=0)
+        font=("Arial",20), background=color2,width=50).place(x=0,y=0)
         texto = Text(principal, font=("Arial",17),width=100,height=25,relief=GROOVE, borderwidth=4)
         texto.insert(1.0,"En este sistema de gestion podras realizas procesos siguientes:\n\n"+
         "1. Ingresar Registros\n"+
@@ -60,8 +63,7 @@ class Principal():
         texto.config(state=DISABLED)
         texto.place(x=5,y=40)
 
-        color1 = "#F5F5DC"  # Café claro
-        color2 = "#D2B48C"  # Café más oscuro
+
         texto.configure(background="#F5F5DC")
         #---------------------------------------------------------------------------------#
         
@@ -258,25 +260,28 @@ class Principal():
         window.option_add('*tearOff', False)
         menubar = Menu(window)
 
+
+
         archivo = Menu(menubar)
         menubar.add_cascade(menu=archivo, label='Archivo')
-        archivo.add_command(label="Aplicación", command=aplicacion)
-        archivo.add_command(label="Guardar y Salir", command=inicio)
+        archivo.add_command(label="Aplicación", command=aplicacion, activebackground='tan')
+        archivo.add_command(label="Guardar y Salir", command=inicio, activebackground='tan')
 
         procesos = Menu(menubar)
         menubar.add_cascade(menu=procesos, label='Procesos y Consultas')
 
-        procesos.add_command(label="Ingresar Registros", command=ingresar)
-        procesos.add_command(label="Mostrar Registros", command=mostrar)
-        procesos.add_command(label="Eliminar Registros", command=eliminar)
-        procesos.add_command(label="Préstamos", command=prestar)
-        procesos.add_command(label="Devoluciones", command=entregar)
+        procesos.add_command(label="Ingresar Registros", command=ingresar, activebackground='tan')
+        procesos.add_command(label="Mostrar Registros", command=mostrar, activebackground='tan')
+        procesos.add_command(label="Eliminar Registros", command=eliminar, activebackground='tan')
+        procesos.add_command(label="Préstamos", command=prestar, activebackground='tan')
+        procesos.add_command(label="Devoluciones", command=entregar, activebackground='tan')
         procesos.add_separator()
-        procesos.add_command(label="Interfaz de Inicio", command=principal_function)
+        procesos.add_command(label="Interfaz de Inicio", command=principal_function, activebackground='tan')
 
         ayuda = Menu(menubar)
         menubar.add_cascade(menu=ayuda, label ="Ayuda")
-        ayuda.add_command(label="Acerca de", command=acerca)
+
+        ayuda.add_command(label="Acerca de", command=acerca, activebackground='tan')
 
         window['menu'] = menubar
     #--------------------------------------------------------------------------------------------------#

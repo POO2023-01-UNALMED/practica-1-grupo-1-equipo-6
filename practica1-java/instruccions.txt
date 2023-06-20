@@ -132,5 +132,35 @@ USO DEL SISTEMA:
 
 -DETALLES DEL CODIGO:
        
+En la interfaz principal de la aplicación, se utiliza un frame principal llamado WindowBegin, el cual actúa como contenedor principal de todos los elementos. Este frame representa la ventana principal de la aplicación y tiene un tamaño de 1000x1000 píxeles.
 
+Dentro de este frame principal, se encuentran dos frames secundarios: p1 y p2.
+
+El frame p1 está ubicado en el lado izquierdo de la ventana principal. Tiene un ancho de 500 píxeles y una altura de 1000 píxeles. Este frame contiene elementos como una descripción de bienvenida y algunas imágenes relacionadas con el sistema.
+
+El frame p2 se encuentra en el lado derecho de la ventana principal. Tiene un ancho de 490 píxeles y una altura de 1000 píxeles. Este frame contiene elementos relacionados con la hoja de vida, como texto y varias imágenes.
+
+Dentro del frame p1, se encuentran dos sub-frames: p3 y p4.
+
+El frame p3 está ubicado en la parte superior del frame p1. Tiene un ancho de 500 píxeles y una altura de 155 píxeles. En este frame se muestra una descripción de bienvenida al sistema.
+
+El frame p4 se sitúa en la parte inferior del frame p1. Tiene un ancho de 500 píxeles y una altura de 600 píxeles. En este frame se muestran algunas imágenes relacionadas con el sistema y un botón para ingresar al sistema.
+
+En el frame p2, también se encuentran dos sub-frames: p5 y p6.
+
+El frame p5 está ubicado en la parte superior del frame p2. Tiene un ancho de 490 píxeles y una altura de 150 píxeles. En este frame se muestra un texto que corresponde a la hoja de vida.
+
+El frame p6 se sitúa en la parte inferior del frame p2. Tiene un ancho de 500 píxeles y una altura de 700 píxeles. En este frame se muestran varias imágenes relacionadas con la hoja de vida.
+
+En resumen, la organización de los frames es jerárquica, donde el frame principal WindowBegin contiene los frames p1 y p2. A su vez, p1 contiene los sub-frames p3 y p4, mientras que p2 contiene los sub-frames p5 y p6. Cada sub-frame tiene su propio propósito y contiene los elementos correspondientes.
+
+description(): Esta función se activa cuando el usuario selecciona la opción "Descripción" en el menú de inicio. Su propósito es mostrar una descripción detallada del sistema en el marco p3. La mejora que hemos implementado en esta función es ocultar cualquier otro contenido que pueda estar presente en p3 antes de mostrar la descripción, lo que garantiza que solo se muestre la información relevante al usuario.
+
+change_image(): Esta función se utiliza en conjunto con eventos de movimiento del mouse en el marco p4. Su objetivo es cambiar la imagen mostrada en el marco p4 cada vez que el mouse pasa por encima de ella. Se ha optimizado esta función para asegurar que las imágenes se alternen correctamente y de forma cíclica, permitiendo una visualización fluida y atractiva para el usuario.
+
+p4_enter(e) y p4_leave(e): Estas funciones se activan cuando el mouse entra y sale del marco p4, respectivamente. La mejora que hemos implementado en estas funciones es controlar de manera más eficiente la habilitación y deshabilitación del cambio de imagen, lo que garantiza que solo se produzcan cambios cuando el mouse está dentro del marco p4, evitando así cambios innecesarios y mejorando la eficiencia del sistema.
+
+load_images(): Esta función se encarga de cargar las imágenes y mostrarlas en el marco p6, junto con la funcionalidad adicional de abrir un archivo PDF relacionado con cada imagen al hacer clic en ella. La mejora que hemos implementado aquí es la carga eficiente de las imágenes en segundo plano, lo que permite una visualización instantánea sin retrasos perceptibles para el usuario.
+
+change_text_and_images(event=None): Esta función se activa cuando se hace clic en el texto en el marco p5. Su propósito es cambiar tanto el texto como las imágenes mostradas en los marcos p5 y p6, respectivamente. La mejora que hemos implementado aquí es asegurar que tanto el texto como las imágenes se actualicen correctamente y de manera sincronizada, brindando una experiencia coherente y agradable para el usuario.
      
