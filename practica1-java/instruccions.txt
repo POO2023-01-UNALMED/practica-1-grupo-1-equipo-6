@@ -1,0 +1,136 @@
+MANUAL DE USUARIO:
+
+
+(PARA DETALLES DE CODIGO SALTAR A -DETALLES DEL CODIGO)
+
+
+USO DEL SISTEMA:
+
+-Gestor Bibliotecario:
+    
+     Es la pantalla principal del proyecto, aqui se el usuario tendra opciones para ver iamgenes relacionadas al proyecto,
+     informacion de los desarrolladores del proyecto, iamgenes de los desarrolladores del proyecto, ver y abrir en una ventana
+     emergente de navegador predeterminado la hoja de vida de los dasarrolladores, ver la descripcion de la aplicacion, mensaje
+     Bienvenida y ejecutar la ventana de ingreso al sistema.
+
+     IMAGENES DEL SISTEMA: estas imagenes cambian con cada ingreso del mouse nuevo al label (imagen) del sistema.
+
+     CAMBIO DE DESARROLLADOR: la informacion de imagen y texto de cada desarrollador cambia con click en el texto.
+
+     ABRIR HOJA DE VIDA: la ventana emergente de navegador es ejecutada cuando se da click en la primera iamgen de cada desarrollador
+
+     INICIO/DESCRIPCION: el mensaje de Bienvenida cambia cuando se da click en el menu inicio y luego en descripcion.
+
+     INICIO/SALIR: la aplicacion se cierra cuando se le da click en el menu inicio y luego salir.
+
+     BOTON INGRESAR AL SISTEMA: Una nueva ventana emergente aparece y la actual se minimiza cuando se le da click al boton ingresar al sistema.
+    
+-Sistema de Gestion Bibliotecario:
+
+     esta ventana posee todos los procesos necesarios para el uso de la funcionalidades del sistema, aqui se podran ingresar registros
+     mostrar registros, Eliminar registros, realizar prestamos, realizar devoluciones, volver a la misma interfaz de bienvenida,
+     guardar y salir del sistema, obtener ayuda acerca de los programadores.
+
+     INTERFAZ DE INICIO: esta interfaz posee el mensaje de explicacion acerca de las funcionalidades 
+
+        1. Ingresar Registros:
+           Al hacer click en el la opcion del menu "Procesos y Consultas" y luego en el submenu ingresar registros
+           el usuario puede dar click en una lista desplegable la cual posee 4 opciones:
+
+            *Estanteria:
+
+               El usuario va a visualizar el numero de estanterias que han sido creadas a lo largo de la existencia
+               del programa.
+               CONSIDERACION 1:  el Numero de estanteria no necesariamente corresponde al id que se le va  asignar a esta estanteria,
+               pues debido a que este atributo es un counter de las creaciones no disminiye cuando se elimina una estanteria, en cambio
+               este valor queda presente en el sistema.
+
+               El usuario tambien debera asignar un Piso que es donde ira la estanteria que se esta creando la cual debe ser un numero
+               entero, en caso de asignar cual otro valor la aplicacion lanzara un error interno el cual no esta vinculado como una 
+               excepcion por lo tanto si se intenta dar click en el boton Aceptar no se enviara la peticion correctamente y el sistema
+               tendra la apariencia no haber realizado ninguna accion. El usuario tambien debera ingresar un Limite Sup y un Limeta inf
+               los cuales deben ser strings y se busca que sean letras con el objetivo de darle sentido a la aplicacion, en caso de ingresar
+               un numero entero en lugar de un string el sistema lanzara una excepcion con un mensaje de informativo de alerta, por otro lado
+               en caso de ingresar un numero en forma de decimal el sistema lo tomara como un string y se registrara correctamente.
+
+            *Autor:
+
+               El usuario podra ingresar el Nombre, el Id sera automatico por medio de un string de una letra y un numero, el usuario
+               podria ingresar la fecha de nacimiento como un string, al igual que el Pais y si esta vivo o no.
+
+               CONSIDERACION 2: tener en cuenta que en el atributo Nacimiento debera ir un string, en caso de asignar un entero el
+               sistema lanzara una exepcion con una ventana de alerta informativa.
+
+
+            *publicacion:
+
+               el usuario tendra otra lista desplegable en la que debera elegir el tipo de publicacion entre:
+
+                   + Libro:
+                        el usuario debera igresar  el Nombre el cual debe ser un String, en caso de ser un numero el sietema lo 
+                        tomara como un string, al igual que AÑO y ejemplar. El usuario debera ingresar un Autor del libro que puede ser
+                        un Autor creado por el sistema de gestion bibliotecario el cual podra ser asignado por medio del ID que posee.
+                        CONSIDERACION 3: estas opciones no manejan excepciones por lo que independientemente de la informacio  suministrada
+                        por el usuario el Libro sera creado, para que pueda funcionar correctamente posterior a la creacion y tenga sentido
+                        se recomienda ingresar informacion acorde con la logica del programa, por el contrario simplemente se continuara con el
+                        flujo normal de la aplicacion.
+                     
+
+                   + Folleto:
+                        el usuario podra agregar un string con un Nombre, Año, Ejemplar, Referencia, Estanteria.
+                        CONSIDERACION 4: al igual que para la opcion Libro, Folleto no usa excepciones acerca de las entradas suministradas
+                        por el usuario pero se busca que sea en el orden: String, integer,integer, integer,integer, integer, siendo el ultimo
+                        integer una estanteria creada previamente.
+
+                   
+                   + Revista:
+                         el usuario podra ingresar : Nombre (string), Año ( integer), Ejemplar ( Integer), Numero (integer), Mes(String),
+                         Temporada (Integer), Estanteria (integer).
+                         CONSIDERACION 5: tener en cuenta que este apartado no tiene manejo de excepciones.
+           
+            *Usuario:
+
+               el usuario tendra otra Lista Desplegable en la cual tendra dos opcines:
+
+                    +interno:
+                          el usuario podra agregar  Nombre, id, Correo, Telefono,Direccion, Nacimiento, Pais Rol como atributos del Usuario
+                          que se esta creando.
+                          CONSIDERACION 6: EL APARTADO NO MANEJA EXCEPCIONES DE ENTRADA.
+
+                    +externo:
+                          el usuario podra agregar  Nombre, id, Correo, Telefono,Direccion, Nacimiento, Pais Rol y Universidad
+                          como atributos del Usuario que se esta creando.
+                          CONSIDERACION 7: EL APARTADO NO MANEJA EXCEPCIONES DE ENTRADA.
+           
+        2. Mostrar Registros:
+            el usuario podra seleccionar una opcion de una Lista Desplegable: Estanteria, Autor, Publicacion, Usuario, Prestamo
+            todas las opciones una vez seleccionadas tendran un boton para ver un texto con la lista total de registros y la informacion de sus atributos
+            o un campo para ingresar el id especifico de la opcion que busca.
+
+            CONSIDERACION 8: solo Ver Registros no posee el campo de busqueda por ID.
+
+        3. Eliminar Registros:
+           el usuario tendra una lista desplegable con la opciones Estanteria, Autor, Publicacion, Usuario. Una vez elegida la opcion 
+           tendra un campo en donde debera introducir el Numero del objeto que desea Eliminar. 
+            
+        4. Registrar Préstamos
+
+           El usuario tendra un campo en donde debera introducir un integer con la cantidad de prestamos que un usuario en especifico 
+           desea realizar, en caso de introducir algun otro tipo de dato el sistema lanzara un error interno por lo que el sistema 
+           dara la impresion de no hacer nada. (no hay un manejo de excepcion). Una vez introducido el tipo de dato correcto el usuario
+           podra seleccionar un ID para el prestamo el cual debe er un integer, debera introducir una fecha, un ID de publicacion, y un ID
+           del usuario en cuestion que desea hacer el prestamo.
+
+           CONSIDERACION 9: EN CASO DE INTRODUCIR UN OBJETO NO EXISTENTE LANZARA UNA EXPCION CON UNA VENTANA Y TEXTO INFORMATIVO.
+
+           
+        5. Resgitrar Devoluciones
+              el usuario debera introducir el codigo del prestamo en cuestion que desea eliminar ( se considera devolucion al momento que 
+              se elimina el prestamo de la base de datos.).
+
+             
+
+-DETALLES DEL CODIGO:
+       
+
+     
